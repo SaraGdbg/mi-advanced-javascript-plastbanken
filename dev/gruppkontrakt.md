@@ -50,6 +50,8 @@ Utifrån issues så att de kopplas till rätt issue.
 
 ## Hur, när och vem gör code reviews/merges? När får man merga in i branchen?  
 2 approvals krävs för merge till main. Mergea in till main när issuen är klar.
+Ta bort branch när merge är gjort.
+Meddela i chat så att alla kan synka sin main - reagera på meddelandet så att det blir tydligt att alla fått informationen.
 
 ## Hur hanterar vi att göra-lista och backlog?  
 Planerar tillsammans på längre möten i början av veckan.
