@@ -2,70 +2,106 @@
 @import '@digi/arbetsformedlingen/dist/digi-arbetsformedlingen/fonts/src/fonts.css';
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+  /*   --digi--global--typography--font-family--default: ; */
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+  /*   --digi--color--text--primary: ;
+--digi--color--text--secondary: ;
+--digi--color--text--inverted: ;
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+--digi--color--text--link: ;
+--digi--color--text--link-hover: ;
+--digi--color--text--link-visited: ;
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+--digi--color--text--neutral: ;
+--digi--color--text--danger: ;
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+--digi--color--background--primary: ;
+--digi--color--background--secondary: ;
+--digi--color--background--tertiary: ;
+
+--digi--color--background--inverted-1: ;
+--digi--color--background--inverted-2: ;
+--digi--color--background--inverted-3: ;
+--digi--color--background--inverted-4: ;
+--digi--color--background--inverted-5: ;
+--digi--color--background--inverted-6: ;
+
+--digi--color--background--complementary-1: ;
+--digi--color--background--complementary-2: ;
+
+--digi--color--background--neutral-1: ;
+--digi--color--background--neutral-2: ;
+--digi--color--background--neutral-3: ;
+--digi--color--background--neutral-4: ;
+--digi--color--background--neutral-5: ;
+--digi--color--background--neutral-6: ;
+--digi--color--background--neutral-7: ;
+--digi--color--background--neutral-8: ;
+
+--digi--color--background--informative: ;
+
+--digi--color--background--success-1: ;
+--digi--color--background--success-2: ;
+--digi--color--background--success-3: ;
+
+--digi--color--background--warning-1: ;
+--digi--color--background--warning-2: ;
+--digi--color--background--warning-3: ;
+
+--digi--color--background--danger-1: ;
+--digi--color--background--danger-2: ;
+--digi--color--background--danger-3: ;
+--digi--color--background--danger-4: ;
+
+--digi--color--background--input: ;
+--digi--color--background--input-empty: ;
+
+--digi--color--background--radio-primary: ;
+--digi--color--background--radio-secondary: ;
+--digi--color--background--radio-marker: ;
+
+--digi--color--background--checkbox-primary: ;
+--digi--color--background--checkbox-secondary: ;
+--digi--color--background--checkbox-marker: ;
+
+--digi--color--border--primary: ;
+--digi--color--border--secondary: ;
+--digi--color--border--tertiary: ;
+--digi--color--border--success: ;
+--digi--color--border--warning: ;
+--digi--color--border--warning-2: ;
+--digi--color--border--warning-3: ;
+--digi--color--border--danger: ;
+--digi--color--border--informative: ;
+
+--digi--color--border--inverted: ;
+--digi--color--border--inverted-2: ;
+--digi--color--border--inverted-3: ;
+
+--digi--color--border--neutral-1: ;
+--digi--color--border--neutral-2: ;
+--digi--color--border--neutral-3: ;
+--digi--color--border--neutral-4: ;
+--digi--color--border--neutral-5: ;
+
+--digi--color--border--checkbox-primary: ;
+--digi--color--border--checkbox-secondary: ;
+--digi--color--border--checkbox-focus: ;
+
+--digi--color--icons--primary: ;
+--digi--color--icons--secondary: ;
+--digi--color--icons--inverted: ;
+--digi--color--icons--complementary-1: ;
+--digi--color--icons--complementary-2: ;
+--digi--color--icons--complementary-3: ;
+
+--digi--color--icons--success: ;
+--digi--color--icons--warning: ;
+--digi--color--icons--danger: ;
+--digi--color--icons--informative: ; */
 }
