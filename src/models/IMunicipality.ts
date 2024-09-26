@@ -1,5 +1,5 @@
-export interface ITaxRegion {
-  'taxonomy/national-nuts-level-3-code-2019': string;
+export interface IMunicipality {
+  'taxonomy/lau-2-code-2015': string;
   'taxonomy/id': string;
   'taxonomy/type': string;
   'taxonomy/preferred-label': string;
