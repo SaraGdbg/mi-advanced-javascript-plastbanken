@@ -1,6 +1,6 @@
 import { IJob } from './IJob';
 
-export interface IJobSearchResult {
+export interface IJobsSearchResults {
   total: {
     value: number;
   };
