@@ -17,7 +17,7 @@ const getRegions = async () => {
   );
 };
 
-const mergeRegionsWithMunicipalities = (
+const mergeMunicipalitiesIntoRegions = (
   regions: IRegion[],
   municipalities: IMunicipality[],
 ) => {
@@ -45,5 +45,5 @@ const mergeRegionsWithMunicipalities = (
 export const getLocations = async () => {
   const regions = await getRegions();
   const municipalities = await getMunicipalities();
-  return mergeRegionsWithMunicipalities(regions, municipalities);
+  return mergeMunicipalitiesIntoRegions(regions, municipalities);
 };
