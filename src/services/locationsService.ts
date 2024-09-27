@@ -24,9 +24,10 @@ const mergeMunicipalitiesIntoRegions = (
   for (let i = 0; i < regions.length; i++) {
     const regionID = regions[i]['taxonomy/national-nuts-level-3-code-2019'];
     for (let j = 0; j < municipalities.length; j++) {
-      const muniID =
-        municipalities[j]['taxonomy/lau-2-code-2015'][0] +
-        municipalities[j]['taxonomy/lau-2-code-2015'][1];
+      const muniID = municipalities[j]['taxonomy/lau-2-code-2015'].substring(
+        0,
+        2,
+      );
       if (muniID === regionID) {
         if (regions[i].municipalities === undefined) {
           regions[i].municipalities = [municipalities[j]];
