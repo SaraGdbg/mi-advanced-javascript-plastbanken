@@ -18,8 +18,10 @@ import {
   InfoCardSize,
   LayoutContainerVariation,
 } from '@digi/arbetsformedlingen';
+import { DigiFormInputSearchCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
 
 export const Home = () => {
+    const getInput = (e:DigiFormInputSearchCustomEvent<string>) => {console.log(e.target.value)}
   return (
     <>
       <DigiLayoutBlock afVariation={LayoutBlockVariation.PRIMARY}>
@@ -36,7 +38,7 @@ export const Home = () => {
               afVariation={FormInputSearchVariation.MEDIUM}
               afType={FormInputType.SEARCH}
               afButtonText="Knapp"
-              onAfOnSubmitSearch={console.log}
+              onAfOnSubmitSearch={getInput}
             ></DigiFormInputSearch>
             <DigiLinkInternal
               afHref="/annonser"
