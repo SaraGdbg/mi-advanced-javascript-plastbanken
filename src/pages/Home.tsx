@@ -49,7 +49,9 @@ export const Home = () => {
           </DigiTypography>
         </DigiLayoutContainer>
 
-        <DigiLayoutContainer afVariation={LayoutContainerVariation.STATIC}>
+        <DigiLayoutContainer afVariation={LayoutContainerVariation.STATIC} 
+        afMarginTop={true}
+        afMarginBottom={true}>
           <DigiInfoCard
             afHeading="Informativ text"
             afHeadingLevel={InfoCardHeadingLevel.H2}
