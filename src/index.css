@@ -9,99 +9,126 @@
 
   /*   --digi--global--typography--font-family--default: ; */
 
-  /*   --digi--color--text--primary: ;
---digi--color--text--secondary: ;
---digi--color--text--inverted: ;
+  /* Repeated colors*/
+  --rich-black: #011627;
+  --white: #fafafa;
 
---digi--color--text--link: ;
---digi--color--text--link-hover: ;
---digi--color--text--link-visited: ;
+  --grey-blue: #51585d;
 
---digi--color--text--neutral: ;
---digi--color--text--danger: ;
+  --cambridge-blue: #6ba292;
+  --cambridge-blue-100: #4a7870;
+  --cambridge-blue-200: #3a5f59;
+  --cambridge-blue-300: #345b50;
+  --cambridge-blue-400: #31544c;
+  --cambridge-blue-500: #1b2c29;
 
---digi--color--background--primary: ;
---digi--color--background--secondary: ;
---digi--color--background--tertiary: ;
+  --atomic-tangerine: #f79f79;
+  --atomic-tangerine-light: #fcb9a2;
 
---digi--color--background--inverted-1: ;
---digi--color--background--inverted-2: ;
---digi--color--background--inverted-3: ;
---digi--color--background--inverted-4: ;
---digi--color--background--inverted-5: ;
---digi--color--background--inverted-6: ;
+  --celadon: #bcd8b7;
+  --celadon-dark: #3c5f36;
 
---digi--color--background--complementary-1: ;
---digi--color--background--complementary-2: ;
+  --mint: #b7d2ca;
+  --mint-light: #cbd2d2;
 
---digi--color--background--neutral-1: ;
---digi--color--background--neutral-2: ;
---digi--color--background--neutral-3: ;
---digi--color--background--neutral-4: ;
---digi--color--background--neutral-5: ;
---digi--color--background--neutral-6: ;
---digi--color--background--neutral-7: ;
---digi--color--background--neutral-8: ;
+  --purple: #85386b;
+  --deep-red: #9b3817;
+  --sand: #af906e;
 
---digi--color--background--informative: ;
+  /* Color tokens from Digi */
+  --digi--color--text--primary: var(--rich-black);
+  --digi--color--text--secondary: var(--cambridge-blue-400);
+  --digi--color--text--inverted: var(--white);
 
---digi--color--background--success-1: ;
---digi--color--background--success-2: ;
---digi--color--background--success-3: ;
+  --digi--color--text--link: var(--cambridge-blue-500);
+  --digi--color--text--link-hover: var(--cambridge-blue-200);
+  --digi--color--text--link-visited: var(--purple);
 
---digi--color--background--warning-1: ;
---digi--color--background--warning-2: ;
---digi--color--background--warning-3: ;
+  --digi--color--text--neutral: var(--grey-blue);
+  --digi--color--text--danger: var(--deep-red);
 
---digi--color--background--danger-1: ;
---digi--color--background--danger-2: ;
---digi--color--background--danger-3: ;
---digi--color--background--danger-4: ;
+  --digi--color--background--primary: var(--white);
+  --digi--color--background--secondary: var(--mint);
+  --digi--color--background--tertiary: var(--white);
 
---digi--color--background--input: ;
---digi--color--background--input-empty: ;
+  --digi--color--background--inverted-1: var(--cambridge-blue-400);
+  --digi--color--background--inverted-2: var(--cambridge-blue-500);
+  --digi--color--background--inverted-3: var(--rich-black);
+  --digi--color--background--inverted-4: var(--atomic-tangerine);
+  --digi--color--background--inverted-5: var(--celadon);
+  --digi--color--background--inverted-6: var(--cambridge-blue-100);
 
---digi--color--background--radio-primary: ;
---digi--color--background--radio-secondary: ;
---digi--color--background--radio-marker: ;
+  --digi--color--background--complementary-1: #c36fa7;
+  --digi--color--background--complementary-2: var(--cambridge-blue);
 
---digi--color--background--checkbox-primary: ;
---digi--color--background--checkbox-secondary: ;
---digi--color--background--checkbox-marker: ;
+  --digi--color--background--neutral-1: #f9cfbd;
+  --digi--color--background--neutral-2: #f35512;
+  --digi--color--background--neutral-3: #6d787e;
+  --digi--color--background--neutral-4: var(--grey-blue);
+  --digi--color--background--neutral-5: var(--atomic-tangerine-light);
+  --digi--color--background--neutral-6: var(--mint-light);
+  --digi--color--background--neutral-7: #f9ba9f;
+  --digi--color--background--neutral-8: #e1e5e5;
 
---digi--color--border--primary: ;
---digi--color--border--secondary: ;
---digi--color--border--tertiary: ;
---digi--color--border--success: ;
---digi--color--border--warning: ;
---digi--color--border--warning-2: ;
---digi--color--border--warning-3: ;
---digi--color--border--danger: ;
---digi--color--border--informative: ;
+  --digi--color--background--informative: var(--cambridge-blue-300);
 
---digi--color--border--inverted: ;
---digi--color--border--inverted-2: ;
---digi--color--border--inverted-3: ;
+  --digi--color--background--success-1: var(--celadon-dark);
+  --digi--color--background--success-2: #91bd89;
+  --digi--color--background--success-3: #64a05a;
 
---digi--color--border--neutral-1: ;
---digi--color--border--neutral-2: ;
---digi--color--border--neutral-3: ;
---digi--color--border--neutral-4: ;
---digi--color--border--neutral-5: ;
+  --digi--color--background--warning-1: var(--sand);
+  --digi--color--background--warning-2: #e1dbcb;
+  --digi--color--background--warning-3: #f3eee7;
 
---digi--color--border--checkbox-primary: ;
---digi--color--border--checkbox-secondary: ;
---digi--color--border--checkbox-focus: ;
+  --digi--color--background--danger-1: var(--deep-red);
+  --digi--color--background--danger-2: #fadfd6;
+  --digi--color--background--danger-3: #f2af97;
+  --digi--color--background--danger-4: #bc4215;
 
---digi--color--icons--primary: ;
---digi--color--icons--secondary: ;
---digi--color--icons--inverted: ;
---digi--color--icons--complementary-1: ;
---digi--color--icons--complementary-2: ;
---digi--color--icons--complementary-3: ;
+  --digi--color--background--input: var(--white);
+  --digi--color--background--input-empty: var(--white);
 
---digi--color--icons--success: ;
---digi--color--icons--warning: ;
---digi--color--icons--danger: ;
---digi--color--icons--informative: ; */
+  --digi--color--background--radio-primary: var(--celadon-dark);
+  --digi--color--background--radio-secondary: var(--cambridge-blue-400);
+  --digi--color--background--radio-marker: var(--white);
+
+  --digi--color--background--checkbox-primary: var(--celadon-dark);
+  --digi--color--background--checkbox-secondary: var(--cambridge-blue-400);
+  --digi--color--background--checkbox-marker: var(--white);
+
+  --digi--color--border--primary: var(--rich-black);
+  --digi--color--border--secondary: var(--cambridge-blue-400);
+  --digi--color--border--tertiary: #5a9051;
+  --digi--color--border--success: var(--celadon-dark);
+  --digi--color--border--warning: var(--sand);
+  --digi--color--border--warning-2: #6c4a40;
+  --digi--color--border--warning-3: #845a4d;
+  --digi--color--border--danger: var(--deep-red);
+  --digi--color--border--informative: var(--cambridge-blue-500);
+
+  --digi--color--border--inverted: var(--white);
+  --digi--color--border--inverted-2: var(--cambridge-blue-100);
+  --digi--color--border--inverted-3: #2b4526;
+
+  --digi--color--border--neutral-1: var(--atomic-tangerine-light);
+  --digi--color--border--neutral-2: #778088;
+  --digi--color--border--neutral-3: var(--grey-blue);
+  --digi--color--border--neutral-4: var(--mint-light);
+  --digi--color--border--neutral-5: #646d73;
+
+  --digi--color--border--checkbox-primary: var(--celadon-dark);
+  --digi--color--border--checkbox-secondary: var(--rich-black);
+  --digi--color--border--checkbox-focus: var(--cambridge-blue-500);
+
+  --digi--color--icons--primary: var(--rich-black);
+  --digi--color--icons--secondary: var(--cambridge-blue-400);
+  --digi--color--icons--inverted: var(--white);
+  --digi--color--icons--complementary-1: var(--cambridge-blue-500);
+  --digi--color--icons--complementary-2: var(--cambridge-blue-200);
+  --digi--color--icons--complementary-3: var(--purple);
+
+  --digi--color--icons--success: var(--celadon-dark);
+  --digi--color--icons--warning: var(--sand);
+  --digi--color--icons--danger: var(--deep-red);
+  --digi--color--icons--informative: var(--cambridge-blue-300);
 }
