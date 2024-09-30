@@ -1,11 +1,13 @@
 import { Outlet } from 'react-router-dom';
+import { Nav } from './Nav';
+import { Footer } from './Footer';
 
 export const Layout = () => {
   return (
     <>
-      <p>EN HEADER, lägg in tag här</p>
+      <Nav></Nav>
       <Outlet></Outlet>
-      <p>FOOTER, lägg in tag här</p>
+      <Footer></Footer>
     </>
   );
 };

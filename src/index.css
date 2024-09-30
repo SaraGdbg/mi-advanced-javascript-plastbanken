@@ -131,4 +131,8 @@
   --digi--color--icons--warning: var(--sand);
   --digi--color--icons--danger: var(--deep-red);
   --digi--color--icons--informative: var(--cambridge-blue-300);
+
+  .digi-logo svg {
+    display: none; 
+  }
 }
