@@ -7,7 +7,7 @@ import { Layout } from './components/Layout';
 import { DisplayJobs } from './pages/DisplayJobs';
 import { DisplayJob } from './pages/DisplayJob';
 import { jobLoader } from './loaders/jobLoader';
-import { jobsLoader } from './loaders/jobsLoader';
+import { jobsLoader } from './loaders/jobsLoader.ts';
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: '/annonser',
+        path: '/annonser/:query',
         element: <DisplayJobs></DisplayJobs>,
         loader: jobsLoader,
       },
