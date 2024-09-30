@@ -21,7 +21,11 @@ import {
 import { DigiFormInputSearchCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
 
 export const Home = () => {
-    const getInput = (e:DigiFormInputSearchCustomEvent<string>) => {console.log(e.target.value)}
+  const getInput = async (e: DigiFormInputSearchCustomEvent<string>) => {
+    const searchText = e.target.value;
+    encodeURIComponent(searchText);
+  };
+
   return (
     <>
       <DigiLayoutBlock afVariation={LayoutBlockVariation.PRIMARY}>
