@@ -29,11 +29,11 @@ export const Home = () => {
     let searchText = '';
 
     if (inputText) {
-      searchText = `q=${encodeURIComponent(inputText)}`;
+      searchText = `q=${inputText}`;
     }
 
     if (searchText) {
-      navigate(`/annonser?${searchText}`);
+      navigate(`/annonser/${searchText}`);
     } else {
       navigate('/annonser');
     }
