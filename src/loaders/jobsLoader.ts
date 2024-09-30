@@ -9,8 +9,8 @@ interface IJobsLoader {
 export const jobsLoader: LoaderFunction = async ({
   params,
 }: IJobsLoader): Promise<IJob[]> => {
-  const jobs = await getSearchedJobs(`q=${params.query}&`);
-  console.log(jobs);
+  const searchQuery = params.query ? `q=${params.query}&` : '';
+  const jobs = await getSearchedJobs(searchQuery);
 
   return jobs;
 };
