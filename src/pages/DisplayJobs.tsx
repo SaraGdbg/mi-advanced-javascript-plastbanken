@@ -1,6 +1,6 @@
 import { useLoaderData } from 'react-router-dom';
 import { IJob } from '../models/IJob';
-import { IRegion } from '../models/IRegion';
+
 import {
   FormInputSearchVariation,
   FormInputType,
