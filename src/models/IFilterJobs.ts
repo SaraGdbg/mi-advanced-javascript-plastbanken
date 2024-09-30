@@ -1,19 +1,24 @@
 export interface IFilterJobs {
   // from text input
-  query: string;
+  queryFromInput: string;
+  isRemote: boolean;
+  requiresDrivingLicense: boolean;
+
   // use 'taxonomy/lau-2-code-2015' here, it's unique for each munipality and used for API query
-  municipalities: string[];
+  municipalitiesSelected: string[];
+
   // use 'taxonomy/national-nuts-level-3-code-2019' here, it's unique for each region and used for API query
-  regions: string[];
-  remote: boolean;
+  regionsSelected: string[];
+
   // though is, 0,1 or 2 here. With each number representing Full time, Part time or both. Which number to which options is unclear, but it needs to be the same for both api call function and for page rendering
-  workingHours: number;
-  drivingLicenseReq: boolean;
+  workingHoursType: number;
 
   // relevance, pubdate-desc, pubdate-asc, applydate-desc, applydate-asc, not sure if we need all of these, but using these options is preferable  since that is what is used in the API.
-  sorting: string[];
+  sortBy: string[];
+
   // number of items displayed per page
   limit: number;
+
   // which item that results is shown from, if 10, then results starts display from item 11.
   offset: number;
 
