@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { IJob } from '../models/IJob';
 
 export const DisplayJobs = () => {
@@ -9,7 +9,7 @@ export const DisplayJobs = () => {
       <ul>
         {jobs.map((job) => (
           <li key={job.id}>
-            <h2>{job.headline}</h2>
+            <Link to={`/annonser/id/${job.id}`}>{job.headline}</Link>
           </li>
         ))}
       </ul>
