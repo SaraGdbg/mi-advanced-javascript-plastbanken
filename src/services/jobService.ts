@@ -21,6 +21,5 @@ export const getSearchedJobs = async (searchText: string): Promise<IJob[]> => {
     BASE_URL + searchText + BASE_URL_END,
   );
 
-    return response.data.hits;
-  }
+  return response.data.hits;
 };
