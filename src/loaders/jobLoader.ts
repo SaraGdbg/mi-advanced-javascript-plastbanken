@@ -1,12 +1,14 @@
-import axios from 'axios';
-import { LoaderFunction } from 'react-router-dom';
+import { LoaderFunction, Params } from 'react-router-dom';
+import { getJob } from '../services/jobByIdService';
 
-export const jobLoader: LoaderFunction = async () => {
-  // Exchange for call to Oskars service
-  const jobs = await axios.get(
-    'https://jobsearch.api.jobtechdev.se/search?q=Örebro',
-  );
-  console.log(jobs.data.hits);
+interface IJobByIdLoader {
+  params: Params<string>;
+}
 
-  return jobs.data.hits;
+export const jobLoader: LoaderFunction = async ({ params }: IJobByIdLoader) => {
+  const { id } = params;
+  if (id) {
+    const job = getJob(id);
+    return job;
+  }
 };
