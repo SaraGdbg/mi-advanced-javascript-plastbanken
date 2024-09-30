@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: '/annonser',
+        path: '/annonser/:query',
         element: <DisplayJobs></DisplayJobs>,
         loader: jobsLoader,
       },
