@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
         loader: jobsLoader,
       },
       {
-        path: '/annonser?:query',
+        path: '/annonser/:query',
         element: <DisplayJobs></DisplayJobs>,
         loader: jobsLoader,
       },
