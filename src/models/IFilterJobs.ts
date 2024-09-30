@@ -11,10 +11,10 @@ export interface IFilterJobs {
   regionsSelected: string[];
 
   // though is, 0,1 or 2 here. With each number representing Full time, Part time or both. Which number to which options is unclear, but it needs to be the same for both api call function and for page rendering
-  workingHoursType: number;
+  workingHoursType: string;
 
   // relevance, pubdate-desc, pubdate-asc, applydate-desc, applydate-asc, not sure if we need all of these, but using these options is preferable  since that is what is used in the API.
-  sortBy: string[];
+  sortBy: string;
 
   // number of items displayed per page
   limit: number;
