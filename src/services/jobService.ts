@@ -14,13 +14,12 @@ export const getJobs = async (): Promise<IJob[]> => {
 
 export const getSearchedJobs = async (searchText: string): Promise<IJob[]> => {
   if (!searchText) {
-    const response = await getJobs();
-    return response;
-  } else {
-    const response = await get<IJobsSearchResponse>(
-      BASE_URL + searchText + BASE_URL_END,
-    );
-
-    return response.data.hits;
+    return await getJobs();
   }
+
+  const response = await get<IJobsSearchResponse>(
+    BASE_URL + searchText + BASE_URL_END,
+  );
+
+  return response.data.hits;
 };
