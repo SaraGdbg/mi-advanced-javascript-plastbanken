@@ -7,7 +7,7 @@ import { Layout } from './components/Layout';
 import { DisplayJobs } from './pages/DisplayJobs';
 import { DisplayJob } from './pages/DisplayJob';
 import { jobLoader } from './loaders/jobLoader';
-import { jobsLoader } from './loaders/jobsLoader.tsx';
+import { jobsLoader } from './loaders/jobsLoader.ts';
 
 export const router = createBrowserRouter([
   {
