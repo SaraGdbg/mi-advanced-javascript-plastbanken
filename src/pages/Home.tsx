@@ -19,9 +19,26 @@ import {
   LayoutContainerVariation,
 } from '@digi/arbetsformedlingen';
 import { DigiFormInputSearchCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
+import { useNavigate } from 'react-router-dom';
 
 export const Home = () => {
-    const getInput = (e:DigiFormInputSearchCustomEvent<string>) => {console.log(e.target.value)}
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: DigiFormInputSearchCustomEvent<string>) => {
+    const inputText = e.target.value;
+    let searchText = '';
+
+    if (inputText) {
+      searchText = `q=${encodeURIComponent(inputText)}`;
+    }
+
+    if (searchText) {
+      navigate(`/annonser?${searchText}`);
+    } else {
+      navigate('/annonser');
+    }
+  };
+
   return (
     <>
       <DigiLayoutBlock afVariation={LayoutBlockVariation.PRIMARY}>
@@ -38,7 +55,7 @@ export const Home = () => {
               afVariation={FormInputSearchVariation.MEDIUM}
               afType={FormInputType.SEARCH}
               afButtonText="Knapp"
-              onAfOnSubmitSearch={getInput}
+              onAfOnSubmitSearch={handleSubmit}
             ></DigiFormInputSearch>
             <DigiLinkInternal
               afHref="/annonser"

@@ -13,7 +13,8 @@ const getMunicipalities = async () => {
 const getRegions = async () => {
   const response = await get<IRegion[]>(TAXONOMY_URL + 'region');
   return response.data.filter(
-    (word) => word['taxonomy/national-nuts-level-3-code-2019'] !== undefined,
+    (region) =>
+      region['taxonomy/national-nuts-level-3-code-2019'] !== undefined,
   );
 };
 
