@@ -136,3 +136,19 @@
     display: none; 
   }
 }
+
+.sc-digi-layout-container-h
+  .digi-layout-container.sc-digi-layout-container
+  .filter-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.job-short-presentation {
+  width: 100;
+}
+
+.job-details {
+  display: flex;
+  justify-content: space-between;
+}
