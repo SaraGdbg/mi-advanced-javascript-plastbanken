@@ -2,7 +2,7 @@ export interface IJob {
   id: string;
   headline: string;
   occupation: {
-    name: string;
+    label: string;
   };
   workplace_address: {
     municipality: string;
