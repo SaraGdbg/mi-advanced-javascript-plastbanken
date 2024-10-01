@@ -22,7 +22,7 @@ export interface IJob {
   duration: {
     label: string | null;
   };
-  // Examples: Heltid, Deltid
+  // Examples: Heltid, Deltid.
   working_hours_type: {
     label: string | null;
   };
@@ -52,6 +52,7 @@ export interface IJobExt extends IJob {
     email: string | null;
   };
   description: {
+    // usually heltid/tillsvidare or something similar.
     conditions: string | null;
     // Big text about the job. Not sure yet if we want to use text_formatted or text. Can remove one once we're sure
     text_formatted: string;
