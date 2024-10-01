@@ -13,9 +13,13 @@ import { FilterButtonEmplymentType } from '../components/filterButtons/FilterBut
 import { FilterButtonPublishDate } from '../components/filterButtons/FilterButtonPublishDate';
 import { SearchBar } from '../components/SearchBar';
 import { JobShortPresentation } from '../components/JobShortPresentation';
+import { useState } from 'react';
 
 export const DisplayJobs = () => {
-  const jobs = useLoaderData() as IJob[];
+  const loaderJobs = useLoaderData() as IJob[];
+  const [jobs, setJobs] = useState<IJob[]>([]);
+
+  setJobs(loaderJobs);
 
   return (
     <>
