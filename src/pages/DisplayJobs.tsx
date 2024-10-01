@@ -8,17 +8,16 @@ import {
   LayoutContainerVariation,
 } from '@digi/arbetsformedlingen';
 import {
-  DigiFormFilter,
   DigiFormInputSearch,
   DigiLayoutBlock,
   DigiLayoutContainer,
   DigiTypography,
 } from '@digi/arbetsformedlingen-react';
-import { FilterButtonOccupation } from '../components/FilterButtonOccupation';
-import { FilterButtonRegion } from '../components/FilterButtonRegion';
-import { FilterButtonQualifications } from '../components/FilterButtonQualtifications';
-import { FilterButtonEmplymentType } from '../components/FilterButtonEmploymentType';
-import { FilterButtonPublishDate } from '../components/FilterButtonPublishDate';
+import { FilterButtonOccupation } from '../components/filterButtons.ts/FilterButtonOccupation';
+import { FilterButtonRegion } from '../components/filterButtons.ts/FilterButtonRegion';
+import { FilterButtonQualifications } from '../components/filterButtons.ts/FilterButtonQualtifications';
+import { FilterButtonEmplymentType } from '../components/filterButtons.ts/FilterButtonEmploymentType';
+import { FilterButtonPublishDate } from '../components/filterButtons.ts/FilterButtonPublishDate';
 
 export const DisplayJobs = () => {
   const jobs = useLoaderData() as IJob[];
@@ -39,12 +38,14 @@ export const DisplayJobs = () => {
             ></DigiFormInputSearch>
           </DigiLayoutContainer>
 
-          <DigiLayoutContainer className="filter-buttons">
-            <FilterButtonOccupation></FilterButtonOccupation>
-            <FilterButtonRegion></FilterButtonRegion>
-            <FilterButtonEmplymentType></FilterButtonEmplymentType>
-            <FilterButtonQualifications></FilterButtonQualifications>
-            <FilterButtonPublishDate></FilterButtonPublishDate>
+          <DigiLayoutContainer>
+            <section className="filter-buttons">
+              <FilterButtonOccupation></FilterButtonOccupation>
+              <FilterButtonRegion></FilterButtonRegion>
+              <FilterButtonEmplymentType></FilterButtonEmplymentType>
+              <FilterButtonQualifications></FilterButtonQualifications>
+              <FilterButtonPublishDate></FilterButtonPublishDate>
+            </section>
           </DigiLayoutContainer>
 
           <DigiLayoutContainer>
