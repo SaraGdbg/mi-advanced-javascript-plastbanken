@@ -1,6 +1,5 @@
 import {
   DigiTypography,
-  DigiFormInputSearch,
   DigiLinkInternal,
   DigiLayoutBlock,
   DigiLayoutContainer,
@@ -8,8 +7,6 @@ import {
 } from '@digi/arbetsformedlingen-react';
 import {
   TypographyVariation,
-  FormInputType,
-  FormInputSearchVariation,
   LinkVariation,
   LayoutBlockVariation,
   InfoCardHeadingLevel,
@@ -18,13 +15,13 @@ import {
   InfoCardSize,
   LayoutContainerVariation,
 } from '@digi/arbetsformedlingen';
-import { DigiFormInputSearchCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
+//import { DigiFormInputSearchCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
 import { SearchBar } from '../components/SearchBar';
 
 export const Home = () => {
-  const getInput = (e: DigiFormInputSearchCustomEvent<string>) => {
-    console.log(e.target.value);
-  };
+  // const getInput = (e: DigiFormInputSearchCustomEvent<string>) => {
+  //   console.log(e.target.value);
+  // };
   return (
     <>
       <DigiLayoutBlock afVariation={LayoutBlockVariation.PRIMARY}>

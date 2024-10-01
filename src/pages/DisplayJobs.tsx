@@ -1,14 +1,7 @@
 import { useLoaderData } from 'react-router-dom';
 import { IJob } from '../models/IJob';
-
+import { LayoutBlockVariation } from '@digi/arbetsformedlingen';
 import {
-  FormInputSearchVariation,
-  FormInputType,
-  LayoutBlockVariation,
-  LayoutContainerVariation,
-} from '@digi/arbetsformedlingen';
-import {
-  DigiFormInputSearch,
   DigiLayoutBlock,
   DigiLayoutContainer,
   DigiTypography,
@@ -19,6 +12,7 @@ import { FilterButtonQualifications } from '../components/filterButtons/FilterBu
 import { FilterButtonEmplymentType } from '../components/filterButtons/FilterButtonEmploymentType';
 import { FilterButtonPublishDate } from '../components/filterButtons/FilterButtonPublishDate';
 import { SearchBar } from '../components/SearchBar';
+import { JobShortPresentation } from '../components/JobShortPresentation';
 
 export const DisplayJobs = () => {
   const jobs = useLoaderData() as IJob[];
@@ -46,14 +40,7 @@ export const DisplayJobs = () => {
           <DigiLayoutContainer>
             <ul>
               {jobs.map((job) => (
-                <DigiLayoutContainer
-                  afVerticalPadding
-                  af-variation={LayoutContainerVariation.STATIC}
-                  af-no-gutter
-                  key={job.id}
-                >
-                  <h3>{job.headline}</h3>
-                </DigiLayoutContainer>
+                <JobShortPresentation job={job}></JobShortPresentation>
               ))}
             </ul>
           </DigiLayoutContainer>
@@ -62,11 +49,3 @@ export const DisplayJobs = () => {
     </>
   );
 };
-
-//  <ul>
-//    {jobs.map((job) => (
-//      <li key={job.id}>
-//        <h2>{job.headline}</h2>
-//      </li>
-//    ))}
-//  </ul>;
