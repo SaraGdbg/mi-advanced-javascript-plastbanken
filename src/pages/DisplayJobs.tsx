@@ -13,11 +13,12 @@ import {
   DigiLayoutContainer,
   DigiTypography,
 } from '@digi/arbetsformedlingen-react';
-import { FilterButtonOccupation } from '../components/filterButtons.ts/FilterButtonOccupation';
-import { FilterButtonRegion } from '../components/filterButtons.ts/FilterButtonRegion';
-import { FilterButtonQualifications } from '../components/filterButtons.ts/FilterButtonQualtifications';
-import { FilterButtonEmplymentType } from '../components/filterButtons.ts/FilterButtonEmploymentType';
-import { FilterButtonPublishDate } from '../components/filterButtons.ts/FilterButtonPublishDate';
+import { FilterButtonOccupation } from '../components/filterButtons/FilterButtonOccupation';
+import { FilterButtonRegion } from '../components/filterButtons/FilterButtonRegion';
+import { FilterButtonQualifications } from '../components/filterButtons/FilterButtonQualtifications';
+import { FilterButtonEmplymentType } from '../components/filterButtons/FilterButtonEmploymentType';
+import { FilterButtonPublishDate } from '../components/filterButtons/FilterButtonPublishDate';
+import { SearchBar } from '../components/SearchBar';
 
 export const DisplayJobs = () => {
   const jobs = useLoaderData() as IJob[];
@@ -29,13 +30,7 @@ export const DisplayJobs = () => {
         <DigiTypography>
           <DigiLayoutContainer>
             <h2>Sökresultat</h2>
-            <DigiFormInputSearch
-              afLabel="Informativ text"
-              afVariation={FormInputSearchVariation.MEDIUM}
-              afType={FormInputType.SEARCH}
-              afButtonText="Knapp"
-              //onAfOnSubmitSearch={getInput}
-            ></DigiFormInputSearch>
+            <SearchBar></SearchBar>
           </DigiLayoutContainer>
 
           <DigiLayoutContainer>

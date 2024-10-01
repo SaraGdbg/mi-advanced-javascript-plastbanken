@@ -19,9 +19,12 @@ import {
   LayoutContainerVariation,
 } from '@digi/arbetsformedlingen';
 import { DigiFormInputSearchCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
+import { SearchBar } from '../components/SearchBar';
 
 export const Home = () => {
-    const getInput = (e:DigiFormInputSearchCustomEvent<string>) => {console.log(e.target.value)}
+  const getInput = (e: DigiFormInputSearchCustomEvent<string>) => {
+    console.log(e.target.value);
+  };
   return (
     <>
       <DigiLayoutBlock afVariation={LayoutBlockVariation.PRIMARY}>
@@ -33,13 +36,7 @@ export const Home = () => {
 
         <DigiLayoutContainer>
           <DigiTypography>
-            <DigiFormInputSearch
-              afLabel="Informativ text"
-              afVariation={FormInputSearchVariation.MEDIUM}
-              afType={FormInputType.SEARCH}
-              afButtonText="Knapp"
-              onAfOnSubmitSearch={getInput}
-            ></DigiFormInputSearch>
+            <SearchBar></SearchBar>
             <DigiLinkInternal
               afHref="/annonser"
               afVariation={LinkVariation.SMALL}
