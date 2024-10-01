@@ -16,7 +16,6 @@ import { JobShortPresentation } from '../components/JobShortPresentation';
 
 export const DisplayJobs = () => {
   const jobs = useLoaderData() as IJob[];
-  console.log('DisplayJobs:', jobs);
 
   return (
     <>
