@@ -26,11 +26,9 @@ export const createQueryString = (filters: IFilterJobs): string => {
 
   if (filters.sortBy) params.append('sort', filters.sortBy);
 
-  const limitValue = filters.limit ?? 10;
-  params.append('limit', limitValue.toString());
+  if (filters.limit) params.append('limit', filters.limit.toString());
 
-  const offsetValue = filters.offset ?? 0;
-  params.append('offset', offsetValue.toString());
+  if (filters.offset) params.append('offset', filters.offset.toString());
 
   /* MAYBE
   Fetch job ads published after specified date and time. 
