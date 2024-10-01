@@ -18,6 +18,10 @@ export const createQueryString = (filters: IFilterJobs): string => {
     params.append('region', region);
   });
 
+  filters.occupationFieldSelected.forEach((occupationField) => {
+    params.append('occupation-field', occupationField);
+  });
+
   if (filters.workingHoursType) params.append('q', filters.queryFromInput);
 
   if (filters.sortBy) params.append('sort', filters.sortBy);

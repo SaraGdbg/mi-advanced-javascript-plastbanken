@@ -10,6 +10,9 @@ export interface IFilterJobs {
   // use 'taxonomy/national-nuts-level-3-code-2019' here, it's unique for each region and used for API query
   regionsSelected: string[];
 
+  // use id here, it's unique for each occupation field and used for API query
+  occupationFieldSelected: string[];
+
   // though is, 0,1 or 2 here. With each number representing Full time, Part time or both. Which number to which options is unclear, but it needs to be the same for both api call function and for page rendering
   workingHoursType: string;
 
