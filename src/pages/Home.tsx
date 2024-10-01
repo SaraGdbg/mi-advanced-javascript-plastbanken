@@ -18,27 +18,6 @@ import {
 import { SearchBar } from '../components/SearchBar';
 
 export const Home = () => {
-import { DigiFormInputSearchCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
-import { useNavigate } from 'react-router-dom';
-
-export const Home = () => {
-  const navigate = useNavigate();
-
-  const handleSubmit = async (e: DigiFormInputSearchCustomEvent<string>) => {
-    const inputText = e.target.value;
-    let searchText = '';
-
-    if (inputText) {
-      searchText = `q=${inputText}`;
-    }
-
-    if (searchText) {
-      navigate(`/annonser/${searchText}`);
-    } else {
-      navigate('/annonser');
-    }
-  };
-
   return (
     <>
       <DigiLayoutBlock afVariation={LayoutBlockVariation.PRIMARY}>
@@ -60,9 +39,11 @@ export const Home = () => {
           </DigiTypography>
         </DigiLayoutContainer>
 
-        <DigiLayoutContainer afVariation={LayoutContainerVariation.STATIC} 
-        afMarginTop={true}
-        afMarginBottom={true}>
+        <DigiLayoutContainer
+          afVariation={LayoutContainerVariation.STATIC}
+          afMarginTop={true}
+          afMarginBottom={true}
+        >
           <DigiInfoCard
             afHeading="Informativ text"
             afHeadingLevel={InfoCardHeadingLevel.H2}
