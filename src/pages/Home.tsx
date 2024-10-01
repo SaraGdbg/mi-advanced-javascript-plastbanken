@@ -1,6 +1,5 @@
 import {
   DigiTypography,
-  DigiFormInputSearch,
   DigiLinkInternal,
   DigiLayoutBlock,
   DigiLayoutContainer,
@@ -8,8 +7,6 @@ import {
 } from '@digi/arbetsformedlingen-react';
 import {
   TypographyVariation,
-  FormInputType,
-  FormInputSearchVariation,
   LinkVariation,
   LayoutBlockVariation,
   InfoCardHeadingLevel,
@@ -18,6 +15,9 @@ import {
   InfoCardSize,
   LayoutContainerVariation,
 } from '@digi/arbetsformedlingen';
+import { SearchBar } from '../components/SearchBar';
+
+export const Home = () => {
 import { DigiFormInputSearchCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
 import { useNavigate } from 'react-router-dom';
 
@@ -50,13 +50,7 @@ export const Home = () => {
 
         <DigiLayoutContainer>
           <DigiTypography>
-            <DigiFormInputSearch
-              afLabel="Informativ text"
-              afVariation={FormInputSearchVariation.MEDIUM}
-              afType={FormInputType.SEARCH}
-              afButtonText="Knapp"
-              onAfOnSubmitSearch={handleSubmit}
-            ></DigiFormInputSearch>
+            <SearchBar></SearchBar>
             <DigiLinkInternal
               afHref="/annonser"
               afVariation={LinkVariation.SMALL}
