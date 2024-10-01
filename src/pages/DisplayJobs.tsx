@@ -13,6 +13,8 @@ import { FilterButtonEmplymentType } from '../components/filterButtons/FilterBut
 import { FilterButtonPublishDate } from '../components/filterButtons/FilterButtonPublishDate';
 import { SearchBar } from '../components/SearchBar';
 import { JobShortPresentation } from '../components/JobShortPresentation';
+//Remove this import and component at row 46
+import { ResultsPagination } from '../components/ResultsPagination';
 
 export const DisplayJobs = () => {
   const jobs = useLoaderData() as IJob[];
@@ -25,7 +27,6 @@ export const DisplayJobs = () => {
             <h2>Sökresultat</h2>
             <SearchBar></SearchBar>
           </DigiLayoutContainer>
-
           <DigiLayoutContainer>
             <section className="filter-buttons">
               <FilterButtonOccupation></FilterButtonOccupation>
@@ -35,7 +36,6 @@ export const DisplayJobs = () => {
               <FilterButtonPublishDate></FilterButtonPublishDate>
             </section>
           </DigiLayoutContainer>
-
           <DigiLayoutContainer>
             <ul>
               {jobs.map((job) => (
@@ -43,6 +43,7 @@ export const DisplayJobs = () => {
               ))}
             </ul>
           </DigiLayoutContainer>
+          <ResultsPagination></ResultsPagination>
         </DigiTypography>
       </DigiLayoutBlock>
     </>
