@@ -18,16 +18,18 @@ export const JobShortPresentation = ({ job }: IJobShortPresentationProps) => {
       key={job.id}
     >
       <DigiTypography>
-        <section className="job-details">
-          <h3>{job.headline}</h3>
-          <div className="job-details-time">
-            Varaktighet: <h4>{job.duration.label}</h4>
-            Omfattning: <h4>{job.working_hours_type.label}</h4>
-          </div>
-        </section>
-        <h4>Ort: {job.workplace_address.municipality}</h4>
-        <h4>Titel: {job.occupation.name}</h4>
-        <h4>{job.application_deadline}</h4>
+        <div className="job-short-presentation">
+          <section className="job-details">
+            <h3>{job.headline}</h3>
+            <div className="job-details-time">
+              Varaktighet: <h4>{job.duration.label}</h4>
+              Omfattning: <h4>{job.working_hours_type.label}</h4>
+            </div>
+          </section>
+          <h4>Ort: {job.workplace_address.municipality}</h4>
+          <h4>Titel: {job.occupation.name}</h4>
+          <h4>{job.application_deadline}</h4>
+        </div>
       </DigiTypography>
     </DigiLayoutContainer>
   );
