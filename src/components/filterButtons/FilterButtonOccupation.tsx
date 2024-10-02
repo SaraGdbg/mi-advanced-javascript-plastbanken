@@ -1,6 +1,11 @@
 import { DigiFormFilter } from '@digi/arbetsformedlingen-react';
+import { useContext } from 'react';
+import { RegionsOccupationsContext } from '../../contexts/RegionsOccupationsContext';
 
 export const FilterButtonOccupation = () => {
+  const regionsOccupations = useContext(RegionsOccupationsContext);
+  console.log(regionsOccupations.regions);
+  console.log(regionsOccupations.occupations);
   return (
     <>
       <DigiFormFilter

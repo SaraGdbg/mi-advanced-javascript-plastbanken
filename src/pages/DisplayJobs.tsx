@@ -6,21 +6,46 @@ import {
   DigiLayoutContainer,
   DigiTypography,
 } from '@digi/arbetsformedlingen-react';
-import { FilterButtonOccupation } from '../components/filterButtons/FilterButtonOccupation';
-import { FilterButtonRegion } from '../components/filterButtons/FilterButtonRegion';
-import { FilterButtonQualifications } from '../components/filterButtons/FilterButtonQualtifications';
-import { FilterButtonEmplymentType } from '../components/filterButtons/FilterButtonEmploymentType';
-import { FilterButtonPublishDate } from '../components/filterButtons/FilterButtonPublishDate';
 import { SearchBar } from '../components/SearchBar';
 import { JobShortPresentation } from '../components/JobShortPresentation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { IJobsSearchResponse } from '../models/IJobsSearchResponse';
+import { getOccupations } from '../services/occupationsService';
+import { IOccupationFields } from '../models/IOccupationFields';
+import { FilterButtons } from '../components/FilterButtons';
+import { IRegion } from '../models/IRegion';
+import { getLocations } from '../services/locationsService';
+import { RegionsOccupationsContext } from '../contexts/RegionsOccupationsContext';
 
 export const DisplayJobs = () => {
   const loaderJobs = useLoaderData() as IJobsSearchResponse;
   // To find the jobs use jobs.hits
   const [jobs, setJobs] = useState<IJobsSearchResponse>(loaderJobs);
   // setJobs will be used to change the state when filters are applied
+  const [occupations, setOccupations] = useState<IOccupationFields[]>([]);
+  const [regions, setRegions] = useState<IRegion[]>([]);
+  const [fetchedOccupations, setFetchedOccupations] = useState(false);
+  const [fetchedRegions, setFetchedRegions] = useState(false);
+
+  useEffect(() => {
+    if (fetchedOccupations) return;
+    const getData = async () => {
+      const data = await getOccupations();
+      setOccupations(data);
+      setFetchedOccupations(true);
+    };
+    getData();
+  });
+
+  useEffect(() => {
+    if (fetchedRegions) return;
+    const getData = async () => {
+      const data = await getLocations();
+      setRegions(data);
+      setFetchedRegions(true);
+    };
+    getData();
+  });
 
   return (
     <>
@@ -31,15 +56,9 @@ export const DisplayJobs = () => {
             <SearchBar></SearchBar>
           </DigiLayoutContainer>
 
-          <DigiLayoutContainer>
-            <section className="filter-buttons">
-              <FilterButtonOccupation></FilterButtonOccupation>
-              <FilterButtonRegion></FilterButtonRegion>
-              <FilterButtonEmplymentType></FilterButtonEmplymentType>
-              <FilterButtonQualifications></FilterButtonQualifications>
-              <FilterButtonPublishDate></FilterButtonPublishDate>
-            </section>
-          </DigiLayoutContainer>
+          <RegionsOccupationsContext.Provider value={{ regions, occupations }}>
+            <FilterButtons></FilterButtons>
+          </RegionsOccupationsContext.Provider>
 
           <DigiLayoutContainer>
             <ul>
