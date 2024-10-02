@@ -8,7 +8,6 @@ import {
 } from '@digi/arbetsformedlingen-react';
 import { SearchBar } from '../components/SearchBar';
 import { JobShortPresentation } from '../components/JobShortPresentation';
-import { useState, useEffect } from 'react';
 import { IJobsSearchResponse } from '../models/IJobsSearchResponse';
 import { getOccupations } from '../services/occupationsService';
 import { IOccupationFields } from '../models/IOccupationFields';
@@ -18,10 +17,8 @@ import { getLocations } from '../services/locationsService';
 import { RegionsOccupationsContext } from '../contexts/RegionsOccupationsContext';
 
 export const DisplayJobs = () => {
-  const loaderJobs = useLoaderData() as IJobsSearchResponse;
+  const jobs = useLoaderData() as IJobsSearchResponse;
   // To find the jobs use jobs.hits
-  const [jobs, setJobs] = useState<IJobsSearchResponse>(loaderJobs);
-  // setJobs will be used to change the state when filters are applied
   const [occupations, setOccupations] = useState<IOccupationFields[]>([]);
   const [regions, setRegions] = useState<IRegion[]>([]);
   const [fetchedOccupations, setFetchedOccupations] = useState(false);
