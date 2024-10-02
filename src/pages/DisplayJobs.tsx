@@ -17,10 +17,8 @@ import { useState } from 'react';
 import { IJobsSearchResponse } from '../models/IJobsSearchResponse';
 
 export const DisplayJobs = () => {
-  const loaderJobs = useLoaderData() as IJobsSearchResponse;
   // To find the jobs use jobs.hits
-  const [jobs, setJobs] = useState<IJobsSearchResponse>(loaderJobs);
-  // setJobs will be used to change the state when filters are applied
+  const jobs = useLoaderData() as IJobsSearchResponse;
 
   return (
     <>
