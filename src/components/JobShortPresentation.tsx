@@ -10,6 +10,7 @@ interface IJobShortPresentationProps {
 }
 
 export const JobShortPresentation = ({ job }: IJobShortPresentationProps) => {
+  //const job = useContext(jobsContext);
   return (
     <DigiLayoutContainer
       afVerticalPadding
@@ -27,7 +28,7 @@ export const JobShortPresentation = ({ job }: IJobShortPresentationProps) => {
             </div>
           </section>
           <h4>Ort: {job.workplace_address.municipality}</h4>
-          <h4>Titel: {job.occupation.name}</h4>
+          <h4>Titel: {job.occupation.label}</h4>
           <h4>{job.application_deadline}</h4>
         </div>
       </DigiTypography>
