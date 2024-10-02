@@ -4,31 +4,48 @@ import {
   DigiNavigationPagination,
 } from '@digi/arbetsformedlingen-react';
 import { DigiNavigationPaginationCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
-import { calculateAmountOfResultPages } from '../services/resultsPaginationService';
+import {
+  calculateAmountOfResultPages,
+  setCurrentPage,
+} from '../services/resultsPaginationService';
+import { IJobsSearchResponse } from '../models/IJobsSearchResponse';
+import { useReducer } from 'react';
+import { defaultFilterState, FilterReducer } from '../reducers/FilterReducer';
 
-export const ResultsPagination = () => {
+export const ResultsPagination = (jobs: IJobsSearchResponse) => {
+  const jobsTotal = jobs.total.value;
+  console.log(jobsTotal);
+
+  const [state, dispatch] = useReducer(FilterReducer, defaultFilterState);
+
+  const filters = state;
+
+  console.log(filters.limit);
+
+  const test = setCurrentPage(filters.offset, filters.limit);
+  console.log(test);
+
   // IJobSerachResponse -> total.value / IFilterJobs -> limit, rounded upwards.
-  let totalPages = 5;
+  let totalPages = calculateAmountOfResultPages(jobsTotal, filters.limit);
   // IFilterJobs -> offset / IFilterJobs -> limit,
   // Might only need to be a starting value.
-  const activePage = 1;
+  let activePage = setCurrentPage(filters.offset, filters.limit);
   // is probably always one
-  let currentResultStart = 1;
+  const currentResultStart = 1;
   // IFilterJobs -> limit
-  let currentResultEnd = 25;
+  let currentResultEnd = filters.limit;
   // IJobSerachResponse -> total.value
-  let totalResults = 1842;
+  let totalResults = totalPages;
 
   const goToAnotherResultPage = (
     t: DigiNavigationPaginationCustomEvent<number>,
   ) => {
+    // console.log(hits);
     let tom = calculateAmountOfResultPages(totalResults, currentResultEnd);
     console.log(t.detail);
     let limit = 10;
     // send this to update resultsFilter
     let offset = t.detail * limit;
-    console.log(offset);
-    console.log(tom);
   };
 
   return (

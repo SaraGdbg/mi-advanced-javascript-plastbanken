@@ -51,7 +51,7 @@ export const DisplayJobs = () => {
               ))}
             </ul>
           </DigiLayoutContainer>
-          <ResultsPagination></ResultsPagination>
+          <ResultsPagination {...jobs}></ResultsPagination>
         </DigiTypography>
       </DigiLayoutBlock>
     </>
