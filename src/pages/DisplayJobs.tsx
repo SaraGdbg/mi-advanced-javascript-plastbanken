@@ -13,7 +13,6 @@ import { FilterButtonEmplymentType } from '../components/filterButtons/FilterBut
 import { FilterButtonPublishDate } from '../components/filterButtons/FilterButtonPublishDate';
 import { SearchBar } from '../components/SearchBar';
 import { JobShortPresentation } from '../components/JobShortPresentation';
-import { useState } from 'react';
 import { IJobsSearchResponse } from '../models/IJobsSearchResponse';
 
 export const DisplayJobs = () => {
