@@ -12,9 +12,10 @@ import { FilterButtonQualifications } from '../components/filterButtons/FilterBu
 import { FilterButtonEmplymentType } from '../components/filterButtons/FilterButtonEmploymentType';
 import { FilterButtonPublishDate } from '../components/filterButtons/FilterButtonPublishDate';
 import { SearchBar } from '../components/SearchBar';
-import { JobShortPresentation } from '../components/JobShortPresentation';
+
 import { useState } from 'react';
 import { IJobsSearchResponse } from '../models/IJobsSearchResponse';
+import { JobsPresentation } from '../components/JobsPresentation';
 
 export const DisplayJobs = () => {
   const loaderJobs = useLoaderData() as IJobsSearchResponse;
@@ -41,16 +42,7 @@ export const DisplayJobs = () => {
             </section>
           </DigiLayoutContainer>
 
-          <DigiLayoutContainer>
-            <ul>
-              {jobs?.hits.map((job) => (
-                <JobShortPresentation
-                  job={job}
-                  key={job.id}
-                ></JobShortPresentation>
-              ))}
-            </ul>
-          </DigiLayoutContainer>
+          <JobsPresentation jobs={jobs}></JobsPresentation>
         </DigiTypography>
       </DigiLayoutBlock>
     </>
