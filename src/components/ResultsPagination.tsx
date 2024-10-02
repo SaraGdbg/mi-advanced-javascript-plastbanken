@@ -9,48 +9,45 @@ import {
   setCurrentPage,
 } from '../services/resultsPaginationService';
 import { IJobsSearchResponse } from '../models/IJobsSearchResponse';
-import { useReducer } from 'react';
-import { defaultFilterState, FilterReducer } from '../reducers/FilterReducer';
+import { useContext, useState } from 'react';
+import { FilterActionType } from '../reducers/FilterReducer';
+import { useNavigate } from 'react-router-dom';
+import { FilterDispatchContext } from '../contexts/FilterDispatchContext';
+import { FilterContext } from '../contexts/FilterContext';
+import { createQueryString } from '../utils/createQueryString';
 
 export const ResultsPagination = (jobs: IJobsSearchResponse) => {
   const jobsTotal = jobs.total.value;
-  console.log(jobsTotal);
 
-  const [state, dispatch] = useReducer(FilterReducer, defaultFilterState);
-
-  const filters = state;
-
-  console.log(filters.limit);
-
-  const test = setCurrentPage(filters.offset, filters.limit);
-  console.log(test);
-
-  // IJobSerachResponse -> total.value / IFilterJobs -> limit, rounded upwards.
+  const navigate = useNavigate();
+  const dispatch = useContext(FilterDispatchContext);
+  let filters = useContext(FilterContext);
   let totalPages = calculateAmountOfResultPages(jobsTotal, filters.limit);
-  // IFilterJobs -> offset / IFilterJobs -> limit,
-  // Might only need to be a starting value.
-  let activePage = setCurrentPage(filters.offset, filters.limit);
-  // is probably always one
-  const currentResultStart = 1;
-  // IFilterJobs -> limit
-  let currentResultEnd = filters.limit;
-  // IJobSerachResponse -> total.value
-  let totalResults = totalPages;
+  let currentResultStart = filters.offset + 1;
+  let currentResultEnd = filters.offset + filters.limit;
+  let totalResults = jobsTotal;
+  let activePage = 1;
 
   const goToAnotherResultPage = (
     t: DigiNavigationPaginationCustomEvent<number>,
   ) => {
-    // console.log(hits);
-    let tom = calculateAmountOfResultPages(totalResults, currentResultEnd);
-    console.log(t.detail);
-    let limit = 10;
-    // send this to update resultsFilter
-    let offset = t.detail * limit;
+    dispatch({
+      type: FilterActionType.SET_OFFSET,
+      payload: (t.detail - 1) * filters.limit,
+    });
+    filters.offset = (t.detail - 1) * filters.limit;
+    const searchText = createQueryString(filters);
+    if (searchText) {
+      navigate(`/annonser/${searchText}`);
+    } else {
+      navigate('/annonser');
+    }
   };
 
   return (
     <>
       <DigiLayoutContainer afVariation={LayoutContainerVariation.FLUID}>
+        <p>{activePage}</p>
         <DigiNavigationPagination
           afTotalPages={totalPages}
           afInitActive-page={activePage}
