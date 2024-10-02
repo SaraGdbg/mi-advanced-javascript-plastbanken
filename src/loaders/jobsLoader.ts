@@ -1,6 +1,6 @@
 import { LoaderFunction, Params } from 'react-router-dom';
-import { IJob } from '../models/IJob';
 import { getSearchedJobs } from '../services/jobService.ts';
+import { IJobsSearchResponse } from '../models/IJobsSearchResponse.ts';
 
 interface IJobsLoader {
   params: Params<string>;
@@ -8,7 +8,7 @@ interface IJobsLoader {
 
 export const jobsLoader: LoaderFunction = async ({
   params,
-}: IJobsLoader): Promise<IJob[]> => {
+}: IJobsLoader): Promise<IJobsSearchResponse> => {
   const searchQuery = params.query ? `${params.query}&` : '';
   const jobs = await getSearchedJobs(searchQuery);
 

@@ -1,6 +1,5 @@
 import {
   DigiTypography,
-  DigiFormInputSearch,
   DigiLinkInternal,
   DigiLayoutBlock,
   DigiLayoutContainer,
@@ -8,8 +7,6 @@ import {
 } from '@digi/arbetsformedlingen-react';
 import {
   TypographyVariation,
-  FormInputType,
-  FormInputSearchVariation,
   LinkVariation,
   LayoutBlockVariation,
   InfoCardHeadingLevel,
@@ -18,27 +15,9 @@ import {
   InfoCardSize,
   LayoutContainerVariation,
 } from '@digi/arbetsformedlingen';
-import { DigiFormInputSearchCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
-import { useNavigate } from 'react-router-dom';
+import { SearchBar } from '../components/SearchBar';
 
 export const Home = () => {
-  const navigate = useNavigate();
-
-  const handleSubmit = async (e: DigiFormInputSearchCustomEvent<string>) => {
-    const inputText = e.target.value;
-    let searchText = '';
-
-    if (inputText) {
-      searchText = `q=${inputText}`;
-    }
-
-    if (searchText) {
-      navigate(`/annonser/${searchText}`);
-    } else {
-      navigate('/annonser');
-    }
-  };
-
   return (
     <>
       <DigiLayoutBlock afVariation={LayoutBlockVariation.PRIMARY}>
@@ -50,13 +29,7 @@ export const Home = () => {
 
         <DigiLayoutContainer>
           <DigiTypography>
-            <DigiFormInputSearch
-              afLabel="Informativ text"
-              afVariation={FormInputSearchVariation.MEDIUM}
-              afType={FormInputType.SEARCH}
-              afButtonText="Knapp"
-              onAfOnSubmitSearch={handleSubmit}
-            ></DigiFormInputSearch>
+            <SearchBar></SearchBar>
             <DigiLinkInternal
               afHref="/annonser"
               afVariation={LinkVariation.SMALL}
@@ -66,9 +39,11 @@ export const Home = () => {
           </DigiTypography>
         </DigiLayoutContainer>
 
-        <DigiLayoutContainer afVariation={LayoutContainerVariation.STATIC} 
-        afMarginTop={true}
-        afMarginBottom={true}>
+        <DigiLayoutContainer
+          afVariation={LayoutContainerVariation.STATIC}
+          afMarginTop={true}
+          afMarginBottom={true}
+        >
           <DigiInfoCard
             afHeading="Informativ text"
             afHeadingLevel={InfoCardHeadingLevel.H2}
