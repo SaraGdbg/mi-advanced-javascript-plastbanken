@@ -1,5 +1,5 @@
 import { useLoaderData } from 'react-router-dom';
-import { IJob } from '../models/IJob';
+
 import { LayoutBlockVariation } from '@digi/arbetsformedlingen';
 import {
   DigiLayoutBlock,
@@ -13,9 +13,14 @@ import { FilterButtonEmplymentType } from '../components/filterButtons/FilterBut
 import { FilterButtonPublishDate } from '../components/filterButtons/FilterButtonPublishDate';
 import { SearchBar } from '../components/SearchBar';
 import { JobShortPresentation } from '../components/JobShortPresentation';
+import { useState } from 'react';
+import { IJobsSearchResponse } from '../models/IJobsSearchResponse';
 
 export const DisplayJobs = () => {
-  const jobs = useLoaderData() as IJob[];
+  const loaderJobs = useLoaderData() as IJobsSearchResponse;
+  // To find the jobs use jobs.hits
+  const [jobs, setJobs] = useState<IJobsSearchResponse>(loaderJobs);
+  // setJobs will be used to change the state when filters are applied
 
   return (
     <>
@@ -38,8 +43,11 @@ export const DisplayJobs = () => {
 
           <DigiLayoutContainer>
             <ul>
-              {jobs.map((job) => (
-                <JobShortPresentation job={job}></JobShortPresentation>
+              {jobs?.hits.map((job) => (
+                <JobShortPresentation
+                  job={job}
+                  key={job.id}
+                ></JobShortPresentation>
               ))}
             </ul>
           </DigiLayoutContainer>

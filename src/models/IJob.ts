@@ -6,7 +6,7 @@ export interface IJob {
   headline: string;
   // description of job title, example: "Projektledare, bygg och anläggning", "Bussmekaniker"
   occupation: {
-    name: string;
+    label: string;
   };
 
   workplace_address: {
