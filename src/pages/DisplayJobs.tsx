@@ -15,6 +15,7 @@ import { FilterButtons } from '../components/FilterButtons';
 import { IRegion } from '../models/IRegion';
 import { getLocations } from '../services/locationsService';
 import { RegionsOccupationsContext } from '../contexts/RegionsOccupationsContext';
+import { useState, useEffect } from 'react';
 
 export const DisplayJobs = () => {
   const jobs = useLoaderData() as IJobsSearchResponse;
