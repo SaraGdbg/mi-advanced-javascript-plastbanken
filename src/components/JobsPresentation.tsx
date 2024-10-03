@@ -1,4 +1,3 @@
-import { DigiLayoutContainer } from '@digi/arbetsformedlingen-react';
 import { JobShortPresentation } from './JobShortPresentation';
 import { IJobsSearchResponse } from '../models/IJobsSearchResponse';
 
@@ -7,10 +6,6 @@ interface IJobsPresentationProps {
 }
 
 export const JobsPresentation = ({ jobs }: IJobsPresentationProps) => {
-  console.log('JobsPresentation');
-  console.log('Antal jobbträffar:', jobs.hits.length);
-  console.log(jobs.hits);
-
   let content = <></>;
 
   if (jobs.hits.length === 0) {
@@ -19,9 +14,9 @@ export const JobsPresentation = ({ jobs }: IJobsPresentationProps) => {
         <h4>Tyvärr, inga träffar på vald sökning.</h4>
       </div>
     );
-    console.log(jobs.hits);
+    console.log('JobsPresentation IF:', jobs.hits);
   } else {
-    console.log(jobs.hits);
+    console.log('JobsPresentation ELSE:', jobs.hits);
 
     content = (
       <div key="jobs-list">
@@ -34,67 +29,5 @@ export const JobsPresentation = ({ jobs }: IJobsPresentationProps) => {
     );
   }
 
-  return <DigiLayoutContainer>{content}</DigiLayoutContainer>;
+  return <div>{content}</div>;
 };
-
-//   if (jobs.hits.length === 0) {
-//     console.log('IF JobsPresentation');
-
-//     return (
-//       <>
-//         <DigiLayoutContainer>
-//           <h4>Tyvärr, inga träffar på vald sökning.</h4>;
-//         </DigiLayoutContainer>
-//       </>
-//     );
-//   } else {
-//     console.log('ELSE JobsPresentation');
-
-//     return (
-//       <>
-//         <DigiLayoutContainer>
-//           <ul>
-//             {jobs.hits.map((job) => (
-//               <JobShortPresentation
-//                 job={job}
-//                 key={job.id}
-//               ></JobShortPresentation>
-//             ))}
-//           </ul>
-//         </DigiLayoutContainer>
-//       </>
-//     );
-//   }
-// };
-
-// // {
-//   jobs?.hits?.length > 0 ? (
-//     <ul>
-//       {jobs.hits.map((job) => (
-//         <JobShortPresentation
-//           job={job}
-//           key={job.id}
-//         ></JobShortPresentation>
-//       ))}
-//     </ul>
-//   ) : (
-//     <h4>Tyvärr, inga träffar på vald sökning.</h4>
-//   );
-// }
-
-/* <DigiLayoutContainer>
-        {jobs.hits.length === 0 ? (
-          <h4>Tyvärr, inga träffar på vald sökning.</h4>
-          
-        ) : (
-          <ul>
-            {jobs.hits.map((job) => (
-              <JobShortPresentation
-                job={job}
-                key={job.id}
-              ></JobShortPresentation>
-            ))}
-          </ul>
-        )}
-      </DigiLayoutContainer>
-    </> */
