@@ -16,7 +16,6 @@ export const JobShortPresentation = ({ job }: IJobShortPresentationProps) => {
       afVerticalPadding
       af-variation={LayoutContainerVariation.STATIC}
       af-no-gutter
-      key={job.id}
     >
       <DigiTypography>
         <div className="job-short-presentation">

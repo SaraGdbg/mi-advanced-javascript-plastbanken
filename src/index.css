@@ -133,8 +133,18 @@
   --digi--color--icons--informative: var(--cambridge-blue-300);
 
   .digi-logo svg {
-    display: none; 
+    display: none;
   }
+}
+
+#root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+body {
+  margin: 0;
 }
 
 .sc-digi-layout-container-h
