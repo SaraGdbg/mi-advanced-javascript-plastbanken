@@ -18,6 +18,15 @@
   position: relative;
 }
 
+.regionContainer {
+  width: 200px;
+}
+
+.muniContainer {
+  padding-left: 1rem;
+  width: calc(200px - 1rem);
+}
+
 .inline {
   display: inline;
 }

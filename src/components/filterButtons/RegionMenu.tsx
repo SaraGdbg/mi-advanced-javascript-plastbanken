@@ -1,42 +1,51 @@
-import React, { useContext, useState } from 'react';
-import { IRegion } from '../../models/IRegion';
+import { useContext, useState } from 'react';
+
+import { RegionsOccupationsContext } from '../../contexts/RegionsOccupationsContext';
+
+import { IMunicipality } from '../../models/IMunicipality';
+
 import {
   DigiButton,
+  DigiFormCheckbox,
   DigiIconChevronRight,
 } from '@digi/arbetsformedlingen-react';
-import { ButtonSize, ButtonVariation } from '@digi/arbetsformedlingen';
-import { RegionsOccupationsContext } from '../../contexts/RegionsOccupationsContext';
+import {
+  ButtonSize,
+  ButtonVariation,
+  FormCheckboxVariation,
+} from '@digi/arbetsformedlingen';
 import { DigiButtonCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
-import { IMunicipality } from '../../models/IMunicipality';
 
 export const RegionMenu = () => {
   const regionsOccupations = useContext(RegionsOccupationsContext);
 
   const [activeMuni, setActiveMuni] = useState<IMunicipality[]>([]);
+  const [activeRegion, setActiveRegion] = useState('');
+  // const [regionsChecked, setRegionsChecked] = useState<string[]>([]);
+  // const [munisChecked, setMunisChecked] = useState<string[]>([]);
 
   const setRegion = (e: DigiButtonCustomEvent<MouseEvent>) => {
-    console.log(e.target.afId);
     const activeRegion = regionsOccupations.regions.find(
       (o) => o['taxonomy/id'] === e.target.afId,
     );
     if (activeRegion) {
       setActiveMuni(activeRegion.municipalities);
+      setActiveRegion(e.target.afId);
     }
-
-    console.log(activeRegion?.municipalities);
   };
-  console.log(activeMuni);
 
-  const [regionsChecked, setRegionsChecked] = useState<string[]>([]);
-  const [munisChecked, setMunisChecked] = useState<string[]>([]);
   return (
     <div className="regionMenuContainer">
-      <div>
+      <div className="regionContainer">
         {regionsOccupations.regions.map((region) => (
           <div key={region['taxonomy/id']}>
             <DigiButton
               afSize={ButtonSize.SMALL}
-              afVariation={ButtonVariation.SECONDARY}
+              afVariation={
+                activeRegion === region['taxonomy/id']
+                  ? ButtonVariation.PRIMARY
+                  : ButtonVariation.SECONDARY
+              }
               afFullWidth={true}
               afId={region['taxonomy/id']}
               onAfOnClick={setRegion}
@@ -48,10 +57,16 @@ export const RegionMenu = () => {
           </div>
         ))}
       </div>
-      <div>
+      <div className="muniContainer">
         {activeMuni.map((muni) => (
           <div key={muni['taxonomy/id']}>
-            <p>{muni['taxonomy/preferred-label']}</p>
+            {
+              <DigiFormCheckbox
+                afLabel={muni['taxonomy/preferred-label']}
+                afVariation={FormCheckboxVariation.SECONDARY}
+              />
+            }
+            {/* <p>{muni['taxonomy/preferred-label']}</p> */}
           </div>
         ))}
       </div>
