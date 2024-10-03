@@ -17,6 +17,7 @@ import { getLocations } from '../services/locationsService';
 import { RegionsOccupationsContext } from '../contexts/RegionsOccupationsContext';
 import { useState, useEffect } from 'react';
 import { ResultsPagination } from '../components/ResultsPagination';
+import { AdsPerPageMenu } from '../components/filterButtons/AdsPerPageMenu.tsx';
 
 export const DisplayJobs = () => {
   const jobs = useLoaderData() as IJobsSearchResponse;
@@ -60,6 +61,7 @@ export const DisplayJobs = () => {
           </RegionsOccupationsContext.Provider>
 
           <DigiLayoutContainer>
+            <AdsPerPageMenu />
             <ul>
               {jobs?.hits.map((job) => (
                 <JobShortPresentation
