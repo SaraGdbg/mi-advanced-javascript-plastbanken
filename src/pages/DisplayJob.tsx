@@ -14,8 +14,13 @@ import {
   DigiLayoutContainer,
   DigiTypography,
 } from '@digi/arbetsformedlingen-react';
+import { useLoaderData } from 'react-router-dom';
+import { IJobExt } from '../models/IJob';
+
+
 
 export const DisplayJob = () => {
+  const job = useLoaderData() as IJobExt;
   return (
     <>
       <DigiLayoutBlock afMarginTop={true}>
@@ -26,7 +31,7 @@ export const DisplayJob = () => {
       <DigiLayoutColumns afVariation={LayoutColumnsVariation.TWO}>
           <DigiLayoutContainer>
             <DigiTypography>
-              <h1>Titel</h1>
+              <h1>{job.headline}</h1>
               <DigiLayoutColumns afVariation={LayoutColumnsVariation.TWO}>
                 <DigiLayoutContainer><h2>Underrubrik</h2><h2>Titel</h2><h2>Plats</h2></DigiLayoutContainer>
                 <DigiLayoutContainer><h2>Omfattning</h2><h2>Varaktighet</h2><h2>Anställningsform</h2></DigiLayoutContainer>

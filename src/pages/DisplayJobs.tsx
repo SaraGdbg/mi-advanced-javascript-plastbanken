@@ -1,5 +1,3 @@
-import { useLoaderData } from 'react-router-dom';
-
 import { Link, useLoaderData } from 'react-router-dom';
 import { IJob } from '../models/IJob';
 import { LayoutBlockVariation } from '@digi/arbetsformedlingen';
