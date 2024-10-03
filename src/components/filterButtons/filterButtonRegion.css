@@ -1,5 +1,5 @@
 .regionMenuContainer {
-  width: 800px;
+  width: auto;
   background-color: white;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -9,13 +9,17 @@
   left: 0;
   border-radius: 8px;
   div {
-    border-left: 1px solid black;
-    padding: 1rem;
+    /* border-left: 1px solid black; */
+    /* padding: 1rem; */
   }
 }
 
 .menuContainer {
   position: relative;
+}
+
+.inline {
+  display: inline;
 }
 
 .filterButtonContainer {

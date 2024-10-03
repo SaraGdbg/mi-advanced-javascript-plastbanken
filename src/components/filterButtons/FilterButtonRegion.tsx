@@ -1,7 +1,7 @@
 import {
   DigiButton,
-  DigiIconArrowDown,
   DigiIconChevronDown,
+  DigiIconChevronUp,
 } from '@digi/arbetsformedlingen-react';
 import { IRegion } from '../../models/IRegion';
 import React, { useEffect, useRef, useState } from 'react';
@@ -10,9 +10,6 @@ import './filterButtonRegion.css';
 import { RegionMenu } from './RegionMenu';
 
 export const FilterButtonRegion = (regionsArray: IRegion[]) => {
-  const [regionsChecked, setRegionsChecked] = useState<string[]>([]);
-  const [munisChecked, setMunisChecked] = useState<string[]>([]);
-
   const [viewMenu, setViewMenu] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -34,8 +31,6 @@ export const FilterButtonRegion = (regionsArray: IRegion[]) => {
 
   const toggleMenu = () => {
     setViewMenu(!viewMenu);
-
-    console.log(viewMenu);
   };
 
   return (
