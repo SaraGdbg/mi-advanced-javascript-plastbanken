@@ -23,7 +23,7 @@ export const SearchBar = () => {
     });
   };
 
-  const handleSubmit = async (e: DigiFormInputSearchCustomEvent<string>) => {
+  const handleSubmit = async () => {
     filters.offset = 0;
     dispatch({
       type: FilterActionType.SET_OFFSET,

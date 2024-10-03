@@ -29,19 +29,16 @@ export const ResultsPagination = (jobs: IJobsSearchResponse) => {
   let activePage = 1;
 
   const goToAnotherResultPage = (
-    t: DigiNavigationPaginationCustomEvent<number>,
+    e: DigiNavigationPaginationCustomEvent<number>,
   ) => {
     dispatch({
       type: FilterActionType.SET_OFFSET,
-      payload: (t.detail - 1) * filters.limit,
+      payload: (e.detail - 1) * filters.limit,
     });
-    filters.offset = (t.detail - 1) * filters.limit;
+    filters.offset = (e.detail - 1) * filters.limit;
     const searchText = createQueryString(filters);
-    if (searchText) {
-      navigate(`/annonser/${searchText}`);
-    } else {
-      navigate('/annonser');
-    }
+
+    navigate(`/annonser/${searchText}`);
   };
 
   return (
