@@ -8,12 +8,11 @@ import { useContext } from 'react';
 import { RegionsOccupationsContext } from '../contexts/RegionsOccupationsContext';
 
 export const FilterButtons = () => {
-    const regionsOccupations = useContext(RegionsOccupationsContext);
-    console.log(regionsOccupations.regions);
-    console.log(regionsOccupations.occupations);
+  const regionsOccupations = useContext(RegionsOccupationsContext);
+
   return (
     <>
-      <DigiLayoutContainer >
+      <DigiLayoutContainer>
         <section className="filter-buttons">
           <FilterButtonOccupation></FilterButtonOccupation>
           <FilterButtonRegion></FilterButtonRegion>
