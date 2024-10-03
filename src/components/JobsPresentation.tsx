@@ -18,7 +18,7 @@ export const JobsPresentation = ({ jobs }: IJobsPresentationProps) => {
   } else {
     content = (
       <div key="jobs-list">
-        <ResultOptions></ResultOptions>
+        <ResultOptions results={jobs.total.value}></ResultOptions>
         <ul>
           {jobs.hits.map((job) => (
             <JobShortPresentation job={job} key={job.id}></JobShortPresentation>
