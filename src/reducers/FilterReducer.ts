@@ -1,5 +1,8 @@
 import { IFilterJobs } from '../models/IFilterJobs.ts';
 
+const storedLimit = localStorage.getItem('adsPerPageLimit');
+const DEFAULT_LIMIT = storedLimit ? Number(storedLimit) : 10;
+
 export enum FilterActionType {
   SET_QUERY_FROM_INPUT = 'SET_QUERY_FROM_INPUT',
   TOGGLE_REMOTE = 'TOGGLE_REMOTE',
@@ -84,7 +87,7 @@ export const defaultFilterState: IFilterJobs = {
   occupationFieldSelected: [],
   workingHoursType: '',
   sortBy: '',
-  limit: 10,
+  limit: DEFAULT_LIMIT,
   offset: 0,
 };
 
