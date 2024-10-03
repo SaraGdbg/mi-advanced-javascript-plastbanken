@@ -8,26 +8,33 @@ interface IJobsPresentationProps {
 
 export const JobsPresentation = ({ jobs }: IJobsPresentationProps) => {
   console.log('JobsPresentation');
-  console.log(jobs.hits.length);
+  console.log('Antal jobbträffar:', jobs.hits.length);
+  console.log(jobs.hits);
 
-  return (
-    <>
-      <DigiLayoutContainer>
-        {jobs.hits.length === 0 ? (
-          <h4>Tyvärr, inga träffar på vald sökning.</h4>
-        ) : (
-          <ul>
-            {jobs.hits.map((job) => (
-              <JobShortPresentation
-                job={job}
-                key={job.id}
-              ></JobShortPresentation>
-            ))}
-          </ul>
-        )}
-      </DigiLayoutContainer>
-    </>
-  );
+  let content = <></>;
+
+  if (jobs.hits.length === 0) {
+    content = (
+      <div key="no-jobs">
+        <h4>Tyvärr, inga träffar på vald sökning.</h4>
+      </div>
+    );
+    console.log(jobs.hits);
+  } else {
+    console.log(jobs.hits);
+
+    content = (
+      <div key="jobs-list">
+        <ul>
+          {jobs.hits.map((job) => (
+            <JobShortPresentation job={job} key={job.id}></JobShortPresentation>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  return <DigiLayoutContainer>{content}</DigiLayoutContainer>;
 };
 
 //   if (jobs.hits.length === 0) {
@@ -74,3 +81,20 @@ export const JobsPresentation = ({ jobs }: IJobsPresentationProps) => {
 //     <h4>Tyvärr, inga träffar på vald sökning.</h4>
 //   );
 // }
+
+/* <DigiLayoutContainer>
+        {jobs.hits.length === 0 ? (
+          <h4>Tyvärr, inga träffar på vald sökning.</h4>
+          
+        ) : (
+          <ul>
+            {jobs.hits.map((job) => (
+              <JobShortPresentation
+                job={job}
+                key={job.id}
+              ></JobShortPresentation>
+            ))}
+          </ul>
+        )}
+      </DigiLayoutContainer>
+    </> */
