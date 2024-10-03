@@ -1,26 +1,59 @@
-import { DigiFormFilter } from '@digi/arbetsformedlingen-react';
+import {
+  DigiButton,
+  DigiIconArrowDown,
+  DigiIconChevronDown,
+} from '@digi/arbetsformedlingen-react';
+import { IRegion } from '../../models/IRegion';
+import React, { useEffect, useRef, useState } from 'react';
+import { ButtonSize, ButtonVariation } from '@digi/arbetsformedlingen';
+import './filterButtonRegion.css';
+import { RegionMenu } from './RegionMenu';
 
-export const FilterButtonRegion = () => {
+export const FilterButtonRegion = (regionsArray: IRegion[]) => {
+  const [regionsChecked, setRegionsChecked] = useState<string[]>([]);
+  const [munisChecked, setMunisChecked] = useState<string[]>([]);
+
+  const [viewMenu, setViewMenu] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // useEffect(() => {
+  //   const close = (e: MouseEvent) => {
+  //     if (
+  //       dropdownRef.current &&
+  //       !dropdownRef.current.contains(e.target as Node)
+  //     ) {
+  //       setViewMenu(false);
+  //     }
+  //   };
+  //   document.addEventListener('click', close, true);
+
+  //   return () => {
+  //     document.removeEventListener('click', close, true);
+  //   };
+  // });
+
+  const toggleMenu = () => {
+    setViewMenu(!viewMenu);
+
+    console.log(viewMenu);
+  };
+
   return (
     <>
-      <DigiFormFilter
-        afFilterButtonText="Ort"
-        afSubmitButtonText="Filtrera"
-        afListItems={[
-          { id: 'omr1', label: 'Variabel för region' },
-          { id: 'omr2', label: 'Variabel för region' },
-          { id: 'omr3', label: 'Variabel för region' },
-        ]}
-        //afCheckItems={['omr2']} // optional, override internal check state of component with filter ids
-        onAfChangeFilter={(e) => console.log(e.detail.id, e.detail.isChecked)}
-        onAfResetFilter={() => console.log('reset filter')}
-        onAfSubmitFilter={(e) =>
-          console.log('submit filter', e.detail.listItems, e.detail.checked)
-        }
-        onAfCloseFilter={(e) =>
-          console.log('submit filter', e.detail.listItems, e.detail.checked)
-        }
-      ></DigiFormFilter>
+      <div className="menuContainer">
+        <div className="filterButtonContainer" ref={dropdownRef}>
+          <DigiButton
+            afSize={ButtonSize.MEDIUM}
+            afVariation={ButtonVariation.SECONDARY}
+            afFullWidth={false}
+            onClick={toggleMenu}
+          >
+            Ort
+            <DigiIconChevronDown slot="icon-secondary" />
+          </DigiButton>
+        </div>
+        {viewMenu === true ? <RegionMenu></RegionMenu> : ''}
+      </div>
     </>
   );
 };

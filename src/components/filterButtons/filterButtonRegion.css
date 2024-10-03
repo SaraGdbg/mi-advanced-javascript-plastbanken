@@ -1,0 +1,28 @@
+.regionMenuContainer {
+  width: 800px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid black;
+  position: absolute;
+  top: 40;
+  left: 0;
+  border-radius: 8px;
+  div {
+    border-left: 1px solid black;
+    padding: 1rem;
+  }
+}
+
+.menuContainer {
+  position: relative;
+}
+
+.filterButtonContainer {
+  /* width: 132px; */
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}

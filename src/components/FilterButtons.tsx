@@ -15,7 +15,9 @@ export const FilterButtons = () => {
       <DigiLayoutContainer>
         <section className="filter-buttons">
           <FilterButtonOccupation></FilterButtonOccupation>
-          <FilterButtonRegion></FilterButtonRegion>
+          <FilterButtonRegion
+            {...regionsOccupations.regions}
+          ></FilterButtonRegion>
           <FilterButtonEmplymentType></FilterButtonEmplymentType>
           <FilterButtonQualifications></FilterButtonQualifications>
           <FilterButtonPublishDate></FilterButtonPublishDate>
