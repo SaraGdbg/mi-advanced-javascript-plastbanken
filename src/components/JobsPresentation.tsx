@@ -11,7 +11,7 @@ export const JobsPresentation = ({ jobs }: IJobsPresentationProps) => {
   if (jobs.hits.length === 0) {
     content = (
       <div key="no-jobs">
-        <h4>Tyvärr, inga träffar på vald sökning.</h4>
+        <h2 className="no-results">Tyvärr, inga träffar på vald sökning.</h2>
       </div>
     );
   } else {

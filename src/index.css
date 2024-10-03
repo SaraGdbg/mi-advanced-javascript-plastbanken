@@ -144,6 +144,7 @@
 }
 
 body {
+  background-color: var(--white);
   margin: 0;
 }
 
@@ -161,4 +162,8 @@ body {
 .job-details {
   display: flex;
   justify-content: space-between;
+}
+
+.no-results {
+  margin: 16px 0;
 }
