@@ -1,4 +1,5 @@
-import { DigiLayoutContainer } from '@digi/arbetsformedlingen-react';
+// Placed a div as wrapper to ba able to style it's children
+//import { DigiLayoutContainer } from '@digi/arbetsformedlingen-react';
 import { SortResults } from './SortResults';
 
 interface IResultOptionProps {
@@ -11,10 +12,10 @@ export const ResultOptions = ({ results }: IResultOptionProps) => {
 
   return (
     <>
-      <DigiLayoutContainer className="sort-results-container">
+      <div className="sort-results-container">
         <h4>{results} träffar</h4>
         <SortResults></SortResults>
-      </DigiLayoutContainer>
+      </div>
     </>
   );
 };
