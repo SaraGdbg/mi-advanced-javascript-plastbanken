@@ -4,8 +4,7 @@ import { RegionsOccupationsContext } from '../../contexts/RegionsOccupationsCont
 
 export const FilterButtonOccupation = () => {
   const regionsOccupations = useContext(RegionsOccupationsContext);
-  //console.log(regionsOccupations.regions);
-  console.log(regionsOccupations.occupations);
+
   return (
     <>
       <DigiFormFilter

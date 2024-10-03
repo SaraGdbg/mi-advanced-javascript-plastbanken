@@ -16,6 +16,7 @@ import { IRegion } from '../models/IRegion';
 import { getLocations } from '../services/locationsService';
 import { RegionsOccupationsContext } from '../contexts/RegionsOccupationsContext';
 import { useState, useEffect } from 'react';
+import { ResultsPagination } from '../components/ResultsPagination';
 
 export const DisplayJobs = () => {
   const jobs = useLoaderData() as IJobsSearchResponse;
@@ -58,7 +59,9 @@ export const DisplayJobs = () => {
             <FilterButtons></FilterButtons>
           </RegionsOccupationsContext.Provider>
 
+
           <JobsPresentation jobs={jobs}></JobsPresentation>
+
         </DigiTypography>
       </DigiLayoutBlock>
     </>
