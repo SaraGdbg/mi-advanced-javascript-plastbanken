@@ -24,3 +24,9 @@ export const FilterButtonQualifications = () => {
     </>
   );
 };
+
+// update filter with:
+// education (concept_id: string, label: string, legacy_ams_taxonomy_is: string, weight: integer)
+// add checkbox for driving-licence
+// add radio buttons for education
+//
