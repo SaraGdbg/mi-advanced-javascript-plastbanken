@@ -29,4 +29,5 @@ export const FilterButtonQualifications = () => {
 // education (concept_id: string, label: string, legacy_ams_taxonomy_is: string, weight: integer)
 // add checkbox for driving-licence
 // add radio buttons for education
-//
+
+// TODO: update IFilter? Check IJobExt if what I put in there is helpful.......
