@@ -4,12 +4,9 @@ import {
   DigiNavigationPagination,
 } from '@digi/arbetsformedlingen-react';
 import { DigiNavigationPaginationCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
-import {
-  calculateAmountOfResultPages,
-  setCurrentPage,
-} from '../services/resultsPaginationService';
+import { calculateAmountOfResultPages } from '../services/resultsPaginationService';
 import { IJobsSearchResponse } from '../models/IJobsSearchResponse';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { FilterActionType } from '../reducers/FilterReducer';
 import { useNavigate } from 'react-router-dom';
 import { FilterDispatchContext } from '../contexts/FilterDispatchContext';

@@ -1,26 +1,44 @@
-import { DigiFormFilter } from '@digi/arbetsformedlingen-react';
+import {
+  DigiButton,
+  DigiIconChevronDown,
+} from '@digi/arbetsformedlingen-react';
+
+import { useRef, useState } from 'react';
+import { ButtonSize, ButtonVariation } from '@digi/arbetsformedlingen';
+import './filterButtonRegion.css';
+import { RegionMenu } from './RegionMenu';
 
 export const FilterButtonRegion = () => {
+  const [viewMenu, setViewMenu] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const toggleMenu = () => {
+    setViewMenu(!viewMenu);
+  };
+
   return (
     <>
-      <DigiFormFilter
-        afFilterButtonText="Ort"
-        afSubmitButtonText="Filtrera"
-        afListItems={[
-          { id: 'omr1', label: 'Variabel för region' },
-          { id: 'omr2', label: 'Variabel för region' },
-          { id: 'omr3', label: 'Variabel för region' },
-        ]}
-        //afCheckItems={['omr2']} // optional, override internal check state of component with filter ids
-        onAfChangeFilter={(e) => console.log(e.detail.id, e.detail.isChecked)}
-        onAfResetFilter={() => console.log('reset filter')}
-        onAfSubmitFilter={(e) =>
-          console.log('submit filter', e.detail.listItems, e.detail.checked)
-        }
-        onAfCloseFilter={(e) =>
-          console.log('submit filter', e.detail.listItems, e.detail.checked)
-        }
-      ></DigiFormFilter>
+      <div>
+        <div className="menuContainer">
+          <div className="filterButtonContainer" ref={dropdownRef}>
+            <DigiButton
+              afSize={ButtonSize.MEDIUM}
+              afVariation={ButtonVariation.SECONDARY}
+              afFullWidth={false}
+              onClick={toggleMenu}
+            >
+              Ort
+              <DigiIconChevronDown slot="icon-secondary" />
+            </DigiButton>
+          </div>
+          {viewMenu === true ? <RegionMenu></RegionMenu> : ''}
+        </div>
+        {viewMenu === true ? (
+          <div className="overlay" onClick={toggleMenu}></div>
+        ) : (
+          ''
+        )}
+      </div>
     </>
   );
 };
