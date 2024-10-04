@@ -1,15 +1,14 @@
 import {
   DigiButton,
   DigiIconChevronDown,
-  DigiIconChevronUp,
 } from '@digi/arbetsformedlingen-react';
-import { IRegion } from '../../models/IRegion';
-import React, { useEffect, useRef, useState } from 'react';
+
+import { useRef, useState } from 'react';
 import { ButtonSize, ButtonVariation } from '@digi/arbetsformedlingen';
 import './filterButtonRegion.css';
 import { RegionMenu } from './RegionMenu';
 
-export const FilterButtonRegion = (regionsArray: IRegion[]) => {
+export const FilterButtonRegion = () => {
   const [viewMenu, setViewMenu] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
