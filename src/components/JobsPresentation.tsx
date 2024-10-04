@@ -1,6 +1,7 @@
 import { JobShortPresentation } from './JobShortPresentation';
 import { IJobsSearchResponse } from '../models/IJobsSearchResponse';
 import { ResultOptions } from './ResultOptions';
+import { ResultsPagination } from './ResultsPagination.tsx';
 
 interface IJobsPresentationProps {
   jobs: IJobsSearchResponse;
@@ -27,6 +28,7 @@ export const JobsPresentation = ({ jobs }: IJobsPresentationProps) => {
             <JobShortPresentation job={job} key={job.id}></JobShortPresentation>
           ))}
         </ul>
+        <ResultsPagination {...jobs}></ResultsPagination>
       </div>
     );
   }
