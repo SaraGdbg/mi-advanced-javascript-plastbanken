@@ -121,7 +121,7 @@ export const FilterReducer = (
       return { ...filter, workingHoursType: action.payload };
     }
     case FilterActionType.SET_SORT_BY: {
-      return { ...filter, sortBy: action.payload };
+      return { ...filter, sortBy: action.payload, offset: 0 };
     }
     case FilterActionType.SET_LIMIT: {
       return { ...filter, limit: action.payload, offset: 0 };
