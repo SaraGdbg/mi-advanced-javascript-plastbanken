@@ -64,6 +64,7 @@ export const RegionMenu = () => {
             <DigiFormCheckbox
               afLabel={activeRegion[1]}
               afVariation={FormCheckboxVariation.SECONDARY}
+              afChecked={false}
             />
             <br></br>
           </div>
@@ -76,6 +77,7 @@ export const RegionMenu = () => {
               <DigiFormCheckbox
                 afLabel={muni['taxonomy/preferred-label']}
                 afVariation={FormCheckboxVariation.SECONDARY}
+                afChecked={false}
               />
             }
             {/* <p>{muni['taxonomy/preferred-label']}</p> */}
