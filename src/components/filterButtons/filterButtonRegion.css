@@ -8,10 +8,22 @@
   top: 40;
   left: 0;
   border-radius: 8px;
+  z-index: 999;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* background-color: #00000050; */
+  z-index: 5;
 }
 
 .menuContainer {
   position: relative;
+  z-index: 999;
 }
 
 .regionContainer {
