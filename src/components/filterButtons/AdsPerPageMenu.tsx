@@ -53,7 +53,7 @@ export const AdsPerPageMenu = () => {
 
     localStorage.setItem('adsPerPageLimit', selectedValue.toString());
 
-    const updatedFilters = { ...filters, limit: selectedValue };
+    const updatedFilters = { ...filters, limit: selectedValue, offset: 0 };
     const searchText = createQueryString(updatedFilters);
 
     navigate(`/annonser/${searchText}`);

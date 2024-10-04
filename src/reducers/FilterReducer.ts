@@ -124,7 +124,7 @@ export const FilterReducer = (
       return { ...filter, sortBy: action.payload };
     }
     case FilterActionType.SET_LIMIT: {
-      return { ...filter, limit: action.payload };
+      return { ...filter, limit: action.payload, offset: 0 };
     }
     case FilterActionType.SET_OFFSET: {
       return { ...filter, offset: action.payload };
