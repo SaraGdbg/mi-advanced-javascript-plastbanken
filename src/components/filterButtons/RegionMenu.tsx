@@ -20,7 +20,7 @@ export const RegionMenu = () => {
   const regionsOccupations = useContext(RegionsOccupationsContext);
 
   const [activeMuni, setActiveMuni] = useState<IMunicipality[]>([]);
-  const [activeRegion, setActiveRegion] = useState('');
+  const [activeRegion, setActiveRegion] = useState(['', '']);
   // const [regionsChecked, setRegionsChecked] = useState<string[]>([]);
   // const [munisChecked, setMunisChecked] = useState<string[]>([]);
 
@@ -30,7 +30,8 @@ export const RegionMenu = () => {
     );
     if (activeRegion) {
       setActiveMuni(activeRegion.municipalities);
-      setActiveRegion(e.target.afId);
+      if (e.target.textContent)
+        setActiveRegion([e.target.afId, e.target.textContent]);
     }
   };
 
@@ -42,7 +43,7 @@ export const RegionMenu = () => {
             <DigiButton
               afSize={ButtonSize.SMALL}
               afVariation={
-                activeRegion === region['taxonomy/id']
+                activeRegion[0] === region['taxonomy/id']
                   ? ButtonVariation.PRIMARY
                   : ButtonVariation.SECONDARY
               }
@@ -58,6 +59,17 @@ export const RegionMenu = () => {
         ))}
       </div>
       <div className="muniContainer">
+        {activeMuni.length > 0 ? (
+          <div>
+            <DigiFormCheckbox
+              afLabel={activeRegion[1]}
+              afVariation={FormCheckboxVariation.SECONDARY}
+            />
+            <br></br>
+          </div>
+        ) : (
+          ''
+        )}
         {activeMuni.map((muni) => (
           <div key={muni['taxonomy/id']}>
             {
