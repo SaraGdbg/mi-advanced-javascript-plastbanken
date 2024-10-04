@@ -15,7 +15,7 @@ export const ResultOptions = ({ ads, positions }: IResultOptionProps) => {
     <>
       <div className="sort-results-container">
         <h3>
-          <span className="bold-text">Hittade {ads} annonser</span>, med{' '}
+          <span className="bold-text">Hittade {ads} annonser</span> med{' '}
           {positions} jobb
         </h3>
         <SortResults></SortResults>

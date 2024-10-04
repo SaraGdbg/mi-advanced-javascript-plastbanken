@@ -3,6 +3,12 @@ import {
   ContextMenuEventItem,
   DigiContextMenuCustomEvent,
 } from '@digi/arbetsformedlingen/dist/types/components';
+import { FilterActionType } from '../reducers/FilterReducer';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { FilterContext } from '../contexts/FilterContext';
+import { FilterDispatchContext } from '../contexts/FilterDispatchContext';
+import { createQueryString } from '../utils/createQueryString';
 
 export const SortResults = () => {
   //TODO: logic to only be able to check one of the checkboxes at a time
@@ -27,14 +33,15 @@ export const SortResults = () => {
       title: 'Datum stigande',
     },
   ];
+
+  const navigate = useNavigate();
+  const filters = useContext(FilterContext);
+  const dispatch = useContext(FilterDispatchContext);
+
   //Add type to event
   const handleChange = (
     e: DigiContextMenuCustomEvent<ContextMenuEventItem>,
   ) => {
-    if (e.detail.idx === 2) {
-      console.log('det funkar');
-      console.log(e.detail.item.id);
-    }
     let selectedSorting: string = '';
     switch (e.detail.item.id) {
       case 0:
@@ -47,15 +54,18 @@ export const SortResults = () => {
         selectedSorting = 'pubdate-asc';
         break;
     }
-    console.log(selectedSorting);
-  };
 
-  // vill skicka in en string: relevance, pubdate-desc, pubdate-asc som payload
-  // vill göra en dispatch med valt värde
-  // skapa en funktion som sätter en varibel typ selectedsorting
-  // skicka med den variabeln i dispatchen  till filterreducern: FilterActionType.SET_SORT_BY;
-  // får tillbaka filtrerat resultat
-  // visa på sidan via navigate
+    dispatch({
+      type: FilterActionType.SET_SORT_BY,
+      payload: selectedSorting,
+    });
+
+    const updatedFilters = { ...filters, sortBy: selectedSorting, offset: 0 };
+    const searchText = createQueryString(updatedFilters);
+    console.log('updated filters:', updatedFilters);
+
+    navigate(`/annonser/${searchText}`);
+  };
 
   return (
     <>
