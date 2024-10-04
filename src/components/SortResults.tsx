@@ -23,7 +23,7 @@ export const SortResults = () => {
       title: 'Datum stigande',
     },
   ];
-
+  //Add type to event
   const handleChange = (e) => {
     console.log('handleChange');
   };
