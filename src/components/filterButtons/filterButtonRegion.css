@@ -3,12 +3,14 @@
   background-color: white;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  box-shadow: 0 0.125rem 0.375rem 0 rgba(0, 0, 0, 0.7);
   position: absolute;
-  top: 40;
-  left: 0;
-  border-radius: 8px;
+  /* top: 30; */
+  /* left: 0; */
+  /* border-radius: 8px; */
   z-index: 999;
+  padding: 1rem;
 }
 
 .overlay {
@@ -27,13 +29,26 @@
 }
 
 .regionContainer {
-  min-width: 200px;
-  width: min-content;
+  width: 210px;
+  max-height: 65vh;
+  overflow-x: scroll;
+  overflow-x: hidden;
+  border-top: 1px solid black;
+  padding-top: 0.5rem;
+  .sc-digi-button-h .digi-button.sc-digi-button {
+    border-width: 0;
+    border-radius: 0;
+  }
 }
 
 .muniContainer {
   padding-left: 1rem;
-  width: calc(200px - 1rem);
+  width: calc(260px - 1rem);
+  max-height: 65vh;
+  overflow-x: scroll;
+  overflow-x: hidden;
+  border-top: 1px solid black;
+  padding-top: 0.7rem;
 }
 
 .inline {

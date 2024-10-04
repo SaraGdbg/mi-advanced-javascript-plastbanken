@@ -1,5 +1,6 @@
 import { JobShortPresentation } from './JobShortPresentation';
 import { IJobsSearchResponse } from '../models/IJobsSearchResponse';
+import { ResultOptions } from './ResultOptions';
 import { ResultsPagination } from './ResultsPagination.tsx';
 
 interface IJobsPresentationProps {
@@ -18,6 +19,10 @@ export const JobsPresentation = ({ jobs }: IJobsPresentationProps) => {
   } else {
     content = (
       <div key="jobs-list">
+        <ResultOptions
+          ads={jobs.total.value}
+          positions={jobs.positions}
+        ></ResultOptions>
         <ul>
           {jobs.hits.map((job) => (
             <JobShortPresentation job={job} key={job.id}></JobShortPresentation>
