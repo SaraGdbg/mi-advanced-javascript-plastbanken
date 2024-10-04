@@ -29,8 +29,6 @@ export const RegionMenu = () => {
 
   const [activeMuni, setActiveMuni] = useState<IMunicipality[]>([]);
   const [activeRegion, setActiveRegion] = useState(['', '']);
-  let munisChecked: string[] = [];
-  let regionsChecked: string[] = [];
 
   const setRegion = (e: DigiButtonCustomEvent<MouseEvent>) => {
     const activeRegion = regionsOccupations.regions.find(
@@ -43,10 +41,20 @@ export const RegionMenu = () => {
     }
   };
 
+  const clearFilters = () => {
+    dispatch({
+      type: FilterActionType.SET_MUNICIPALITIES,
+      payload: [],
+    });
+    dispatch({
+      type: FilterActionType.SET_REGIONS,
+      payload: [],
+    });
+  };
+
   const updateLocationsChecked = (e: DigiFormCheckboxCustomEvent<any>) => {
     const queryValue = e.target.value;
     const isChecked = e.target.checked;
-    console.log(filters.municipalitiesSelected);
 
     if (queryValue.length === 4) {
       if (isChecked) {
@@ -93,6 +101,7 @@ export const RegionMenu = () => {
   return (
     <div className="regionMenuContainer">
       <div className="regionContainer">
+        <button onClick={clearFilters}>Rensa filter</button>
         {regionsOccupations.regions.map((region) => (
           <div key={region['taxonomy/national-nuts-level-3-code-2019']}>
             <DigiButton
@@ -110,7 +119,6 @@ export const RegionMenu = () => {
               {region['taxonomy/preferred-label']}
               <DigiIconChevronRight slot="icon-secondary" />
             </DigiButton>
-            {/* <p>{region['taxonomy/preferred-label']}</p> */}
           </div>
         ))}
       </div>
@@ -140,7 +148,6 @@ export const RegionMenu = () => {
                 afValue={muni['taxonomy/lau-2-code-2015']}
               />
             }
-            {/* <p>{muni['taxonomy/preferred-label']}</p> */}
           </div>
         ))}
       </div>
