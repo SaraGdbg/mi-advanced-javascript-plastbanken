@@ -45,7 +45,7 @@ interface ISetOccupationFieldsAction {
 
 interface ISetWorkingHoursTypeAction {
   type: FilterActionType.SET_WORKING_HOURS_TYPE;
-  payload: string;
+  payload: number;
 }
 
 interface ISetSortByAction {
@@ -82,7 +82,7 @@ export const defaultFilterState: IFilterJobs = {
   municipalitiesSelected: [],
   regionsSelected: [],
   occupationFieldSelected: [],
-  workingHoursType: '',
+  workingHoursType: 0,
   sortBy: '',
   limit: 10,
   offset: 0,
