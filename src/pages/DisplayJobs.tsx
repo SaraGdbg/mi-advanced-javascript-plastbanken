@@ -56,9 +56,8 @@ export const DisplayJobs = () => {
           <RegionsOccupationsContext.Provider value={{ regions, occupations }}>
             <FilterButtons></FilterButtons>
           </RegionsOccupationsContext.Provider>
-          <DigiLayoutContainer>
-            <JobsPresentation jobs={jobs}></JobsPresentation>
-          </DigiLayoutContainer>
+
+          <JobsPresentation jobs={jobs}></JobsPresentation>
         </DigiTypography>
       </DigiLayoutBlock>
     </>
