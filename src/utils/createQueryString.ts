@@ -22,7 +22,7 @@ export const createQueryString = (filters: IFilterJobs): string => {
     params.append('occupation-field', occupationField);
   });
 
-  if (filters.workingHoursType) params.append('q', filters.queryFromInput);
+  if (filters.workingHoursType) params.append('worktime-extent', filters.workingHoursType);
 
   if (filters.sortBy) params.append('sort', filters.sortBy);
 
