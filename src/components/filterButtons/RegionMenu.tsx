@@ -51,26 +51,27 @@ export const RegionMenu = () => {
     if (queryValue.length === 4) {
       if (isChecked) {
         filters.municipalitiesSelected.push(queryValue);
-        dispatch({
-          type: FilterActionType.SET_MUNICIPALITIES,
-          payload: filters.municipalitiesSelected,
-        });
       } else {
-        // munisChecked = munisChecked.filter((muni) => muni !== queryValue);
         filters.municipalitiesSelected = filters.municipalitiesSelected.filter(
           (muni) => muni !== queryValue,
         );
       }
+      dispatch({
+        type: FilterActionType.SET_MUNICIPALITIES,
+        payload: filters.municipalitiesSelected,
+      });
     } else {
       if (isChecked) {
         filters.regionsSelected.push(queryValue);
-        dispatch({
-          type: FilterActionType.SET_REGIONS,
-          payload: filters.regionsSelected,
-        });
       } else {
-        regionsChecked = regionsChecked.filter((muni) => muni !== queryValue);
+        filters.regionsSelected = filters.regionsSelected.filter(
+          (region) => region !== queryValue,
+        );
       }
+      dispatch({
+        type: FilterActionType.SET_REGIONS,
+        payload: filters.regionsSelected,
+      });
     }
   };
 
