@@ -1,5 +1,6 @@
 // Placed a div as wrapper to ba able to style it's children
 //import { DigiLayoutContainer } from '@digi/arbetsformedlingen-react';
+import { AdsPerPageMenu } from './filterButtons/AdsPerPageMenu';
 import { SortResults } from './SortResults';
 
 interface IResultOptionProps {
@@ -18,7 +19,10 @@ export const ResultOptions = ({ ads, positions }: IResultOptionProps) => {
           <span className="bold-text">Hittade {ads} annonser</span> med{' '}
           {positions} jobb
         </h3>
-        <SortResults></SortResults>
+        <div className="result-options-container">
+          <AdsPerPageMenu></AdsPerPageMenu>
+          <SortResults></SortResults>
+        </div>
       </div>
     </>
   );
