@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { FilterDispatchContext } from '../contexts/FilterDispatchContext.ts';
 import { FilterActionType } from '../reducers/FilterReducer.ts';
 import { FilterContext } from '../contexts/FilterContext.ts';
+import { createQueryString } from '../utils/createQueryString.ts';
 
 export const SearchBar = () => {
   const navigate = useNavigate();
@@ -22,19 +23,15 @@ export const SearchBar = () => {
     });
   };
 
-  const handleSubmit = async (e: DigiFormInputSearchCustomEvent<string>) => {
-    const inputText = e.target.value;
-    let searchText = '';
+  const handleSubmit = async () => {
+    filters.offset = 0;
+    dispatch({
+      type: FilterActionType.SET_OFFSET,
+      payload: filters.offset,
+    });
 
-    if (inputText) {
-      searchText = `q=${inputText}`;
-    }
-
-    if (searchText) {
-      navigate(`/annonser/${searchText}`);
-    } else {
-      navigate('/annonser');
-    }
+    const queryString = createQueryString(filters);
+    navigate(`/annonser/${queryString}`);
   };
 
   return (
