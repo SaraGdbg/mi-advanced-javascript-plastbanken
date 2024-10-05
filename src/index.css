@@ -133,8 +133,19 @@
   --digi--color--icons--informative: var(--cambridge-blue-300);
 
   .digi-logo svg {
-    display: none; 
+    display: none;
   }
+}
+
+#root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+body {
+  background-color: var(--white);
+  margin: 0;
 }
 
 .sc-digi-layout-container-h
@@ -151,4 +162,18 @@
 .job-details {
   display: flex;
   justify-content: space-between;
+}
+
+.no-results {
+  margin: 16px 0;
+}
+
+.sort-results-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.bold-text {
+  font-weight: bold;
 }

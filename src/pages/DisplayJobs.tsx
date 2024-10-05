@@ -7,7 +7,6 @@ import {
   DigiTypography,
 } from '@digi/arbetsformedlingen-react';
 import { SearchBar } from '../components/SearchBar';
-import { JobShortPresentation } from '../components/JobShortPresentation';
 import { IJobsSearchResponse } from '../models/IJobsSearchResponse';
 import { getOccupations } from '../services/occupationsService';
 import { IOccupationFields } from '../models/IOccupationFields';
@@ -16,6 +15,7 @@ import { IRegion } from '../models/IRegion';
 import { getLocations } from '../services/locationsService';
 import { RegionsOccupationsContext } from '../contexts/RegionsOccupationsContext';
 import { useState, useEffect } from 'react';
+import { JobsPresentation } from '../components/JobsPresentation.tsx';
 
 export const DisplayJobs = () => {
   const jobs = useLoaderData() as IJobsSearchResponse;
@@ -53,21 +53,11 @@ export const DisplayJobs = () => {
             <h2>Sökresultat</h2>
             <SearchBar></SearchBar>
           </DigiLayoutContainer>
-
           <RegionsOccupationsContext.Provider value={{ regions, occupations }}>
             <FilterButtons></FilterButtons>
           </RegionsOccupationsContext.Provider>
 
-          <DigiLayoutContainer>
-            <ul>
-              {jobs?.hits.map((job) => (
-                <JobShortPresentation
-                  job={job}
-                  key={job.id}
-                ></JobShortPresentation>
-              ))}
-            </ul>
-          </DigiLayoutContainer>
+          <JobsPresentation jobs={jobs}></JobsPresentation>
         </DigiTypography>
       </DigiLayoutBlock>
     </>
