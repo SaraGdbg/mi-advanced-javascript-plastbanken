@@ -1,19 +1,16 @@
 import { useContext, useState } from 'react';
 
-import {
-  DigiButton,
-  DigiIconChevronRight,
-} from '@digi/arbetsformedlingen-react';
-import {
-  ButtonSize,
-  ButtonVariation,
-} from '@digi/arbetsformedlingen';
-import { DigiButtonCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
 import { FilterActionType } from '../../reducers/FilterReducer';
 import { createQueryString } from '../../utils/createQueryString';
 import { useNavigate } from 'react-router-dom';
 import { FilterContext } from '../../contexts/FilterContext';
 import { FilterDispatchContext } from '../../contexts/FilterDispatchContext';
+import { FormRadiobuttonVariation } from '@digi/arbetsformedlingen';
+import {
+  DigiFormRadiobutton,
+  DigiFormRadiogroup,
+} from '@digi/arbetsformedlingen-react';
+import { DigiFormRadiobuttonCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
 
 export const EmploymentTypeMenu = () => {
   const navigate = useNavigate();
@@ -23,7 +20,13 @@ export const EmploymentTypeMenu = () => {
   const employmentTypes = ['0', '1', '2']; //send this
   const employmentTypeTitles = ['Alla', 'Heltid', 'Deltid']; //show this
 
-  const setEmploymentType = (e: DigiButtonCustomEvent<MouseEvent>) => {
+  const checkRadioButton = (id: string) => {
+    if (filters.workingHoursType === id) {
+      return true;
+    }
+  };
+
+  const setEmploymentType = (e: DigiFormRadiobuttonCustomEvent<MouseEvent>) => {
     console.log(e.target.afId);
     const selectedItem = e.target.afId;
 
@@ -41,21 +44,19 @@ export const EmploymentTypeMenu = () => {
   return (
     <div className="regionMenuContainer">
       <div className="regionContainer">
-        {employmentTypes.map((type) => (
-          <div key={type}>
-            <DigiButton
-              afSize={ButtonSize.SMALL}
-              afVariation={ButtonVariation.SECONDARY}
-              afFullWidth={true}
-              afId={type.toString()}
-              onAfOnClick={setEmploymentType}
-            >
-              {employmentTypeTitles[+type]}
-              <DigiIconChevronRight slot="icon-secondary" />
-            </DigiButton>
-
-          </div>
-        ))}
+        <DigiFormRadiogroup>
+          {employmentTypes.map((type) => (
+            <div key={type}>
+              <DigiFormRadiobutton
+                afLabel={employmentTypeTitles[+type]}
+                afVariation={FormRadiobuttonVariation.PRIMARY}
+                onAfOnChange={setEmploymentType}
+                afId={type.toString()}
+                afChecked={checkRadioButton(type.toString())}
+              ></DigiFormRadiobutton>
+            </div>
+          ))}
+        </DigiFormRadiogroup>
       </div>
     </div>
   );
