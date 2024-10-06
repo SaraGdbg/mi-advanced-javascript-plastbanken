@@ -50,7 +50,14 @@ export interface IJobExt extends IJob {
     url: string | null;
     // email link for where to send job application
     email: string | null;
+    // reference 
+    reference: string | null;
   };
+  application_contacts: [{
+    name: string | null;
+    email: string | null;
+    telephone: string | null;
+  }]
   description: {
     // usually heltid/tillsvidare or something similar.
     conditions: string | null;
