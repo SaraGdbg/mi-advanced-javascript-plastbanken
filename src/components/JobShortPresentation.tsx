@@ -4,6 +4,7 @@ import {
   DigiTypography,
 } from '@digi/arbetsformedlingen-react';
 import { IJob } from '../models/IJob';
+import { Link } from 'react-router-dom';
 
 interface IJobShortPresentationProps {
   job: IJob;
@@ -20,7 +21,9 @@ export const JobShortPresentation = ({ job }: IJobShortPresentationProps) => {
       <DigiTypography>
         <div className="job-short-presentation">
           <section className="job-details">
-            <h3>{job.headline}</h3>
+            <Link to={`/annonser/id/${job.id}`}>
+              <h3>{job.headline}</h3>
+            </Link>
             <div className="job-details-time">
               Varaktighet: <h4>{job.duration.label}</h4>
               Omfattning: <h4>{job.working_hours_type.label}</h4>
