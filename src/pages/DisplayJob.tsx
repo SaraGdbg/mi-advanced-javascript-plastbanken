@@ -42,6 +42,14 @@ export const DisplayJob = () => {
   });
   const formattedDate = `${datePart} klockan ${timePart}`;
 
+  let formattedText = '';
+  const descriptionFormatter = () => {
+    const initialText = job.description.text_formatted;
+    formattedText = initialText.split('\n').join('<br>');
+  };
+
+  descriptionFormatter();
+
   return (
     <>
       <DigiLayoutBlock afMarginTop={true}>
@@ -98,7 +106,7 @@ export const DisplayJob = () => {
               <DigiLayoutContainer afMarginTop={true}>
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: job.description.text_formatted,
+                    __html: formattedText,
                   }}
                 />
               </DigiLayoutContainer>
@@ -111,12 +119,10 @@ export const DisplayJob = () => {
                 </DigiLayoutContainer>
               )}
 
-<DigiLayoutContainer afMarginTop={true}>
+              <DigiLayoutContainer afMarginTop={true}>
                 <h3>
                   Arbetsgivare:
-                  <p>
-                    {job.employer.name}
-                  </p>
+                  <p>{job.employer.name}</p>
                 </h3>
               </DigiLayoutContainer>
 
