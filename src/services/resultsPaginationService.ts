@@ -2,6 +2,7 @@ export const calculateAmountOfResultPages = (
   totalJobs: number,
   limit: number,
 ) => {
+  // 2000 is the hard coded limit from the API for max amount of offset
   if (totalJobs > 2000) {
     return Math.floor(2000 / limit) + 1;
   } else {
