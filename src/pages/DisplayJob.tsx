@@ -5,6 +5,7 @@ import {
   InfoCardVariation,
   LayoutColumnsVariation,
   ButtonVariation,
+  LayoutMediaObjectAlignment,
 } from '@digi/arbetsformedlingen';
 import {
   DigiButton,
@@ -12,6 +13,8 @@ import {
   DigiLayoutBlock,
   DigiLayoutColumns,
   DigiLayoutContainer,
+  DigiLayoutMediaObject,
+  DigiMediaImage,
   DigiTypography,
 } from '@digi/arbetsformedlingen-react';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
@@ -69,6 +72,17 @@ export const DisplayJob = () => {
         <DigiLayoutColumns afVariation={LayoutColumnsVariation.TWO}>
           <DigiLayoutContainer className="job-info-container">
             <DigiTypography>
+              {job.logo_url && (
+                <DigiLayoutMediaObject
+                  afAlignment={LayoutMediaObjectAlignment.START}
+                >
+                  <DigiMediaImage
+                    afSrc={job.logo_url}
+                    afAlt={`Logotyp för ${job.employer.name}`}
+                  ></DigiMediaImage>
+                </DigiLayoutMediaObject>
+              )}
+
               <h1>{job.headline}</h1>
               <DigiLayoutColumns afVariation={LayoutColumnsVariation.TWO}>
                 <DigiLayoutContainer>
@@ -137,7 +151,9 @@ export const DisplayJob = () => {
                 <h3>
                   Arbetsplatsen ligger i:{' '}
                   <p>
-                    {job.workplace_address.municipality}{', '}{job.workplace_address.region}
+                    {job.workplace_address.municipality}
+                    {', '}
+                    {job.workplace_address.region}
                   </p>
                 </h3>
               </DigiLayoutContainer>
@@ -157,6 +173,7 @@ export const DisplayJob = () => {
               )}
 
               <DigiLayoutContainer afMarginTop={true} afMarginBottom={true}>
+                <h3>Annonsinformation:</h3>
                 <p>Annons-id: {job.id}</p>
                 <p>Publicerad: {dateFormatter(job.publication_date, true)}</p>
               </DigiLayoutContainer>
