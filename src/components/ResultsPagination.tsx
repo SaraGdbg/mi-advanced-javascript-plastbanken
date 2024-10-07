@@ -1,9 +1,12 @@
 import { LayoutContainerVariation } from '@digi/arbetsformedlingen';
 import {
+  DigiLayoutBlock,
   DigiLayoutContainer,
   DigiNavigationPagination,
+  DigiTypography,
 } from '@digi/arbetsformedlingen-react';
 import { DigiNavigationPaginationCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
+import { LayoutBlockVariation } from '@digi/arbetsformedlingen';
 import {
   calculateAmountOfResultPages,
   setCurrentResultEnd,
@@ -35,11 +38,15 @@ export const ResultsPagination = (jobs: IJobsSearchResponse) => {
   const goToAnotherResultPage = (
     e: DigiNavigationPaginationCustomEvent<number>,
   ) => {
+    let offset = (e.detail - 1) * filters.limit;
+    if (offset > 2000) {
+      offset = 2000;
+    }
     dispatch({
       type: FilterActionType.SET_OFFSET,
-      payload: (e.detail - 1) * filters.limit,
+      payload: offset,
     });
-    filters.offset = (e.detail - 1) * filters.limit;
+    filters.offset = offset;
     const searchText = createQueryString(filters);
 
     navigate(`/annonser/${searchText}`);
@@ -47,18 +54,37 @@ export const ResultsPagination = (jobs: IJobsSearchResponse) => {
 
   return (
     <>
-      <DigiLayoutContainer afVariation={LayoutContainerVariation.FLUID}>
-        <p>{activePage}</p>
-        <DigiNavigationPagination
-          afTotalPages={totalPages}
-          afInitActive-page={activePage}
-          afCurrentResultStart={currentResultStart}
-          afCurrentResultEnd={currentResultEnd}
-          afTotalResults={totalResults}
-          afResultName="annonser"
-          onAfOnPageChange={goToAnotherResultPage}
-        ></DigiNavigationPagination>
-      </DigiLayoutContainer>
+      <div>
+        {filters.offset >= 2000 ? (
+          <div className="centeredDiv">
+            <DigiLayoutBlock
+              afVariation={LayoutBlockVariation.PRIMARY}
+              afMarginBottom={true}
+            >
+              <DigiTypography>
+                <p className="textCenter">
+                  Detta är slutet av de 2000 första annonserna i sökresultatet,
+                  vilket är maxantalet vi kan visa. För att se andra annonser,
+                  gör en ny sökning med andra sökkriterier.
+                </p>
+              </DigiTypography>
+            </DigiLayoutBlock>
+          </div>
+        ) : (
+          ''
+        )}
+        <DigiLayoutContainer afVariation={LayoutContainerVariation.FLUID}>
+          <DigiNavigationPagination
+            afTotalPages={totalPages}
+            afInitActive-page={activePage}
+            afCurrentResultStart={currentResultStart}
+            afCurrentResultEnd={currentResultEnd}
+            afTotalResults={totalResults}
+            afResultName="annonser"
+            onAfOnPageChange={goToAnotherResultPage}
+          ></DigiNavigationPagination>
+        </DigiLayoutContainer>
+      </div>
     </>
   );
 };

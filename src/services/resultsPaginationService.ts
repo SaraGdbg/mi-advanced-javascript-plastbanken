@@ -2,7 +2,11 @@ export const calculateAmountOfResultPages = (
   totalJobs: number,
   limit: number,
 ) => {
-  return Math.floor(totalJobs / limit) + 1;
+  if (totalJobs > 2000) {
+    return Math.floor(2000 / limit) + 1;
+  } else {
+    return Math.floor(totalJobs / limit) + 1;
+  }
 };
 
 export const setCurrentPage = (offset: number, limit: number) => {
