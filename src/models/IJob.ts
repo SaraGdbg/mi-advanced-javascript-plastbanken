@@ -57,6 +57,7 @@ export interface IJobExt extends IJob {
     name: string | null;
     email: string | null;
     telephone: string | null;
+    description: string | null;
   }]
   description: {
     // usually heltid/tillsvidare or something similar.
