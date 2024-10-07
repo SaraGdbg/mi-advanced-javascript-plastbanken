@@ -30,26 +30,22 @@ export const DisplayJob = () => {
     navigate(`/annonser/${queryString}`);
   };
 
-  const date = new Date(job.publication_date);
-  const datePart = date.toLocaleDateString('sv-SE', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
-  const timePart = date.toLocaleTimeString('sv-SE', {
-    hour: '2-digit',
-    minute: '2-digit',
-  });
-  const formattedDate = `${datePart} klockan ${timePart}`;
+  const dateFormatter = (dateString: string, displayTime: boolean) => {
+    const date = new Date(dateString);
+    const datePart = date.toLocaleDateString('sv-SE', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    });
+    const timePart = date.toLocaleTimeString('sv-SE', {
+      hour: '2-digit',
+      minute: '2-digit',
+    });
 
-
-  const date1 = new Date(job.application_deadline);
-  const datePart1 = date1.toLocaleDateString('sv-SE', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
-  const formattedDeadlineDate = `${datePart1}`;
+    if (displayTime) {
+      return `${datePart} klockan ${timePart}`;
+    } else return datePart;
+  };
 
   let formattedText = '';
   const descriptionFormatter = () => {
@@ -142,9 +138,9 @@ export const DisplayJob = () => {
                   Arbetsplatsen ligger i:{' '}
                   <p>
                     {job.workplace_address.municipality}
-                    {!job.workplace_address.municipality?.endsWith('s') && ('s')}
-                    {' '}kommun,{' '}
-                    {job.workplace_address.region}
+                    {!job.workplace_address.municipality?.endsWith('s') &&
+                      's'}{' '}
+                    kommun, {job.workplace_address.region}
                   </p>
                 </h3>
               </DigiLayoutContainer>
@@ -165,7 +161,7 @@ export const DisplayJob = () => {
 
               <DigiLayoutContainer afMarginTop={true} afMarginBottom={true}>
                 <p>Annons-id: {job.id}</p>
-                <p>Publicerad: {formattedDate}</p>
+                <p>Publicerad: {dateFormatter(job.publication_date, true)}</p>
               </DigiLayoutContainer>
             </DigiTypography>
           </DigiLayoutContainer>
@@ -214,15 +210,13 @@ export const DisplayJob = () => {
                   </div>
                 )}
 
-<div>
-                    <br></br>
-                    <p>
-                      Ansök senast:{' '}
-                      </p>
-                      <p className="bold-text">
-                        {formattedDeadlineDate}
-                      </p>
-                  </div>
+                <div>
+                  <br></br>
+                  <p>Ansök senast: </p>
+                  <p className="bold-text">
+                    {dateFormatter(job.application_deadline, false)}
+                  </p>
+                </div>
               </DigiTypography>
             </DigiInfoCard>
           </div>
