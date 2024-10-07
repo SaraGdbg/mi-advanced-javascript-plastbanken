@@ -81,6 +81,7 @@ export type FilterAction =
 export const defaultFilterState: IFilterJobs = {
   queryFromInput: '',
   isRemote: false,
+  // default true
   requiresDrivingLicense: false,
   municipalitiesSelected: [],
   regionsSelected: [],

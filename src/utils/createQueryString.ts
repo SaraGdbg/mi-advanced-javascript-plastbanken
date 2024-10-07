@@ -7,6 +7,7 @@ export const createQueryString = (filters: IFilterJobs): string => {
 
   if (filters.isRemote) params.append('remote', 'true');
 
+  //ändra till false
   if (filters.requiresDrivingLicense)
     params.append('driving-license-required', 'true');
 

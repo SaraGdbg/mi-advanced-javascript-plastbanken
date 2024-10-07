@@ -69,6 +69,7 @@ export interface IJobExt extends IJob {
         },
       ]
     | null;
+
   // is experience required <- is there filters functions for this?
   experience_required: boolean;
 
