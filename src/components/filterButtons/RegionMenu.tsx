@@ -58,7 +58,13 @@ export const RegionMenu = () => {
     isChecked: boolean,
   ) => {
     if (isChecked) {
-      filters.municipalitiesSelected.push(queryValue);
+      let isAlreadyChecked = filters.municipalitiesSelected.find(
+        (muni) => muni === queryValue,
+      );
+      console.log(isAlreadyChecked);
+      if (!isAlreadyChecked) {
+        filters.municipalitiesSelected.push(queryValue);
+      }
     } else {
       filters.municipalitiesSelected = filters.municipalitiesSelected.filter(
         (muni) => muni !== queryValue,
@@ -96,7 +102,6 @@ export const RegionMenu = () => {
       let region = regionsOccupations.regions.find(
         (reg) => reg['taxonomy/national-nuts-level-3-code-2019'] === queryValue,
       );
-      updateMunicipalitiesChecked(queryValue, isChecked);
       if (region) {
         for (let i = 0; i < region.municipalities.length; i++) {
           let newQueryValue =

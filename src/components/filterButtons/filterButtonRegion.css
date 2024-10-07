@@ -70,14 +70,3 @@
   justify-content: center;
   align-items: center;
 }
-
-.resetBtnContainer {
-  button {
-    span {
-      color: var(--digi--color--text--danger);
-    }
-    .sc-digi-icon-trash-h svg.sc-digi-icon-trash {
-      color: var(--digi--color--text--danger);
-    }
-  }
-}
