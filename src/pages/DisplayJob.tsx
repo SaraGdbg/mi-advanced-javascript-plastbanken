@@ -4,29 +4,36 @@ import {
   InfoCardType,
   InfoCardVariation,
   LayoutColumnsVariation,
-  LayoutContainerVariation,
   ButtonVariation,
 } from '@digi/arbetsformedlingen';
 import {
   DigiButton,
-  DigiIconEnvelopeFilled,
-  DigiIconPhone,
   DigiInfoCard,
   DigiLayoutBlock,
   DigiLayoutColumns,
   DigiLayoutContainer,
   DigiTypography,
 } from '@digi/arbetsformedlingen-react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { IJobExt } from '../models/IJob';
+import { useContext } from 'react';
+import { FilterContext } from '../contexts/FilterContext';
+import { createQueryString } from '../utils/createQueryString';
 
 export const DisplayJob = () => {
   const job = useLoaderData() as IJobExt;
+  const navigate = useNavigate();
+  const filters = useContext(FilterContext);
+  
+  const handleSubmit = () => {
+    const queryString = createQueryString(filters);
+    navigate(`/annonser/${queryString}`);
+  }
 
   return (
     <>
       <DigiLayoutBlock afMarginTop={true}>
-        <DigiButton>Tillbaka till sökning</DigiButton>
+       <DigiButton onAfOnClick={handleSubmit}>Tillbaka till sökning</DigiButton>
       </DigiLayoutBlock>
 
       <DigiLayoutBlock afMarginTop={true}>
@@ -68,9 +75,6 @@ export const DisplayJob = () => {
                 <h3>Kvalifikationer</h3>
               </DigiLayoutContainer>
               <DigiLayoutContainer afMarginTop={true}>
-                <h3>Underrubrik</h3>
-              </DigiLayoutContainer>
-              <DigiLayoutContainer afMarginTop={true}>
                 <div
                   dangerouslySetInnerHTML={{
                     __html: job.description.text_formatted,
@@ -92,7 +96,7 @@ export const DisplayJob = () => {
                 </h3>
               </DigiLayoutContainer>
               <DigiLayoutContainer afMarginTop={true}>
-                <h3>Kontaktperson:</h3>
+                <h3>Kontakt:</h3>
                 <p>{job.application_contacts[0].name}</p>
                 <p>
                   <Link to={`mailto:${job.application_contacts[0].email}`}>
@@ -118,9 +122,9 @@ export const DisplayJob = () => {
                 {job.application_details.url && (
                   <div>
                     <h4>Via arbetsgivarens webbplats:</h4>
-                    <DigiButton afVariation={ButtonVariation.PRIMARY}>
+                    <Link to={job.application_details.url}><DigiButton afVariation={ButtonVariation.PRIMARY}>
                       Sök jobbet här
-                    </DigiButton>
+                    </DigiButton></Link>
                   </div>
                 )}
 
@@ -137,6 +141,7 @@ export const DisplayJob = () => {
 
                 {job.application_details.reference && (
                   <div>
+                    <br></br>
                     <p>
                       Ange referens{' '}
                       <span className="bold-text">
