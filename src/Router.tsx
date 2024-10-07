@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
         loader: jobsLoader,
       },
       {
-        path: '/annonser/:id',
+        path: '/annonser/id/:id',
         element: <DisplayJob></DisplayJob>,
         loader: jobLoader,
       },
