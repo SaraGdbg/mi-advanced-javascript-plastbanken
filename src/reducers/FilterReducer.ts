@@ -12,6 +12,7 @@ export enum FilterActionType {
   SET_OCCUPATION_FIELDS = 'SET_OCCUPATION_FIELDS',
   SET_WORKING_HOURS_TYPE = 'SET_WORKING_HOURS_TYPE',
   SET_SORT_BY = 'SET_SORT_BY',
+  SET_PUBLISHED = 'SET_PUBLISHED',
   SET_LIMIT = 'SET_LIMIT',
   SET_OFFSET = 'SET_OFFSET',
 }
@@ -56,6 +57,11 @@ interface ISetSortByAction {
   payload: string;
 }
 
+interface ISetPublishedAction {
+  type: FilterActionType.SET_PUBLISHED;
+  payload: string;
+}
+
 interface ISetLimitAction {
   type: FilterActionType.SET_LIMIT;
   payload: number;
@@ -75,6 +81,7 @@ export type FilterAction =
   | ISetOccupationFieldsAction
   | ISetWorkingHoursTypeAction
   | ISetSortByAction
+  | ISetPublishedAction
   | ISetLimitAction
   | ISetOffsetAction;
 
@@ -87,6 +94,7 @@ export const defaultFilterState: IFilterJobs = {
   occupationFieldSelected: [],
   workingHoursType: '',
   sortBy: '',
+  pubDate: '',
   limit: DEFAULT_LIMIT,
   offset: 0,
 };
@@ -122,6 +130,9 @@ export const FilterReducer = (
     }
     case FilterActionType.SET_SORT_BY: {
       return { ...filter, sortBy: action.payload, offset: 0 };
+    }
+    case FilterActionType.SET_PUBLISHED: {
+      return { ...filter, pubDate: action.payload };
     }
     case FilterActionType.SET_LIMIT: {
       return { ...filter, limit: action.payload, offset: 0 };
