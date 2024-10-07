@@ -45,7 +45,9 @@ export const DisplayJob = () => {
   let formattedText = '';
   const descriptionFormatter = () => {
     const initialText = job.description.text_formatted;
-    formattedText = initialText.split('\n').join('<br>');
+    const breaks = initialText.split('\n').join('<br>');
+    const listings = breaks.split('•').join('<br>•');
+    formattedText = listings;
   };
 
   descriptionFormatter();
