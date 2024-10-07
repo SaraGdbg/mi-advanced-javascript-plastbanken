@@ -30,6 +30,18 @@ export const DisplayJob = () => {
     navigate(`/annonser/${queryString}`);
   };
 
+  const date = new Date(job.publication_date);
+  const datePart = date.toLocaleDateString('sv-SE', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+  const timePart = date.toLocaleTimeString('sv-SE', {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+  const formattedDate = `${datePart} klockan ${timePart}`;
+
   return (
     <>
       <DigiLayoutBlock afMarginTop={true}>
@@ -123,8 +135,9 @@ export const DisplayJob = () => {
                 </DigiLayoutContainer>
               )}
 
-              <DigiLayoutContainer afMarginTop={true}>
-                <p>Annonsinfo osv</p>
+              <DigiLayoutContainer afMarginTop={true} afMarginBottom={true}>
+                <p>Annons-id: {job.id}</p>
+                <p>Publicerad: {formattedDate}</p>
               </DigiLayoutContainer>
             </DigiTypography>
           </DigiLayoutContainer>
