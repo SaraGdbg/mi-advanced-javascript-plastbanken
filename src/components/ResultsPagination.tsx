@@ -4,7 +4,10 @@ import {
   DigiNavigationPagination,
 } from '@digi/arbetsformedlingen-react';
 import { DigiNavigationPaginationCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
-import { calculateAmountOfResultPages } from '../services/resultsPaginationService';
+import {
+  calculateAmountOfResultPages,
+  setCurrentResultEnd,
+} from '../services/resultsPaginationService';
 import { IJobsSearchResponse } from '../models/IJobsSearchResponse';
 import { useContext } from 'react';
 import { FilterActionType } from '../reducers/FilterReducer';
@@ -21,7 +24,11 @@ export const ResultsPagination = (jobs: IJobsSearchResponse) => {
   let filters = useContext(FilterContext);
   let totalPages = calculateAmountOfResultPages(jobsTotal, filters.limit);
   let currentResultStart = filters.offset + 1;
-  let currentResultEnd = filters.offset + filters.limit;
+  let currentResultEnd = setCurrentResultEnd(
+    jobsTotal,
+    filters.offset,
+    filters.limit,
+  );
   let totalResults = jobsTotal;
   let activePage = 1;
 
