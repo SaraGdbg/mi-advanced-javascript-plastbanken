@@ -4,11 +4,12 @@ import { FilterButtonRegion } from './filterButtons/FilterButtonRegion';
 import { FilterButtonEmploymentType } from './filterButtons/FilterButtonEmploymentType';
 import { FilterButtonQualifications } from './filterButtons/FilterButtonQualtifications';
 import { FilterButtonPublishDate } from './filterButtons/FilterButtonPublishDate';
-import { useContext } from 'react';
-import { RegionsOccupationsContext } from '../contexts/RegionsOccupationsContext';
+// import { useContext } from 'react';
+// import { RegionsOccupationsContext } from '../contexts/RegionsOccupationsContext';
+import { ResetFilter } from './filterButtons/ResetFilter.tsx';
 
 export const FilterButtons = () => {
-  const regionsOccupations = useContext(RegionsOccupationsContext);
+  // const regionsOccupations = useContext(RegionsOccupationsContext);
 
   return (
     <>
@@ -19,6 +20,7 @@ export const FilterButtons = () => {
           <FilterButtonEmploymentType></FilterButtonEmploymentType>
           <FilterButtonQualifications></FilterButtonQualifications>
           <FilterButtonPublishDate></FilterButtonPublishDate>
+          <ResetFilter></ResetFilter>
         </section>
       </DigiLayoutContainer>
     </>
