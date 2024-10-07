@@ -42,6 +42,15 @@ export const DisplayJob = () => {
   });
   const formattedDate = `${datePart} klockan ${timePart}`;
 
+
+  const date1 = new Date(job.application_deadline);
+  const datePart1 = date1.toLocaleDateString('sv-SE', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+  const formattedDeadlineDate = `${datePart1}`;
+
   let formattedText = '';
   const descriptionFormatter = () => {
     const initialText = job.description.text_formatted;
@@ -172,6 +181,7 @@ export const DisplayJob = () => {
                 {job.application_details.url && (
                   <div>
                     <h4>Via arbetsgivarens webbplats:</h4>
+                    <p></p>
                     <Link to={job.application_details.url}>
                       <DigiButton afVariation={ButtonVariation.PRIMARY}>
                         Sök jobbet här
@@ -203,6 +213,16 @@ export const DisplayJob = () => {
                     </p>
                   </div>
                 )}
+
+<div>
+                    <br></br>
+                    <p>
+                      Ansök senast:{' '}
+                      </p>
+                      <p className="bold-text">
+                        {formattedDeadlineDate}
+                      </p>
+                  </div>
               </DigiTypography>
             </DigiInfoCard>
           </div>
