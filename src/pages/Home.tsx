@@ -16,8 +16,14 @@ import {
   LayoutContainerVariation,
 } from '@digi/arbetsformedlingen';
 import { SearchBar } from '../components/SearchBar';
+import { createQueryString } from '../utils/createQueryString.ts';
+import { useContext } from 'react';
+import { FilterContext } from '../contexts/FilterContext.ts';
 
 export const Home = () => {
+  const filters = useContext(FilterContext);
+  const queryString = createQueryString(filters);
+
   return (
     <>
       <DigiLayoutBlock afVariation={LayoutBlockVariation.PRIMARY}>
@@ -31,7 +37,7 @@ export const Home = () => {
           <DigiTypography>
             <SearchBar></SearchBar>
             <DigiLinkInternal
-              afHref="/annonser"
+              afHref={`/annonser/${queryString}`}
               afVariation={LinkVariation.SMALL}
             >
               Avancerad sökning
