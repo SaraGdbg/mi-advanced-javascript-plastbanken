@@ -27,7 +27,7 @@ export const EmploymentTypeOptions = () => {
   };
 
   const setEmploymentType = (e: DigiFormRadiobuttonCustomEvent<MouseEvent>) => {
-    console.log(e.target.afId);
+    //console.log(e.target.afId);
     const selectedItem = e.target.afId;
 
     dispatch({
@@ -35,10 +35,10 @@ export const EmploymentTypeOptions = () => {
       payload: selectedItem,
     });
 
-    const updatedFilters = { ...filters, workingHoursType: selectedItem };
-    const searchText = createQueryString(updatedFilters);
-    console.log(filters);
-    console.log(searchText);
+    //const updatedFilters = { ...filters, workingHoursType: selectedItem };
+    //const searchText = createQueryString(updatedFilters);
+    // console.log(filters);
+    // console.log(searchText);
   };
 
   return (
