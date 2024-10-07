@@ -70,22 +70,22 @@ export interface IJobExt extends IJob {
       ]
     | null;
 
-  // is experience required <- is there filters functions for this?
-  experience_required: boolean;
+  // // is experience required <- is there filters functions for this?
+  // experience_required: boolean;
 
-  // must have education + level of eduication <- seems to be empty?
-  must_have: {
-    education: [
-      {
-        label: string;
-      },
-    ];
-    education_level: [
-      {
-        label: string;
-      },
-    ];
-  };
+  // // must have education + level of eduication <- seems to be empty?
+  // must_have: {
+  //   education: [
+  //     {
+  //       label: string;
+  //     },
+  //   ];
+  //   education_level: [
+  //     {
+  //       label: string;
+  //     },
+  //   ];
+  // };
 
   // What type of employment. Examples: Vanlig anställning
   employment_type: {

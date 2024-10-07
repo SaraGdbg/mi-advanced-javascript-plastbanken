@@ -6,9 +6,9 @@ import {
 import { useRef, useState } from 'react';
 import { ButtonSize, ButtonVariation } from '@digi/arbetsformedlingen';
 import './filterButtonRegion.css';
-import { EmploymentTypeMenu } from './EmploymentTypeMenu';
+import { OtherFilterOptions } from './OtherFilterOptions';
 
-export const FilterButtonEmploymentType = () => {
+export const FilterButtonOtherFilters = () => {
   const [viewMenu, setViewMenu] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -27,11 +27,17 @@ export const FilterButtonEmploymentType = () => {
               afFullWidth={false}
               onClick={toggleMenu}
             >
-              Anställningstyp
+              Övriga filter
               <DigiIconChevronDown slot="icon-secondary" />
             </DigiButton>
           </div>
-          {viewMenu === true ? <EmploymentTypeMenu></EmploymentTypeMenu> : ''}
+          {viewMenu === true ? (
+            <>
+              <OtherFilterOptions></OtherFilterOptions>
+            </>
+          ) : (
+            ''
+          )}
         </div>
         {viewMenu === true ? (
           <div className="overlay" onClick={toggleMenu}></div>
