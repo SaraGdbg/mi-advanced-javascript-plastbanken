@@ -130,7 +130,9 @@ export const DisplayJob = () => {
                 <h3>
                   Arbetsplatsen ligger i:{' '}
                   <p>
-                    {job.workplace_address.municipality} kommun,{' '}
+                    {job.workplace_address.municipality}
+                    {!job.workplace_address.municipality?.endsWith('s') && ('s')}
+                    {' '}kommun,{' '}
                     {job.workplace_address.region}
                   </p>
                 </h3>
