@@ -111,6 +111,15 @@ export const DisplayJob = () => {
                 </DigiLayoutContainer>
               )}
 
+<DigiLayoutContainer afMarginTop={true}>
+                <h3>
+                  Arbetsgivare:
+                  <p>
+                    {job.employer.name}
+                  </p>
+                </h3>
+              </DigiLayoutContainer>
+
               <DigiLayoutContainer afMarginTop={true}>
                 <h3>
                   Arbetsplatsen ligger i:{' '}
