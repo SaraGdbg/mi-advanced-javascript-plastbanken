@@ -22,7 +22,8 @@ export const createQueryString = (filters: IFilterJobs): string => {
     params.append('occupation-field', occupationField);
   });
 
-  if (filters.workingHoursType) params.append('worktime-extent', filters.workingHoursType);
+  if (filters.workingHoursType)
+    params.append('worktime-extent', filters.workingHoursType);
 
   if (filters.sortBy) params.append('sort', filters.sortBy);
 
@@ -30,13 +31,7 @@ export const createQueryString = (filters: IFilterJobs): string => {
 
   if (filters.offset) params.append('offset', filters.offset.toString());
 
-  /* MAYBE
-  Fetch job ads published after specified date and time. 
-  Accepts either datetime (format YYYY-mm-ddTHH:MM:SS) or 
-  number of minutes (e.g 60 means published in the last hour)
-
-  if (filters.pubDate) params.append('published-after', filters.pubDate)
-  */
+  if (filters.pubDate) params.append('published-after', filters.pubDate);
 
   return params.toString();
 };
