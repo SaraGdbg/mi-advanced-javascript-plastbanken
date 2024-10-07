@@ -8,6 +8,7 @@ import {
   DigiButton,
   DigiFormCheckbox,
   DigiIconChevronRight,
+  DigiIconTrash,
 } from '@digi/arbetsformedlingen-react';
 import {
   ButtonSize,
@@ -52,34 +53,63 @@ export const RegionMenu = () => {
     });
   };
 
+  const updateMunicipalitiesChecked = (
+    queryValue: string,
+    isChecked: boolean,
+  ) => {
+    if (isChecked) {
+      let isAlreadyChecked = filters.municipalitiesSelected.find(
+        (muni) => muni === queryValue,
+      );
+      console.log(isAlreadyChecked);
+      if (!isAlreadyChecked) {
+        filters.municipalitiesSelected.push(queryValue);
+      }
+    } else {
+      filters.municipalitiesSelected = filters.municipalitiesSelected.filter(
+        (muni) => muni !== queryValue,
+      );
+      let region = queryValue.slice(0, 2);
+      updateRegionsChecked(region, false);
+    }
+    dispatch({
+      type: FilterActionType.SET_MUNICIPALITIES,
+      payload: filters.municipalitiesSelected,
+    });
+  };
+
+  const updateRegionsChecked = (queryValue: string, isChecked: boolean) => {
+    if (isChecked) {
+      filters.regionsSelected.push(queryValue);
+    } else {
+      filters.regionsSelected = filters.regionsSelected.filter(
+        (region) => region !== queryValue,
+      );
+    }
+    dispatch({
+      type: FilterActionType.SET_REGIONS,
+      payload: filters.regionsSelected,
+    });
+  };
+
   const updateLocationsChecked = (e: DigiFormCheckboxCustomEvent<any>) => {
     const queryValue = e.target.value;
     const isChecked = e.target.checked;
 
     if (queryValue.length === 4) {
-      if (isChecked) {
-        filters.municipalitiesSelected.push(queryValue);
-      } else {
-        filters.municipalitiesSelected = filters.municipalitiesSelected.filter(
-          (muni) => muni !== queryValue,
-        );
-      }
-      dispatch({
-        type: FilterActionType.SET_MUNICIPALITIES,
-        payload: filters.municipalitiesSelected,
-      });
+      updateMunicipalitiesChecked(queryValue, isChecked);
     } else {
-      if (isChecked) {
-        filters.regionsSelected.push(queryValue);
-      } else {
-        filters.regionsSelected = filters.regionsSelected.filter(
-          (region) => region !== queryValue,
-        );
+      let region = regionsOccupations.regions.find(
+        (reg) => reg['taxonomy/national-nuts-level-3-code-2019'] === queryValue,
+      );
+      if (region) {
+        for (let i = 0; i < region.municipalities.length; i++) {
+          let newQueryValue =
+            region.municipalities[i]['taxonomy/lau-2-code-2015'];
+          updateMunicipalitiesChecked(newQueryValue, isChecked);
+        }
+        updateRegionsChecked(queryValue, isChecked);
       }
-      dispatch({
-        type: FilterActionType.SET_REGIONS,
-        payload: filters.regionsSelected,
-      });
     }
   };
 
@@ -101,7 +131,24 @@ export const RegionMenu = () => {
   return (
     <div className="regionMenuContainer">
       <div className="regionContainer">
-        <button onClick={clearFilters}>Rensa filter</button>
+        {filters.municipalitiesSelected.length ||
+        filters.regionsSelected.length > 0 ? (
+          <div className="resetBtnContainer">
+            <DigiButton
+              afSize={ButtonSize.SMALL}
+              afVariation={ButtonVariation.FUNCTION}
+              afFullWidth={false}
+              onClick={clearFilters}
+            >
+              <DigiIconTrash slot="icon" />
+              Rensa Orter
+            </DigiButton>
+          </div>
+        ) : (
+          ''
+        )}
+
+        {/* <button onClick={clearFilters}>Rensa filter</button> */}
         {regionsOccupations.regions.map((region) => (
           <div key={region['taxonomy/national-nuts-level-3-code-2019']}>
             <DigiButton
