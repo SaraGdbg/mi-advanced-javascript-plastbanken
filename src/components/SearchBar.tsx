@@ -10,8 +10,10 @@ import { FilterDispatchContext } from '../contexts/FilterDispatchContext.ts';
 import { FilterActionType } from '../reducers/FilterReducer.ts';
 import { FilterContext } from '../contexts/FilterContext.ts';
 import { createQueryString } from '../utils/createQueryString.ts';
+import { usePaginationContext } from '../hooks/usePaginationContext.ts';
 
 export const SearchBar = () => {
+  const { resetPagination } = usePaginationContext();
   const navigate = useNavigate();
   const dispatch = useContext(FilterDispatchContext);
   const filters = useContext(FilterContext);
@@ -30,6 +32,7 @@ export const SearchBar = () => {
       payload: filters.offset,
     });
 
+    resetPagination();
     const queryString = createQueryString(filters);
     navigate(`/annonser/${queryString}`);
   };

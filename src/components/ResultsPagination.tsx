@@ -18,26 +18,31 @@ import { useNavigate } from 'react-router-dom';
 import { FilterDispatchContext } from '../contexts/FilterDispatchContext';
 import { FilterContext } from '../contexts/FilterContext';
 import { createQueryString } from '../utils/createQueryString';
+import { usePaginationContext } from '../hooks/usePaginationContext.ts';
 
 export const ResultsPagination = (jobs: IJobsSearchResponse) => {
   const jobsTotal = jobs.total.value;
 
+  const { paginationRef } = usePaginationContext();
+
   const navigate = useNavigate();
   const dispatch = useContext(FilterDispatchContext);
-  let filters = useContext(FilterContext);
-  let totalPages = calculateAmountOfResultPages(jobsTotal, filters.limit);
-  let currentResultStart = filters.offset + 1;
-  let currentResultEnd = setCurrentResultEnd(
+  const filters = useContext(FilterContext);
+  const totalPages = calculateAmountOfResultPages(jobsTotal, filters.limit);
+  const currentResultStart = filters.offset + 1;
+  const currentResultEnd = setCurrentResultEnd(
     jobsTotal,
     filters.offset,
     filters.limit,
   );
-  let totalResults = jobsTotal;
-  let activePage = 1;
+  const totalResults = jobsTotal;
+  const activePage = Math.floor(filters.offset / filters.limit) + 1;
 
   const goToAnotherResultPage = (
     e: DigiNavigationPaginationCustomEvent<number>,
   ) => {
+    console.log(activePage);
+
     let offset = (e.detail - 1) * filters.limit;
     // 2000 is the hard coded limit from the API for max amount of offset
     if (offset > 2000) {
@@ -76,8 +81,9 @@ export const ResultsPagination = (jobs: IJobsSearchResponse) => {
         )}
         <DigiLayoutContainer afVariation={LayoutContainerVariation.FLUID}>
           <DigiNavigationPagination
+            ref={paginationRef}
+            afInitActivePage={activePage}
             afTotalPages={totalPages}
-            afInitActive-page={activePage}
             afCurrentResultStart={currentResultStart}
             afCurrentResultEnd={currentResultEnd}
             afTotalResults={totalResults}
