@@ -1,5 +1,29 @@
-import { FooterVariation } from '@digi/arbetsformedlingen';
-import { DigiFooter, DigiFooterCard } from '@digi/arbetsformedlingen-react';
+import {
+  FooterVariation,
+  LogoColor,
+  LogoVariation,
+} from '@digi/arbetsformedlingen';
+import {
+  DigiFooter,
+  DigiFooterCard,
+  DigiLogo,
+} from '@digi/arbetsformedlingen-react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const StyledDigiLogo = styled(DigiLogo)`
+  svg {
+    display: none;
+  }
+
+  .digi-logo__img {
+    background-image: url('/img/logo_light_tangerine.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 44px;
+    height: 44px;
+  }
+`;
 
 export const Footer = () => {
   return (
@@ -37,7 +61,15 @@ export const Footer = () => {
             </p>
           </DigiFooterCard>
         </div>
-        <div slot="content-bottom-left">LOGGA</div>
+        <div slot="content-bottom-left">
+          <Link to="/">
+            <StyledDigiLogo
+              afVariation={LogoVariation.LARGE}
+              afColor={LogoColor.SECONDARY}
+              afSystemName="Plastbanken"
+            ></StyledDigiLogo>
+          </Link>
+        </div>
         <div slot="content-bottom-right">
           <p>Följ oss på</p>
           <a href="#">Facebook</a>
