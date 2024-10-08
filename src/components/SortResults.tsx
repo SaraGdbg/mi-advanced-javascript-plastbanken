@@ -9,8 +9,10 @@ import { useContext } from 'react';
 import { FilterContext } from '../contexts/FilterContext';
 import { FilterDispatchContext } from '../contexts/FilterDispatchContext';
 import { createQueryString } from '../utils/createQueryString';
+import { PaginationContext } from '../contexts/PaginationContext.ts';
 
 export const SortResults = () => {
+  const { resetPagination } = useContext(PaginationContext);
   //TODO: logic to only be able to check one of the checkboxes at a time
   // TODO: dispatches for each choice
 
@@ -63,7 +65,7 @@ export const SortResults = () => {
     const updatedFilters = { ...filters, sortBy: selectedSorting, offset: 0 };
     const searchText = createQueryString(updatedFilters);
     console.log('updated filters:', updatedFilters);
-
+    resetPagination();
     navigate(`/annonser/${searchText}`);
   };
 

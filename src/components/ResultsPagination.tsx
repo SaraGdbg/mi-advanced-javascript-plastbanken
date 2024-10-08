@@ -18,12 +18,11 @@ import { useNavigate } from 'react-router-dom';
 import { FilterDispatchContext } from '../contexts/FilterDispatchContext';
 import { FilterContext } from '../contexts/FilterContext';
 import { createQueryString } from '../utils/createQueryString';
-import { usePaginationContext } from '../hooks/usePaginationContext.ts';
+import { PaginationContext } from '../contexts/PaginationContext.ts';
 
 export const ResultsPagination = (jobs: IJobsSearchResponse) => {
   const jobsTotal = jobs.total.value;
-
-  const { paginationRef } = usePaginationContext();
+  const { paginationRef } = useContext(PaginationContext);
 
   const navigate = useNavigate();
   const dispatch = useContext(FilterDispatchContext);

@@ -10,10 +10,10 @@ import { FilterDispatchContext } from '../contexts/FilterDispatchContext.ts';
 import { FilterActionType } from '../reducers/FilterReducer.ts';
 import { FilterContext } from '../contexts/FilterContext.ts';
 import { createQueryString } from '../utils/createQueryString.ts';
-import { usePaginationContext } from '../hooks/usePaginationContext.ts';
+import { PaginationContext } from '../contexts/PaginationContext.ts';
 
 export const SearchBar = () => {
-  const { resetPagination } = usePaginationContext();
+  const { resetPagination } = useContext(PaginationContext);
   const navigate = useNavigate();
   const dispatch = useContext(FilterDispatchContext);
   const filters = useContext(FilterContext);
