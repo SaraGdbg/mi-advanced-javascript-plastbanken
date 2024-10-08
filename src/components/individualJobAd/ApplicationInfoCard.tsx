@@ -18,7 +18,7 @@ interface IJobProp {
   job: IJobExt;
 }
 
-export const JobApplicationInfoCard = ({ job }: IJobProp) => {
+export const ApplicationInfoCard = ({ job }: IJobProp) => {
   return (
     <>
       <div className="job-application-container">
@@ -76,7 +76,6 @@ export const JobApplicationInfoCard = ({ job }: IJobProp) => {
           </DigiTypography>
         </DigiInfoCard>
       </div>
-      ;
     </>
   );
 };

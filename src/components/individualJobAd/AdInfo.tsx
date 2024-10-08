@@ -6,7 +6,7 @@ interface IJobProp {
   job: IJobExt;
 }
 
-export const JobAdInfo = ({ job }: IJobProp) => {
+export const AdInfo = ({ job }: IJobProp) => {
   return (
     <>
       <DigiLayoutContainer afMarginTop={true} afMarginBottom={true}>

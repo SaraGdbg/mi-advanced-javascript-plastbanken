@@ -9,7 +9,7 @@ interface IJobProp {
   job: IJobExt;
 }
 
-export const JobSubHeadline = ({ job }: IJobProp) => {
+export const SubHeadline = ({ job }: IJobProp) => {
   return (
     <>
       <DigiLayoutColumns afVariation={LayoutColumnsVariation.TWO}>

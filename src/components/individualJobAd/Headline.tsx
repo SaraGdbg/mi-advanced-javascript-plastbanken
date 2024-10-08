@@ -9,7 +9,7 @@ interface IJobProp {
   job: IJobExt;
 }
 
-export const JobHeadline = ({ job }: IJobProp) => {
+export const Headline = ({ job }: IJobProp) => {
   return (
     <>
       {job.logo_url && (

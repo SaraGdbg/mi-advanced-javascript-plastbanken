@@ -5,13 +5,14 @@ interface IJobProp {
   job: IJobExt;
 }
 
-export const JobNumberOfVacancies = ({ job }: IJobProp) => {
+export const Salary = ({ job }: IJobProp) => {
   return (
     <>
       <DigiLayoutContainer afMarginTop={true}>
         <h3>
-          Antal jobb:
-          <p>{job.number_of_vacancies}</p>
+          Lön:
+          {job.salary_description && <p>{job.salary_description}</p>}
+          {job.salary_type.label && <p>{job.salary_type.label}</p>}
         </h3>
       </DigiLayoutContainer>
     </>
