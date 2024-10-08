@@ -34,7 +34,9 @@ export const FilterButtonWithMenu = ({
           <div className="filterButtonContainer" ref={dropdownRef}>
             <DigiButton
               afSize={ButtonSize.MEDIUM}
-              afVariation={ButtonVariation.SECONDARY}
+              afVariation={
+                viewMenu ? ButtonVariation.PRIMARY : ButtonVariation.SECONDARY
+              }
               afFullWidth={false}
               onClick={toggleMenu}
             >
@@ -42,7 +44,7 @@ export const FilterButtonWithMenu = ({
               <DigiIconChevronDown slot="icon-secondary" />
             </DigiButton>
           </div>
-          {viewMenu === true ? <div>{component}</div> : ''}
+          {viewMenu ? <div>{component}</div> : ''}
         </div>
       </div>
     </>
