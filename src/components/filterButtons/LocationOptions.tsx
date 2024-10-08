@@ -1,18 +1,5 @@
-// import {
-//   DigiFormRadiobutton,
-//   DigiFormRadiogroup,
-// } from '@digi/arbetsformedlingen-react';
-// import { useContext } from 'react';
-// import { FilterContext } from '../../contexts/FilterContext';
-// import { FilterDispatchContext } from '../../contexts/FilterDispatchContext';
-//import { FormRadiobuttonVariation } from '@digi/arbetsformedlingen';
-// import {
-//   DigiFormCheckboxCustomEvent,
-//   //DigiFormRadiobuttonCustomEvent,
-//   FormCheckboxVariation,
-// } from '@digi/arbetsformedlingen/dist/types/components';
-// import { FilterActionType } from '../../reducers/FilterReducer';
-// import { createQueryString } from '../../utils/createQueryString';
+import { FilterContext } from '../../contexts/FilterContext';
+import { createQueryString } from '../../utils/createQueryString';
 import { FormCheckboxVariation } from '@digi/arbetsformedlingen';
 import { DigiFormCheckbox } from '@digi/arbetsformedlingen-react';
 import { DigiFormCheckboxCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
@@ -21,8 +8,9 @@ import { useContext } from 'react';
 import { FilterDispatchContext } from '../../contexts/FilterDispatchContext';
 
 export const LocationOptions = () => {
-  // const filters = useContext(FilterContext);
+  const filters = useContext(FilterContext);
   const dispatch = useContext(FilterDispatchContext);
+  const option = 'Möjlighet till distansarbete';
 
   const setLocation = (e: DigiFormCheckboxCustomEvent<MouseEvent>) => {
     const selectedOption = e.target.afChecked;
@@ -33,10 +21,10 @@ export const LocationOptions = () => {
       payload: selectedOption,
     });
 
-    // const updatedFilters = { ...filters, workingHoursType: selectedItem };
-    // const searchText = createQueryString(updatedFilters);
-    // console.log('Filters:', filters);
-    // console.log('searchText:', searchText);
+    const updatedFilters = { ...filters, isRemote: selectedOption };
+    const searchText = createQueryString(updatedFilters);
+    console.log('Filters:', updatedFilters);
+    console.log('searchText:', searchText);
   };
 
   return (
@@ -44,25 +32,12 @@ export const LocationOptions = () => {
       <>
         Flexibilitet
         <DigiFormCheckbox
-          afLabel="Möjlighet till distansarbete"
+          afLabel={option}
           afVariation={FormCheckboxVariation.PRIMARY}
           onAfOnChange={setLocation}
+          afChecked={filters.isRemote}
         />
       </>
     </>
   );
 };
-
-/* <DigiFormRadiogroup>
-  {locationTypes.map((type) => (
-    <div key={type}>
-      <DigiFormRadiobutton
-        afLabel={locationTypeTLabels[+type]}
-        afVariation={FormRadiobuttonVariation.PRIMARY}
-        onAfOnChange={setLocation}
-        afId={type.toString()}
-        //afChecked={checkRadioButton(type.toString())}
-      ></DigiFormRadiobutton>
-    </div>
-  ))}
-</DigiFormRadiogroup>; */

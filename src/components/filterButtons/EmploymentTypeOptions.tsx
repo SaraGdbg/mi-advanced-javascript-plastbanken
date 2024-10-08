@@ -35,10 +35,10 @@ export const EmploymentTypeOptions = () => {
       payload: selectedItem,
     });
 
-    //const updatedFilters = { ...filters, workingHoursType: selectedItem };
-    //const searchText = createQueryString(updatedFilters);
-    // console.log(filters);
-    // console.log(searchText);
+    const updatedFilters = { ...filters, workingHoursType: selectedItem };
+    const searchText = createQueryString(updatedFilters);
+    console.log(filters);
+    console.log(searchText);
   };
 
   return (
