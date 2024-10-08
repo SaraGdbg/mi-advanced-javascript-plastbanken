@@ -3,13 +3,21 @@ import {
   DigiIconChevronDown,
 } from '@digi/arbetsformedlingen-react';
 
-import { useRef, useState } from 'react';
+import React, { ReactNode, useRef, useState } from 'react';
 import { ButtonSize, ButtonVariation } from '@digi/arbetsformedlingen';
 import './filterButtonRegion.css';
 import { RegionMenu } from './RegionMenu';
 import { useOutsideClick } from '../../services/handleClickOutside';
 
-export const FilterButtonRegion = () => {
+type FilterBtnProps = {
+  btnText: string;
+  component: ReactNode;
+};
+
+export const FilterButtonWithMenu = ({
+  btnText,
+  component,
+}: FilterBtnProps) => {
   const [viewMenu, setViewMenu] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const toggleMenu = () => {
@@ -31,17 +39,11 @@ export const FilterButtonRegion = () => {
               afFullWidth={false}
               onClick={toggleMenu}
             >
-              Ort
+              {btnText}
               <DigiIconChevronDown slot="icon-secondary" />
             </DigiButton>
           </div>
-          {viewMenu === true ? (
-            <div>
-              <RegionMenu></RegionMenu>
-            </div>
-          ) : (
-            ''
-          )}
+          {viewMenu === true ? <div>{component}</div> : ''}
         </div>
       </div>
     </>
