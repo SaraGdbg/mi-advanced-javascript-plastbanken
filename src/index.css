@@ -177,3 +177,18 @@ body {
 .bold-text {
   font-weight: bold;
 }
+
+.job-application-container {
+  height: fit-content;
+  width: fit-content;
+  justify-self: right;
+  position: sticky;
+}
+
+.job-info-container {
+  width: 55vw;
+}
+
+.icon {
+  width: 1rem;
+}
