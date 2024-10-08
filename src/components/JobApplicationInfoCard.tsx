@@ -18,7 +18,7 @@ interface IJob {
   job: IJobExt;
 }
 
-export const JobApplicationInfoCard = (props: IJob) => {
+export const JobApplicationInfoCard = ({job}: IJob) => {
   return (
     <div className="job-application-container">
       <DigiInfoCard
@@ -29,11 +29,11 @@ export const JobApplicationInfoCard = (props: IJob) => {
         afBorderPosition={InfoCardBorderPosition.LEFT}
       >
         <DigiTypography>
-          {props.job.application_details.url && (
+          {job.application_details.url && (
             <div>
               <h4>Via arbetsgivarens webbplats:</h4>
               <p></p>
-              <Link to={props.job.application_details.url}>
+              <Link to={job.application_details.url}>
                 <DigiButton afVariation={ButtonVariation.PRIMARY}>
                   Sök jobbet här
                 </DigiButton>
@@ -41,24 +41,24 @@ export const JobApplicationInfoCard = (props: IJob) => {
             </div>
           )}
 
-          {props.job.application_details.email && (
+          {job.application_details.email && (
             <div>
               <h4>Via mail:</h4>
               <p>
-                <Link to={`mailto:${props.job.application_details.email}`}>
-                  {props.job.application_details.email}
+                <Link to={`mailto:${job.application_details.email}`}>
+                  {job.application_details.email}
                 </Link>
               </p>
             </div>
           )}
 
-          {props.job.application_details.reference && (
+          {job.application_details.reference && (
             <div>
               <br></br>
               <p>
                 Ange referens{' '}
                 <span className="bold-text">
-                  {props.job.application_details.reference}
+                  {job.application_details.reference}
                 </span>{' '}
                 i din ansökan
               </p>
@@ -69,7 +69,7 @@ export const JobApplicationInfoCard = (props: IJob) => {
             <br></br>
             <p>Ansök senast: </p>
             <p className="bold-text">
-              {dateFormatter(props.job.application_deadline, false)}
+              {dateFormatter(job.application_deadline, false)}
             </p>
           </div>
         </DigiTypography>
