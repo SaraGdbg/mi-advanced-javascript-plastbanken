@@ -23,7 +23,7 @@ interface ISetQueryFromInputAction {
 
 interface IToggleRemoteAction {
   type: FilterActionType.TOGGLE_REMOTE;
-  payload: string;
+  payload: boolean;
 }
 
 interface IToggleDrivingLicenseAction {
