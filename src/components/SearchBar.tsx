@@ -34,6 +34,8 @@ export const SearchBar = () => {
 
     resetPagination();
     const queryString = createQueryString(filters);
+    // Remove log!
+    console.log(queryString);
     navigate(`/annonser/${queryString}`);
   };
 
