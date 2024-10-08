@@ -15,6 +15,7 @@ export enum FilterActionType {
   SET_PUBLISHED = 'SET_PUBLISHED',
   SET_LIMIT = 'SET_LIMIT',
   SET_OFFSET = 'SET_OFFSET',
+  RESEST_FILTER = 'RESET_FILTER',
 }
 
 interface ISetQueryFromInputAction {
@@ -72,6 +73,11 @@ interface ISetOffsetAction {
   payload: number;
 }
 
+interface IResetFilterAction {
+  type: FilterActionType.RESEST_FILTER;
+  payload: undefined;
+}
+
 export type FilterAction =
   | ISetQueryFromInputAction
   | IToggleRemoteAction
@@ -83,7 +89,8 @@ export type FilterAction =
   | ISetSortByAction
   | ISetPublishedAction
   | ISetLimitAction
-  | ISetOffsetAction;
+  | ISetOffsetAction
+  | IResetFilterAction;
 
 export const defaultFilterState: IFilterJobs = {
   queryFromInput: '',
@@ -140,6 +147,9 @@ export const FilterReducer = (
     }
     case FilterActionType.SET_OFFSET: {
       return { ...filter, offset: action.payload };
+    }
+    case FilterActionType.RESEST_FILTER: {
+      return defaultFilterState;
     }
 
     default:
