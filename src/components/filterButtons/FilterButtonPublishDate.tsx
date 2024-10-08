@@ -1,26 +1,44 @@
-import { DigiFormFilter } from '@digi/arbetsformedlingen-react';
+import { ButtonSize, ButtonVariation } from '@digi/arbetsformedlingen';
+import {
+  DigiButton,
+  DigiIconChevronDown,
+} from '@digi/arbetsformedlingen-react';
+import { useState, useRef } from 'react';
+import { PublishDateMenu } from './PublishDateMenu.tsx';
+
+// TO BE DELETED, USING FilterButtonsWithMenu INSTEAD
 
 export const FilterButtonPublishDate = () => {
+  const [viewMenu, setViewMenu] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const toggleMenu = () => {
+    setViewMenu(!viewMenu);
+  };
+
   return (
     <>
-      <DigiFormFilter
-        afFilterButtonText="Publiceringsdatum"
-        afSubmitButtonText="Filtrera"
-        afListItems={[
-          { id: 'omr1', label: 'Variabel för sortering' },
-          { id: 'omr2', label: 'Variabel för sortering' },
-          { id: 'omr3', label: 'Variabel för sortering' },
-        ]}
-        //afCheckItems={['omr2']} // optional, override internal check state of component with filter ids
-        onAfChangeFilter={(e) => console.log(e.detail.id, e.detail.isChecked)}
-        onAfResetFilter={() => console.log('reset filter')}
-        onAfSubmitFilter={(e) =>
-          console.log('submit filter', e.detail.listItems, e.detail.checked)
-        }
-        onAfCloseFilter={(e) =>
-          console.log('submit filter', e.detail.listItems, e.detail.checked)
-        }
-      ></DigiFormFilter>
+      <div>
+        <div className="menuContainer">
+          <div className="filterButtonContainer" ref={dropdownRef}>
+            <DigiButton
+              afSize={ButtonSize.MEDIUM}
+              afVariation={ButtonVariation.SECONDARY}
+              afFullWidth={false}
+              onClick={toggleMenu}
+            >
+              Publiceringsdatum
+              <DigiIconChevronDown slot="icon-secondary" />
+            </DigiButton>
+          </div>
+          {viewMenu === true ? <PublishDateMenu /> : ''}
+        </div>
+        {viewMenu === true ? (
+          <div className="overlay" onClick={toggleMenu}></div>
+        ) : (
+          ''
+        )}
+      </div>
     </>
   );
 };

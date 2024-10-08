@@ -50,7 +50,15 @@ export interface IJobExt extends IJob {
     url: string | null;
     // email link for where to send job application
     email: string | null;
+    // reference 
+    reference: string | null;
   };
+  application_contacts: [{
+    name: string | null;
+    email: string | null;
+    telephone: string | null;
+    description: string | null;
+  }]
   description: {
     // usually heltid/tillsvidare or something similar.
     conditions: string | null;
@@ -58,6 +66,8 @@ export interface IJobExt extends IJob {
     text_formatted: string;
     // text: string;
   };
+  // if experience in the field is required
+  experience_required: boolean;
   // if some kind of driving license is required
   driving_license_required: boolean;
   // IF a driving license is required, this displays which type, eg B. Only display this if driving_license_required is true.

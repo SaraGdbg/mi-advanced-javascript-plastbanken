@@ -131,10 +131,6 @@
   --digi--color--icons--warning: var(--sand);
   --digi--color--icons--danger: var(--deep-red);
   --digi--color--icons--informative: var(--cambridge-blue-300);
-
-  .digi-logo svg {
-    display: none;
-  }
 }
 
 #root {
@@ -176,4 +172,19 @@ body {
 
 .bold-text {
   font-weight: bold;
+}
+
+.job-application-container {
+  height: fit-content;
+  width: fit-content;
+  justify-self: right;
+  position: sticky;
+}
+
+.job-info-container {
+  width: 55vw;
+}
+
+.icon {
+  width: 1rem;
 }
