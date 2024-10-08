@@ -6,6 +6,8 @@ import {
 import { useState, useRef } from 'react';
 import { PublishDateMenu } from './PublishDateMenu.tsx';
 
+// TO BE DELETED, USING FilterButtonsWithMenu INSTEAD
+
 export const FilterButtonPublishDate = () => {
   const [viewMenu, setViewMenu] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
