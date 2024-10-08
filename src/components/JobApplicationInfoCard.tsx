@@ -14,11 +14,11 @@ import { Link } from 'react-router-dom';
 import { dateFormatter } from '../utils/dateFormatter';
 import { IJobExt } from '../models/IJob';
 
-interface job {
+interface IJob {
   job: IJobExt;
 }
 
-export const JobApplicationInfoCard = (props: job) => {
+export const JobApplicationInfoCard = (props: IJob) => {
   return (
     <div className="job-application-container">
       <DigiInfoCard
