@@ -9,7 +9,6 @@ import {
 } from '@digi/arbetsformedlingen';
 import {
   DigiButton,
-  DigiIconApple,
   DigiInfoCard,
   DigiLayoutBlock,
   DigiLayoutColumns,
@@ -23,6 +22,7 @@ import { IJobExt } from '../models/IJob';
 import { useContext } from 'react';
 import { FilterContext } from '../contexts/FilterContext';
 import { createQueryString } from '../utils/createQueryString';
+import { dateFormatter } from '../utils/dateFormatter';
 
 export const DisplayJob = () => {
   const job = useLoaderData() as IJobExt;
@@ -32,23 +32,6 @@ export const DisplayJob = () => {
   const handleSubmit = () => {
     const queryString = createQueryString(filters);
     navigate(`/annonser/${queryString}`);
-  };
-
-  const dateFormatter = (dateString: string, displayTime: boolean) => {
-    const date = new Date(dateString);
-    const datePart = date.toLocaleDateString('sv-SE', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    });
-    const timePart = date.toLocaleTimeString('sv-SE', {
-      hour: '2-digit',
-      minute: '2-digit',
-    });
-
-    if (displayTime) {
-      return `${datePart} klockan ${timePart}`;
-    } else return datePart;
   };
 
   let formattedText = '';
