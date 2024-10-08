@@ -28,7 +28,7 @@ interface IToggleRemoteAction {
 
 interface IToggleDrivingLicenseAction {
   type: FilterActionType.TOGGLE_DRIVING_LICENSE;
-  payload: undefined;
+  payload: boolean;
 }
 
 interface ISetMunicipalitiesAction {
