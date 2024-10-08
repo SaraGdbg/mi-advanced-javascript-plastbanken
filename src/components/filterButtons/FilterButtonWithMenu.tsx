@@ -10,12 +10,12 @@ import { useOutsideClick } from '../../services/handleClickOutside';
 
 type FilterBtnProps = {
   btnText: string;
-  component: ReactNode;
+  menuComponent: ReactNode;
 };
 
 export const FilterButtonWithMenu = ({
   btnText,
-  component,
+  menuComponent,
 }: FilterBtnProps) => {
   const [viewMenu, setViewMenu] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -44,7 +44,7 @@ export const FilterButtonWithMenu = ({
               <DigiIconChevronDown slot="icon-secondary" />
             </DigiButton>
           </div>
-          {viewMenu ? <div>{component}</div> : ''}
+          {viewMenu ? <div>{menuComponent}</div> : ''}
         </div>
       </div>
     </>

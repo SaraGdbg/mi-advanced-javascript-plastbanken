@@ -16,17 +16,17 @@ export const FilterButtons = () => {
         <section className="filter-buttons">
           <FilterButtonWithMenu
             btnText="Yrke"
-            component={<OccupationMenu />}
+            menuComponent={<OccupationMenu />}
           ></FilterButtonWithMenu>
           <FilterButtonWithMenu
             btnText="Ort"
-            component={<RegionMenu />}
+            menuComponent={<RegionMenu />}
           ></FilterButtonWithMenu>
           <FilterButtonEmploymentType></FilterButtonEmploymentType>
           <FilterButtonQualifications></FilterButtonQualifications>
           <FilterButtonWithMenu
             btnText="Publiceringsdatum"
-            component={<PublishDateMenu />}
+            menuComponent={<PublishDateMenu />}
           ></FilterButtonWithMenu>
           <ResetFilter></ResetFilter>
         </section>
