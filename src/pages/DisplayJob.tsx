@@ -24,6 +24,7 @@ import { FilterContext } from '../contexts/FilterContext';
 import { createQueryString } from '../utils/createQueryString';
 import { dateFormatter } from '../utils/dateFormatter';
 import { descriptionFormatter } from '../utils/descriptionFormatter';
+import { JobApplicationInfoCard } from '../components/JobApplicationInfoCard';
 
 export const DisplayJob = () => {
   const job = useLoaderData() as IJobExt;
@@ -59,30 +60,33 @@ export const DisplayJob = () => {
               )}
 
               <h1>{job.headline}</h1>
-              
+
               <DigiLayoutColumns afVariation={LayoutColumnsVariation.TWO}>
                 <DigiLayoutContainer>
-                      <h3>{job.employer.name}</h3>
-                      <h3>{job.occupation.label}</h3>
-                      <h3>{job.workplace_address.municipality}</h3>
+                  <h3>{job.employer.name}</h3>
+                  <h3>{job.occupation.label}</h3>
+                  <h3>{job.workplace_address.municipality}</h3>
                 </DigiLayoutContainer>
-
 
                 <DigiLayoutContainer>
-                    {job.working_hours_type.label && (
-                        <h4>Omfattning: <p>{job.working_hours_type.label}</p></h4>
-                    )}
+                  {job.working_hours_type.label && (
+                    <h4>
+                      Omfattning: <p>{job.working_hours_type.label}</p>
+                    </h4>
+                  )}
 
-                    {job.duration.label && (
-                        <h4>Varaktighet: <p>{job.duration.label}</p></h4>
-                    )}
+                  {job.duration.label && (
+                    <h4>
+                      Varaktighet: <p>{job.duration.label}</p>
+                    </h4>
+                  )}
 
-                    {job.employment_type.label && (
-                        <h4>Anställningsform: <p>{job.employment_type.label}</p></h4>
-                    )}
+                  {job.employment_type.label && (
+                    <h4>
+                      Anställningsform: <p>{job.employment_type.label}</p>
+                    </h4>
+                  )}
                 </DigiLayoutContainer>
-
-
               </DigiLayoutColumns>
 
               <DigiLayoutContainer afMarginTop={true}>
@@ -110,7 +114,9 @@ export const DisplayJob = () => {
                 <h3>Om jobbet:</h3>
                 <div
                   dangerouslySetInnerHTML={{
-                    __html:   descriptionFormatter(job.description.text_formatted)
+                    __html: descriptionFormatter(
+                      job.description.text_formatted,
+                    ),
                   }}
                 />
               </DigiLayoutContainer>
@@ -118,8 +124,8 @@ export const DisplayJob = () => {
               <DigiLayoutContainer afMarginTop={true}>
                 <h3>
                   Lön:
-                  {job.salary_description && (<p>{job.salary_description}</p>)}
-                  {job.salary_type.label && (<p>{job.salary_type.label}</p>)}
+                  {job.salary_description && <p>{job.salary_description}</p>}
+                  {job.salary_type.label && <p>{job.salary_type.label}</p>}
                 </h3>
               </DigiLayoutContainer>
 
@@ -162,61 +168,7 @@ export const DisplayJob = () => {
               </DigiLayoutContainer>
             </DigiTypography>
           </DigiLayoutContainer>
-          <div className="job-application-container">
-            <DigiInfoCard
-              afHeading="Sök jobbet"
-              afHeadingLevel={InfoCardHeadingLevel.H3}
-              afType={InfoCardType.RELATED}
-              afVariation={InfoCardVariation.SECONDARY}
-              afBorderPosition={InfoCardBorderPosition.LEFT}
-            >
-              <DigiTypography>
-                {job.application_details.url && (
-                  <div>
-                    <h4>Via arbetsgivarens webbplats:</h4>
-                    <p></p>
-                    <Link to={job.application_details.url}>
-                      <DigiButton afVariation={ButtonVariation.PRIMARY}>
-                        Sök jobbet här
-                      </DigiButton>
-                    </Link>
-                  </div>
-                )}
-
-                {job.application_details.email && (
-                  <div>
-                    <h4>Via mail:</h4>
-                    <p>
-                      <Link to={`mailto:${job.application_details.email}`}>
-                        {job.application_details.email}
-                      </Link>
-                    </p>
-                  </div>
-                )}
-
-                {job.application_details.reference && (
-                  <div>
-                    <br></br>
-                    <p>
-                      Ange referens{' '}
-                      <span className="bold-text">
-                        {job.application_details.reference}
-                      </span>{' '}
-                      i din ansökan
-                    </p>
-                  </div>
-                )}
-
-                <div>
-                  <br></br>
-                  <p>Ansök senast: </p>
-                  <p className="bold-text">
-                    {dateFormatter(job.application_deadline, false)}
-                  </p>
-                </div>
-              </DigiTypography>
-            </DigiInfoCard>
-          </div>
+          <JobApplicationInfoCard job={job}></JobApplicationInfoCard>
         </DigiLayoutColumns>
       </DigiLayoutBlock>
     </>
