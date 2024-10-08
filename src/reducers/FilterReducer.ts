@@ -135,6 +135,7 @@ export const FilterReducer = (
       return { ...filter, pubDate: action.payload };
     }
     case FilterActionType.SET_LIMIT: {
+      localStorage.setItem('adsPerPageLimit', action.payload.toString());
       return { ...filter, limit: action.payload, offset: 0 };
     }
     case FilterActionType.SET_OFFSET: {
