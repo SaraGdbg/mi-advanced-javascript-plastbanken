@@ -1,5 +1,4 @@
 import { FilterContext } from '../../contexts/FilterContext';
-import { createQueryString } from '../../utils/createQueryString';
 import { FormCheckboxVariation } from '@digi/arbetsformedlingen';
 import { DigiFormCheckbox } from '@digi/arbetsformedlingen-react';
 import { DigiFormCheckboxCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
@@ -20,19 +19,11 @@ export const DriversLicenseOptions = () => {
       type: FilterActionType.TOGGLE_DRIVING_LICENSE,
       payload: selectedOption,
     });
-
-    const updatedFilters = {
-      ...filters,
-      requiresDrivingLicense: selectedOption,
-    };
-    const searchText = createQueryString(updatedFilters);
-    console.log('Filters:', updatedFilters);
-    console.log('searchText:', searchText);
   };
   return (
     <>
+      Körkortskrav
       <>
-        Flexibilitet
         <DigiFormCheckbox
           afLabel={option}
           afVariation={FormCheckboxVariation.PRIMARY}

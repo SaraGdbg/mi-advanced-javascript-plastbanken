@@ -24,12 +24,3 @@ export const FilterButtonQualifications = () => {
     </>
   );
 };
-
-//TODO:
-// add checkbox for requires driving-licence (change deafult to true)
-// when clicked => false 0 => add to query string to search for jobs without drivers license requirements
-// add radiob button for remote, hybrid or in office work
-// add my buttons to Johans filter button
-// add states to keep track of buttons
-
-// TODO: update IFilter? Check IJobExt if what I put in there is helpful.......
