@@ -23,6 +23,7 @@ import { useContext } from 'react';
 import { FilterContext } from '../contexts/FilterContext';
 import { createQueryString } from '../utils/createQueryString';
 import { dateFormatter } from '../utils/dateFormatter';
+import { descriptionFormatter } from '../utils/descriptionFormatter';
 
 export const DisplayJob = () => {
   const job = useLoaderData() as IJobExt;
@@ -33,16 +34,6 @@ export const DisplayJob = () => {
     const queryString = createQueryString(filters);
     navigate(`/annonser/${queryString}`);
   };
-
-  let formattedText = '';
-  const descriptionFormatter = () => {
-    const initialText = job.description.text_formatted;
-    const breaks = initialText.split('\n').join('<br>');
-    const listings = breaks.split('•').join('<br>•');
-    formattedText = listings;
-  };
-
-  descriptionFormatter();
 
   return (
     <>
@@ -119,7 +110,7 @@ export const DisplayJob = () => {
                 <h3>Om jobbet:</h3>
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: formattedText,
+                    __html:   descriptionFormatter(job.description.text_formatted)
                   }}
                 />
               </DigiLayoutContainer>
