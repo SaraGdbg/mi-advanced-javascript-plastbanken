@@ -26,25 +26,14 @@ import { dateFormatter } from '../utils/dateFormatter';
 import { descriptionFormatter } from '../utils/descriptionFormatter';
 import { JobApplicationInfoCard } from '../components/JobApplicationInfoCard';
 import { Qualifications } from '../components/Qualifications';
+import { BackToResultsBar } from '../components/BackToResultsBar';
 
 export const DisplayJob = () => {
   const job = useLoaderData() as IJobExt;
-  const navigate = useNavigate();
-  const filters = useContext(FilterContext);
-
-  const handleSubmit = () => {
-    const queryString = createQueryString(filters);
-    navigate(`/annonser/${queryString}`);
-  };
-
+ 
   return (
     <>
-      <DigiLayoutBlock afMarginTop={true}>
-        <DigiButton onAfOnClick={handleSubmit}>
-          Tillbaka till sökning
-        </DigiButton>
-      </DigiLayoutBlock>
-
+    <BackToResultsBar></BackToResultsBar>
       <DigiLayoutBlock afMarginTop={true}>
         <DigiLayoutColumns afVariation={LayoutColumnsVariation.TWO}>
           <DigiLayoutContainer className="job-info-container" afNoGutter={true}>
