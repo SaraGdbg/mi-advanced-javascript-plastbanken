@@ -13,8 +13,6 @@ import { PaginationContext } from '../contexts/PaginationContext.ts';
 
 export const SortResults = () => {
   const { resetPagination } = useContext(PaginationContext);
-  //TODO: logic to only be able to check one of the checkboxes at a time
-  // TODO: dispatches for each choice
 
   interface IMenuItems {
     id: number;
