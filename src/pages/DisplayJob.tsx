@@ -1,32 +1,20 @@
 import {
-  InfoCardHeadingLevel,
-  InfoCardBorderPosition,
-  InfoCardType,
-  InfoCardVariation,
   LayoutColumnsVariation,
-  ButtonVariation,
-  LayoutMediaObjectAlignment,
 } from '@digi/arbetsformedlingen';
 import {
-  DigiButton,
-  DigiInfoCard,
   DigiLayoutBlock,
   DigiLayoutColumns,
   DigiLayoutContainer,
-  DigiLayoutMediaObject,
-  DigiMediaImage,
   DigiTypography,
 } from '@digi/arbetsformedlingen-react';
-import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import { Link, useLoaderData} from 'react-router-dom';
 import { IJobExt } from '../models/IJob';
-import { useContext } from 'react';
-import { FilterContext } from '../contexts/FilterContext';
-import { createQueryString } from '../utils/createQueryString';
 import { dateFormatter } from '../utils/dateFormatter';
 import { descriptionFormatter } from '../utils/descriptionFormatter';
 import { JobApplicationInfoCard } from '../components/JobApplicationInfoCard';
 import { Qualifications } from '../components/Qualifications';
 import { BackToResultsBar } from '../components/BackToResultsBar';
+import { JobHeadline } from '../components/JobHeadline';
 
 export const DisplayJob = () => {
   const job = useLoaderData() as IJobExt;
@@ -38,19 +26,7 @@ export const DisplayJob = () => {
         <DigiLayoutColumns afVariation={LayoutColumnsVariation.TWO}>
           <DigiLayoutContainer className="job-info-container" afNoGutter={true}>
             <DigiTypography>
-              {job.logo_url && (
-                <DigiLayoutMediaObject
-                  afAlignment={LayoutMediaObjectAlignment.START}
-                >
-                  <DigiMediaImage
-                    afSrc={job.logo_url}
-                    afAlt={`Logotyp för ${job.employer.name}`}
-                  ></DigiMediaImage>
-                </DigiLayoutMediaObject>
-              )}
-
-              <h1>{job.headline}</h1>
-
+              <JobHeadline job={job}></JobHeadline>
               <DigiLayoutColumns afVariation={LayoutColumnsVariation.TWO}>
                 <DigiLayoutContainer>
                   <h3>{job.employer.name}</h3>

@@ -18,62 +18,65 @@ interface IJobProp {
   job: IJobExt;
 }
 
-export const JobApplicationInfoCard = ({job}: IJobProp) => {
+export const JobApplicationInfoCard = ({ job }: IJobProp) => {
   return (
-    <div className="job-application-container">
-      <DigiInfoCard
-        afHeading="Sök jobbet"
-        afHeadingLevel={InfoCardHeadingLevel.H3}
-        afType={InfoCardType.RELATED}
-        afVariation={InfoCardVariation.SECONDARY}
-        afBorderPosition={InfoCardBorderPosition.LEFT}
-      >
-        <DigiTypography>
-          {job.application_details.url && (
-            <div>
-              <h4>Via arbetsgivarens webbplats:</h4>
-              <p></p>
-              <Link to={job.application_details.url}>
-                <DigiButton afVariation={ButtonVariation.PRIMARY}>
-                  Sök jobbet här
-                </DigiButton>
-              </Link>
-            </div>
-          )}
-
-          {job.application_details.email && (
-            <div>
-              <h4>Via mail:</h4>
-              <p>
-                <Link to={`mailto:${job.application_details.email}`}>
-                  {job.application_details.email}
+    <>
+      <div className="job-application-container">
+        <DigiInfoCard
+          afHeading="Sök jobbet"
+          afHeadingLevel={InfoCardHeadingLevel.H3}
+          afType={InfoCardType.RELATED}
+          afVariation={InfoCardVariation.SECONDARY}
+          afBorderPosition={InfoCardBorderPosition.LEFT}
+        >
+          <DigiTypography>
+            {job.application_details.url && (
+              <div>
+                <h4>Via arbetsgivarens webbplats:</h4>
+                <p></p>
+                <Link to={job.application_details.url}>
+                  <DigiButton afVariation={ButtonVariation.PRIMARY}>
+                    Sök jobbet här
+                  </DigiButton>
                 </Link>
-              </p>
-            </div>
-          )}
+              </div>
+            )}
 
-          {job.application_details.reference && (
+            {job.application_details.email && (
+              <div>
+                <h4>Via mail:</h4>
+                <p>
+                  <Link to={`mailto:${job.application_details.email}`}>
+                    {job.application_details.email}
+                  </Link>
+                </p>
+              </div>
+            )}
+
+            {job.application_details.reference && (
+              <div>
+                <br></br>
+                <p>
+                  Ange referens{' '}
+                  <span className="bold-text">
+                    {job.application_details.reference}
+                  </span>{' '}
+                  i din ansökan
+                </p>
+              </div>
+            )}
+
             <div>
               <br></br>
-              <p>
-                Ange referens{' '}
-                <span className="bold-text">
-                  {job.application_details.reference}
-                </span>{' '}
-                i din ansökan
+              <p>Ansök senast: </p>
+              <p className="bold-text">
+                {dateFormatter(job.application_deadline, false)}
               </p>
             </div>
-          )}
-
-          <div>
-            <br></br>
-            <p>Ansök senast: </p>
-            <p className="bold-text">
-              {dateFormatter(job.application_deadline, false)}
-            </p>
-          </div>
-        </DigiTypography>
-      </DigiInfoCard>
-    </div>
+          </DigiTypography>
+        </DigiInfoCard>
+      </div>
+      ;
+    </>
   );
 };
