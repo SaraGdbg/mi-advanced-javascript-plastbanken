@@ -1,6 +1,6 @@
 import { DigiLayoutContainer } from '@digi/arbetsformedlingen-react';
-import { IJobExt } from '../models/IJob';
-import { descriptionFormatter } from '../utils/descriptionFormatter';
+import { IJobExt } from '../../models/IJob';
+import { descriptionFormatter } from '../../utils/descriptionFormatter';
 
 interface IJobProp {
   job: IJobExt;

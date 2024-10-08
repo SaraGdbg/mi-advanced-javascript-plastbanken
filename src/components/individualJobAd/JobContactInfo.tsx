@@ -1,5 +1,5 @@
 import { DigiLayoutContainer } from '@digi/arbetsformedlingen-react';
-import { IJobExt } from '../models/IJob';
+import { IJobExt } from '../../models/IJob';
 import { Link } from 'react-router-dom';
 
 interface IJobProp {

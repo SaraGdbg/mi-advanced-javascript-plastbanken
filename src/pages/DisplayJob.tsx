@@ -7,16 +7,16 @@ import {
 } from '@digi/arbetsformedlingen-react';
 import { useLoaderData } from 'react-router-dom';
 import { IJobExt } from '../models/IJob';
-import { JobApplicationInfoCard } from '../components/JobApplicationInfoCard';
-import { JobQualifications } from '../components/JobQualifications';
-import { BackToResultsBar } from '../components/BackToResultsBar';
-import { JobHeadline } from '../components/JobHeadline';
-import { JobSubHeadline } from '../components/JobSubHeadline';
-import { JobNumberOfVacancies } from '../components/JobNumberOfVacancies';
-import { JobDescription } from '../components/JobDescription';
-import { JobSalary } from '../components/JobSalary';
-import { JobContactInfo } from '../components/JobContactInfo';
-import { JobAdInfo } from '../components/JobAdInfo';
+import { JobApplicationInfoCard } from '../components/individualJobAd/JobApplicationInfoCard';
+import { JobQualifications } from '../components/individualJobAd/JobQualifications';
+import { BackToResultsBar } from '../components/individualJobAd/BackToResultsBar';
+import { JobHeadline } from '../components/individualJobAd/JobHeadline';
+import { JobSubHeadline } from '../components/individualJobAd/JobSubHeadline';
+import { JobNumberOfVacancies } from '../components/individualJobAd/JobNumberOfVacancies';
+import { JobDescription } from '../components/individualJobAd/JobDescription';
+import { JobSalary } from '../components/individualJobAd/JobSalary';
+import { JobContactInfo } from '../components/individualJobAd/JobContactInfo';
+import { JobAdInfo } from '../components/individualJobAd/JobAdInfo';
 
 export const DisplayJob = () => {
   const job = useLoaderData() as IJobExt;

@@ -11,8 +11,8 @@ import {
   DigiButton,
 } from '@digi/arbetsformedlingen-react';
 import { Link } from 'react-router-dom';
-import { dateFormatter } from '../utils/dateFormatter';
-import { IJobExt } from '../models/IJob';
+import { dateFormatter } from '../../utils/dateFormatter';
+import { IJobExt } from '../../models/IJob';
 
 interface IJobProp {
   job: IJobExt;

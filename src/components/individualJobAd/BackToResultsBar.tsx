@@ -1,8 +1,8 @@
 import { DigiLayoutBlock, DigiButton } from "@digi/arbetsformedlingen-react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { FilterContext } from "../contexts/FilterContext";
-import { createQueryString } from "../utils/createQueryString";
+import { FilterContext } from "../../contexts/FilterContext";
+import { createQueryString } from "../../utils/createQueryString";
 
 export const BackToResultsBar = () => {
     const navigate = useNavigate();
