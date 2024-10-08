@@ -6,6 +6,8 @@ import { useRef, useState } from 'react';
 import { ButtonSize, ButtonVariation } from '@digi/arbetsformedlingen';
 import { OccupationMenu } from './OccupationMenu.tsx';
 
+// TO BE DELETED, USING FilterButtonsWithMenu INSTEAD
+
 export const FilterButtonOccupation = () => {
   const [viewMenu, setViewMenu] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);

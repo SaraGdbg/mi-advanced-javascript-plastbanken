@@ -3,10 +3,9 @@ import {
   DigiIconChevronDown,
 } from '@digi/arbetsformedlingen-react';
 
-import React, { ReactNode, useRef, useState } from 'react';
+import { ReactNode, useRef, useState } from 'react';
 import { ButtonSize, ButtonVariation } from '@digi/arbetsformedlingen';
 import './filterButtonRegion.css';
-import { RegionMenu } from './RegionMenu';
 import { useOutsideClick } from '../../services/handleClickOutside';
 
 type FilterBtnProps = {

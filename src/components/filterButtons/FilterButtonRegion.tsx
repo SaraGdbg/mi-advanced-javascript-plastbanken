@@ -9,6 +9,8 @@ import './filterButtonRegion.css';
 import { RegionMenu } from './RegionMenu';
 import { useOutsideClick } from '../../services/handleClickOutside';
 
+// TO BE DELETED, USING FilterButtonsWithMenu INSTEAD
+
 export const FilterButtonRegion = () => {
   const [viewMenu, setViewMenu] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
