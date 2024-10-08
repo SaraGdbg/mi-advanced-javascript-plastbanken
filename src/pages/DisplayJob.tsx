@@ -25,6 +25,7 @@ import { createQueryString } from '../utils/createQueryString';
 import { dateFormatter } from '../utils/dateFormatter';
 import { descriptionFormatter } from '../utils/descriptionFormatter';
 import { JobApplicationInfoCard } from '../components/JobApplicationInfoCard';
+import { Qualifications } from '../components/Qualifications';
 
 export const DisplayJob = () => {
   const job = useLoaderData() as IJobExt;
@@ -89,19 +90,7 @@ export const DisplayJob = () => {
                 </DigiLayoutContainer>
               </DigiLayoutColumns>
 
-              <DigiLayoutContainer afMarginTop={true}>
-                <h3>Kvalifikationer:</h3>
-                {job.driving_license_required && (
-                  <h4>
-                    Körkortsbehörighet: <p>{job.driving_license?.[0].label}</p>
-                  </h4>
-                )}
-                {job.experience_required && (
-                  <h4>
-                    Erfarenhet: <p>{job.occupation.label}</p>
-                  </h4>
-                )}
-              </DigiLayoutContainer>
+              <Qualifications job={job}></Qualifications>
 
               <DigiLayoutContainer afMarginTop={true}>
                 <h3>
