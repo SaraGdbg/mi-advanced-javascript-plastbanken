@@ -61,7 +61,6 @@ export const RegionMenu = () => {
       let isAlreadyChecked = filters.municipalitiesSelected.find(
         (muni) => muni === queryValue,
       );
-      console.log(isAlreadyChecked);
       if (!isAlreadyChecked) {
         filters.municipalitiesSelected.push(queryValue);
       }
@@ -148,7 +147,6 @@ export const RegionMenu = () => {
           ''
         )}
 
-        {/* <button onClick={clearFilters}>Rensa filter</button> */}
         {regionsOccupations.regions.map((region) => (
           <div key={region['taxonomy/national-nuts-level-3-code-2019']}>
             <DigiButton
