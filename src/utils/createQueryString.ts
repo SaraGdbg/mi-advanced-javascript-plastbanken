@@ -7,8 +7,9 @@ export const createQueryString = (filters: IFilterJobs): string => {
 
   if (filters.isRemote) params.append('remote', 'true');
 
-  if (filters.requiresDrivingLicense)
-    params.append('driving-license-required', 'true');
+  //ändra till false
+  if (!filters.requiresDrivingLicense)
+    params.append('driving-license-required', 'false');
 
   filters.municipalitiesSelected.forEach((municipality) => {
     params.append('municipality', municipality);
@@ -22,7 +23,7 @@ export const createQueryString = (filters: IFilterJobs): string => {
     params.append('occupation-field', occupationField);
   });
 
-  if (filters.workingHoursType)
+  if (filters.workingHoursType !== '0' && filters.workingHoursType)
     params.append('worktime-extent', filters.workingHoursType);
 
   if (filters.sortBy) params.append('sort', filters.sortBy);

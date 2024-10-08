@@ -25,12 +25,12 @@ interface ISetQueryFromInputAction {
 
 interface IToggleRemoteAction {
   type: FilterActionType.TOGGLE_REMOTE;
-  payload: undefined;
+  payload: boolean;
 }
 
 interface IToggleDrivingLicenseAction {
   type: FilterActionType.TOGGLE_DRIVING_LICENSE;
-  payload: undefined;
+  payload: boolean;
 }
 
 interface ISetMunicipalitiesAction {
@@ -95,7 +95,7 @@ export type FilterAction =
 export const defaultFilterState: IFilterJobs = {
   queryFromInput: '',
   isRemote: false,
-  requiresDrivingLicense: false,
+  requiresDrivingLicense: true,
   municipalitiesSelected: [],
   regionsSelected: [],
   occupationFieldSelected: [],
