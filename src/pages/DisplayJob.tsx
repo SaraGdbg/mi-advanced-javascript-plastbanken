@@ -9,6 +9,7 @@ import {
 } from '@digi/arbetsformedlingen';
 import {
   DigiButton,
+  DigiIconApple,
   DigiInfoCard,
   DigiLayoutBlock,
   DigiLayoutColumns,
@@ -70,7 +71,7 @@ export const DisplayJob = () => {
 
       <DigiLayoutBlock afMarginTop={true}>
         <DigiLayoutColumns afVariation={LayoutColumnsVariation.TWO}>
-          <DigiLayoutContainer className="job-info-container">
+          <DigiLayoutContainer className="job-info-container" afNoGutter={true}>
             <DigiTypography>
               {job.logo_url && (
                 <DigiLayoutMediaObject
@@ -84,47 +85,55 @@ export const DisplayJob = () => {
               )}
 
               <h1>{job.headline}</h1>
+              
               <DigiLayoutColumns afVariation={LayoutColumnsVariation.TWO}>
                 <DigiLayoutContainer>
-                  <ul>
-                    <li>
                       <h3>{job.employer.name}</h3>
-                    </li>
-
-                    <li>
                       <h3>{job.occupation.label}</h3>
-                    </li>
-                    <li>
                       <h3>{job.workplace_address.municipality}</h3>
-                    </li>
-                  </ul>
                 </DigiLayoutContainer>
+
+
                 <DigiLayoutContainer>
-                  <ul>
                     {job.working_hours_type.label && (
-                      <li>
-                        <h3>{job.working_hours_type.label}</h3>
-                      </li>
+                        <h4>Omfattning: <p>{job.working_hours_type.label}</p></h4>
                     )}
 
                     {job.duration.label && (
-                      <li>
-                        <h3>{job.duration.label}</h3>
-                      </li>
+                        <h4>Varaktighet: <p>{job.duration.label}</p></h4>
                     )}
 
                     {job.employment_type.label && (
-                      <li>
-                        <h3>{job.employment_type.label}</h3>
-                      </li>
+                        <h4>Anställningsform: <p>{job.employment_type.label}</p></h4>
                     )}
-                  </ul>
                 </DigiLayoutContainer>
+
+
               </DigiLayoutColumns>
+
               <DigiLayoutContainer afMarginTop={true}>
-                <h3>Kvalifikationer</h3>
+                <h3>Kvalifikationer:</h3>
+                {job.driving_license_required && (
+                  <h4>
+                    Körkortsbehörighet: <p>{job.driving_license?.[0].label}</p>
+                  </h4>
+                )}
+                {job.experience_required && (
+                  <h4>
+                    Erfarenhet: <p>{job.occupation.label}</p>
+                  </h4>
+                )}
               </DigiLayoutContainer>
+
               <DigiLayoutContainer afMarginTop={true}>
+                <h3>
+                  Antal jobb:
+                  <p>{job.number_of_vacancies}</p>
+                </h3>
+              </DigiLayoutContainer>
+
+              <DigiLayoutContainer afMarginTop={true}>
+                <h3>Om jobbet:</h3>
                 <div
                   dangerouslySetInnerHTML={{
                     __html: formattedText,
@@ -132,13 +141,13 @@ export const DisplayJob = () => {
                 />
               </DigiLayoutContainer>
 
-              {job.driving_license_required && (
-                <DigiLayoutContainer afMarginTop={true}>
-                  <h3>
-                    Körkortsbehörighet: <p>{job.driving_license?.[0].label}</p>
-                  </h3>
-                </DigiLayoutContainer>
-              )}
+              <DigiLayoutContainer afMarginTop={true}>
+                <h3>
+                  Lön:
+                  {job.salary_description && (<p>{job.salary_description}</p>)}
+                  {job.salary_type.label && (<p>{job.salary_type.label}</p>)}
+                </h3>
+              </DigiLayoutContainer>
 
               <DigiLayoutContainer afMarginTop={true}>
                 <h3>

@@ -66,6 +66,8 @@ export interface IJobExt extends IJob {
     text_formatted: string;
     // text: string;
   };
+  // if experience in the field is required
+  experience_required: boolean;
   // if some kind of driving license is required
   driving_license_required: boolean;
   // IF a driving license is required, this displays which type, eg B. Only display this if driving_license_required is true.
