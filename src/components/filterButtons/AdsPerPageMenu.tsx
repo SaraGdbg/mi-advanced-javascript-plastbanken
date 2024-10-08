@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { createQueryString } from '../../utils/createQueryString.ts';
 import { FilterDispatchContext } from '../../contexts/FilterDispatchContext.ts';
 import { FilterActionType } from '../../reducers/FilterReducer.ts';
+import { PaginationContext } from '../../contexts/PaginationContext.ts';
 
 interface IMenuItems {
   id: number;
@@ -17,6 +18,7 @@ export const AdsPerPageMenu = () => {
   const navigate = useNavigate();
   const filters = useContext(FilterContext);
   const dispatch = useContext(FilterDispatchContext);
+  const { resetPagination } = useContext(PaginationContext);
 
   const menuItems: IMenuItems[] = [
     {
@@ -51,11 +53,9 @@ export const AdsPerPageMenu = () => {
       payload: selectedValue,
     });
 
-    localStorage.setItem('adsPerPageLimit', selectedValue.toString());
-
     const updatedFilters = { ...filters, limit: selectedValue, offset: 0 };
     const searchText = createQueryString(updatedFilters);
-
+    resetPagination();
     navigate(`/annonser/${searchText}`);
   };
 
