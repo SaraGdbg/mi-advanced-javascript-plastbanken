@@ -8,7 +8,7 @@ import {
   DigiTypographyTime,
 } from '@digi/arbetsformedlingen-react';
 import { IJob } from '../models/IJob';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { StyledJobShortContainer } from './StyledJobShortContainer';
 import { StyledSpan } from './StyledSpan';
 
@@ -17,16 +17,12 @@ interface IJobShortPresentationProps {
 }
 
 export const JobShortPresentation = ({ job }: IJobShortPresentationProps) => {
-  // const date = job.publication_date;
-  // const dateObject = new Date(date);
+  const navigate = useNavigate();
 
-  // const formatDate = dateObject.toLocaleString('sv-SE', {
-  //   year: 'numeric',
-  //   month: 'long',
-  //   day: 'numeric',
-  //   // hour: '2-digit',
-  //   // minute: '2-digit',
-  // });
+  const showJobPresentation = () => {
+    navigate(`/annonser/id/${job.id}`);
+    console.log('HEJSAN');
+  };
 
   return (
     <DigiLayoutContainer
@@ -35,7 +31,7 @@ export const JobShortPresentation = ({ job }: IJobShortPresentationProps) => {
       af-no-gutter
     >
       <DigiTypography>
-        <StyledJobShortContainer>
+        <StyledJobShortContainer onClick={showJobPresentation}>
           <section>
             <Link to={`/annonser/id/${job.id}`}>
               <h3>{job.headline}</h3>
