@@ -1,5 +1,5 @@
 // Change to hashrouter for deployment (GitHub pages)
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 
 import { NotFound } from './pages/NotFound';
 import { Home } from './pages/Home';
@@ -9,7 +9,7 @@ import { DisplayJob } from './pages/DisplayJob';
 import { jobLoader } from './loaders/jobLoader';
 import { jobsLoader } from './loaders/jobsLoader.ts';
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: '/',
     element: <Layout></Layout>,

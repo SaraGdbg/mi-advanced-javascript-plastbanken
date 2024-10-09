@@ -13,7 +13,6 @@ export const DriversLicenseOptions = () => {
 
   const setDriversLicense = (e: DigiFormCheckboxCustomEvent<MouseEvent>) => {
     const selectedOption = !e.target.afChecked;
-    console.log(selectedOption);
 
     dispatch({
       type: FilterActionType.TOGGLE_DRIVING_LICENSE,
