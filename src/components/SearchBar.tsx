@@ -39,14 +39,8 @@ export const SearchBar = () => {
     navigate(`/annonser/${queryString}`);
   };
 
-  // JUST FOR CHECKING OBJECT IN STATE
-  const handleClick = () => {
-    console.log('CHECK:', filters);
-  };
-
   return (
     <>
-      <button onClick={handleClick}>CHECK!</button>
       <DigiFormInputSearch
         afLabel="Informativ text"
         afVariation={FormInputSearchVariation.MEDIUM}

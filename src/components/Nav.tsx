@@ -28,9 +28,6 @@ export const Nav = () => {
         afMenuButtonText="Meny"
       >
         <a slot="header-logo" aria-label="Startsida" href="/"></a>
-        <div slot="header-content">
-          <DigiNavigationSidebarButton afText="Meny"></DigiNavigationSidebarButton>
-        </div>
         <div slot="header-navigation"></div>
       </StyledDigiHeader>
     </>
