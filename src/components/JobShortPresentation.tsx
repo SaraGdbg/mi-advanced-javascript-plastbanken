@@ -46,12 +46,14 @@ export const JobShortPresentation = ({ job }: IJobShortPresentationProps) => {
               )}
             </div>
           </section>
-          <h4>Ort: {job.workplace_address.municipality}</h4>
+          {job.workplace_address.municipality && (
+            <h4>Ort: {job.workplace_address.municipality}</h4>
+          )}
           <h4>Titel: {job.occupation.label}</h4>
           <h4>
-            Publicerad:
+            Publicerad:&nbsp;
             <DigiTypographyTime
-              afVariation={TypographyTimeVariation.PRIMARY}
+              afVariation={TypographyTimeVariation.PRETTY}
               afDateTime={job.publication_date}
               afLocale="sv-SE"
             ></DigiTypographyTime>
