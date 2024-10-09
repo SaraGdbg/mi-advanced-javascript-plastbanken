@@ -3,6 +3,7 @@ import {
   DigiNavigationSidebarButton,
 } from '@digi/arbetsformedlingen-react';
 import styled from 'styled-components';
+import logo from '../assets/img/logo_dark_green.png';
 
 const StyledDigiHeader = styled(DigiHeader)`
   svg {
@@ -10,7 +11,7 @@ const StyledDigiHeader = styled(DigiHeader)`
   }
 
   .digi-logo__img {
-    background-image: url('/img/logo_dark_green.png');
+    background-image: url(${logo});
     background-size: contain;
     background-repeat: no-repeat;
     width: 44px;
