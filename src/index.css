@@ -159,7 +159,7 @@ body {
 .sort-results-container {
   display: flex;
   justify-content: space-between;
-  padding: 16px;
+  padding: 16px 0;
 }
 
 .bold-text {
@@ -176,4 +176,12 @@ body {
 
 .job-info-container {
   width: 55vw;
+}
+
+@media (min-width: 992px) {
+  .result-options-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
 }

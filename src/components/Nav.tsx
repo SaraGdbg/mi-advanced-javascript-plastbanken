@@ -1,9 +1,7 @@
-import {
-  DigiHeader,
-  DigiNavigationSidebarButton,
-} from '@digi/arbetsformedlingen-react';
+import { DigiHeader } from '@digi/arbetsformedlingen-react';
 import styled from 'styled-components';
 import logo from '../assets/img/logo_dark_green.png';
+import { Link } from 'react-router-dom';
 
 const StyledDigiHeader = styled(DigiHeader)`
   svg {
@@ -27,7 +25,7 @@ export const Nav = () => {
         afHideSystemName={false}
         afMenuButtonText="Meny"
       >
-        <a slot="header-logo" aria-label="Startsida" href="/"></a>
+        <Link slot="header-logo" aria-label="Startsida" to={'/'}></Link>
         <div slot="header-navigation"></div>
       </StyledDigiHeader>
     </>
