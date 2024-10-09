@@ -10,6 +10,7 @@ import {
 } from '@digi/arbetsformedlingen-react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import logo from '../assets/img/logo_light_tangerine.png';
 
 const StyledDigiLogo = styled(DigiLogo)`
   svg {
@@ -17,7 +18,7 @@ const StyledDigiLogo = styled(DigiLogo)`
   }
 
   .digi-logo__img {
-    background-image: url('/img/logo_light_tangerine.png');
+    background-image: url(${logo});
     background-size: contain;
     background-repeat: no-repeat;
     width: 44px;

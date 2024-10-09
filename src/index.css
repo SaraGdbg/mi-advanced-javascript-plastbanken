@@ -169,14 +169,11 @@ body {
 .job-application-container {
   height: fit-content;
   width: fit-content;
-  justify-self: right;
+  top: 25px;
   position: sticky;
+  justify-self: right;
 }
 
 .job-info-container {
   width: 55vw;
-}
-
-.icon {
-  width: 1rem;
 }
