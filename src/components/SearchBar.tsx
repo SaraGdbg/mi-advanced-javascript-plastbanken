@@ -41,7 +41,6 @@ export const SearchBar = () => {
 
   return (
     <>
-      <button onClick={handleClick}>CHECK!</button>
       <DigiFormInputSearch
         afLabel="Informativ text"
         afVariation={FormInputSearchVariation.MEDIUM}
