@@ -24,7 +24,6 @@ export const RegionMenu = () => {
   const regionsOccupations = useContext(RegionsOccupationsContext);
   const filters = useContext(FilterContext);
   const dispatch = useContext(FilterDispatchContext);
-
   const [activeMuni, setActiveMuni] = useState<IMunicipality[]>([]);
   const [activeRegion, setActiveRegion] = useState(['', '']);
 

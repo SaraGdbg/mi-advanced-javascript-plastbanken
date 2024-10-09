@@ -11,7 +11,6 @@ import { FilterActionType } from '../../reducers/FilterReducer.ts';
 export const PublishDateMenu = () => {
   const filters = useContext(FilterContext);
   const dispatch = useContext(FilterDispatchContext);
-
   const publishDateText = [
     'Alla',
     'Idag',
