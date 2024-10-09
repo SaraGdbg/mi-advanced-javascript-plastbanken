@@ -1,11 +1,13 @@
 import {
   FooterVariation,
+  LinkVariation,
   LogoColor,
   LogoVariation,
 } from '@digi/arbetsformedlingen';
 import {
   DigiFooter,
   DigiFooterCard,
+  DigiLink,
   DigiLogo,
 } from '@digi/arbetsformedlingen-react';
 import { Link } from 'react-router-dom';
@@ -31,33 +33,32 @@ export const Footer = () => {
       <DigiFooter afVariation={FooterVariation.SMALL}>
         <div slot="content-top">
           <DigiFooterCard>
-            <h2>Rubrik</h2>
+            <h2>Om Plastbanken</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-              magna neque, interdum vel massa eget, condimentum rutrum velit.
-              Sed vitae ullamcorper sem. Aliquam malesuada nunc sed purus mollis
-              scelerisque. Curabitur bibendum leo quis ante porttitor tincidunt.
-              nibh.
+              Plastbanken - där jobbsökandet blir ett nöje och filtrering är en
+              konst. Vi är här för att ge dig en plats där du kan leta efter
+              jobb utan att behöva möta ett hav av irrelevanta annonser (så
+              länge du inte söker på 'Alla jobb' så klart).
             </p>
           </DigiFooterCard>
           <DigiFooterCard>
-            <h2>Rubrik</h2>
+            <h2>Kontakt</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-              magna neque, interdum vel massa eget, condimentum rutrum velit.
-              Sed vitae ullamcorper sem. Aliquam malesuada nunc sed purus mollis
-              scelerisque. Curabitur bibendum leo quis ante porttitor tincidunt.
-              nibh.
+              Har du frågor om hur du använder våra filter, eller vill du bara
+              prata av dig lite? Skicka ett meddelande till
+              <DigiLink afHref="#" afVariation={LinkVariation.SMALL}>
+                kontakt@plastbanken.se
+              </DigiLink>{' '}
+              eller ring oss på 010&#8209;123&nbsp;45&nbsp;67. Vi lovar att
+              lyssna - åtminstone mellan kl. 10 och 15.
             </p>
           </DigiFooterCard>
           <DigiFooterCard>
-            <h2>Rubrik</h2>
+            <h2>Sociala Medier</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-              magna neque, interdum vel massa eget, condimentum rutrum velit.
-              Sed vitae ullamcorper sem. Aliquam malesuada nunc sed purus mollis
-              scelerisque. Curabitur bibendum leo quis ante porttitor tincidunt.
-              nibh.
+              Följ oss på sociala medier för att få tips om jobbsökning, ta del
+              av inspirerande historier och se hur vårt utvecklingsteam försöker
+              förstå konceptet 'tidshantering'.
             </p>
           </DigiFooterCard>
         </div>
