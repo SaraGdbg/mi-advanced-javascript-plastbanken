@@ -189,6 +189,8 @@ body {
 
 .container-highlight {
   background-color: var(--digi--color--background--neutral-8);
+  border-radius: 8px;
+  border: 1px solid var(--digi--color--border--inverted-3);
 }
 
 @media (min-width: 992px) {

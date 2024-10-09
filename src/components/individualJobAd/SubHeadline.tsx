@@ -12,8 +12,8 @@ interface IJobProp {
 export const SubHeadline = ({ job }: IJobProp) => {
   return (
     <>
-    <DigiLayoutContainer className='container-highlight'>
-      <DigiLayoutColumns  afVariation={LayoutColumnsVariation.TWO}>
+    <DigiLayoutContainer>
+      <DigiLayoutColumns afVariation={LayoutColumnsVariation.TWO}>
         <DigiLayoutContainer className='container-highlight' afVerticalPadding={true}>
           <h3>{job.employer.name}</h3>
           <h3>{job.occupation.label}</h3>
