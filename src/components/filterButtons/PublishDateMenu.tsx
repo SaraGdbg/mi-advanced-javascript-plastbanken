@@ -60,8 +60,8 @@ export const PublishDateMenu = () => {
   };
 
   return (
-    <div className="regionMenuContainer">
-      <div className="regionContainer">
+    <div className="filterMenuContainer">
+      <div className="leftMenuContainer filterMenuColumn">
         <DigiFormRadiogroup afName="publishDate">
           {publishDateCode.map((type, index: number) => (
             <div key={index}>
