@@ -15,6 +15,12 @@ import { getLocations } from '../services/locationsService';
 import { RegionsOccupationsContext } from '../contexts/RegionsOccupationsContext';
 import { useState, useEffect } from 'react';
 import { JobsPresentation } from '../components/JobsPresentation.tsx';
+import styled from 'styled-components';
+
+const StyledDigiLayoutBlock = styled(DigiLayoutBlock)`
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+`;
 
 export const DisplayJobs = () => {
   const jobs = useLoaderData() as IJobsSearchResponse;
@@ -46,7 +52,7 @@ export const DisplayJobs = () => {
 
   return (
     <>
-      <DigiLayoutBlock afVariation={LayoutBlockVariation.PRIMARY}>
+      <StyledDigiLayoutBlock afVariation={LayoutBlockVariation.PRIMARY}>
         <DigiTypography>
           <DigiLayoutContainer>
             <h2>Sökresultat</h2>
@@ -58,7 +64,7 @@ export const DisplayJobs = () => {
 
           <JobsPresentation jobs={jobs}></JobsPresentation>
         </DigiTypography>
-      </DigiLayoutBlock>
+      </StyledDigiLayoutBlock>
     </>
   );
 };
