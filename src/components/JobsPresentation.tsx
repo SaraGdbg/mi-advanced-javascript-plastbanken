@@ -2,7 +2,6 @@ import { JobShortPresentation } from './JobShortPresentation';
 import { IJobsSearchResponse } from '../models/IJobsSearchResponse';
 import { ResultOptions } from './ResultOptions';
 import { ResultsPagination } from './ResultsPagination.tsx';
-import { DigiLayoutContainer } from '@digi/arbetsformedlingen-react';
 
 interface IJobsPresentationProps {
   jobs: IJobsSearchResponse;
@@ -20,12 +19,11 @@ export const JobsPresentation = ({ jobs }: IJobsPresentationProps) => {
   } else {
     content = (
       <div key="jobs-list">
-        <DigiLayoutContainer>
-          <ResultOptions
-            ads={jobs.total.value}
-            positions={jobs.positions}
-          ></ResultOptions>
-        </DigiLayoutContainer>
+        <ResultOptions
+          ads={jobs.total.value}
+          positions={jobs.positions}
+        ></ResultOptions>
+
         <ul>
           {jobs.hits.map((job) => (
             <JobShortPresentation job={job} key={job.id}></JobShortPresentation>
