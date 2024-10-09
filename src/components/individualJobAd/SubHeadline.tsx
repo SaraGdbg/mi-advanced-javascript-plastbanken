@@ -12,14 +12,15 @@ interface IJobProp {
 export const SubHeadline = ({ job }: IJobProp) => {
   return (
     <>
-      <DigiLayoutColumns afVariation={LayoutColumnsVariation.TWO}>
-        <DigiLayoutContainer>
+    <DigiLayoutContainer className='container-highlight'>
+      <DigiLayoutColumns  afVariation={LayoutColumnsVariation.TWO}>
+        <DigiLayoutContainer className='container-highlight' afVerticalPadding={true}>
           <h3>{job.employer.name}</h3>
           <h3>{job.occupation.label}</h3>
           <h3>{job.workplace_address.municipality}</h3>
         </DigiLayoutContainer>
 
-        <DigiLayoutContainer>
+        <DigiLayoutContainer className='container-highlight' afVerticalPadding={true}>
           {job.working_hours_type.label && (
             <h4>
               Omfattning: <p>{job.working_hours_type.label}</p>
@@ -39,6 +40,7 @@ export const SubHeadline = ({ job }: IJobProp) => {
           )}
         </DigiLayoutContainer>
       </DigiLayoutColumns>
+      </DigiLayoutContainer>
     </>
   );
 };

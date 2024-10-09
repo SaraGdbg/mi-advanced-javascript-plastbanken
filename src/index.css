@@ -185,3 +185,7 @@ body {
 .job-info-container {
   width: 55vw;
 }
+
+.container-highlight {
+  background-color: var(--digi--color--background--neutral-8);
+}
