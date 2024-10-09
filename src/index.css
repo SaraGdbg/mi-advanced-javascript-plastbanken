@@ -32,7 +32,7 @@
   --mint-var: 183, 210, 202;
   --mint-light: #cbd2d2;
 
-  --purple: #85386b;
+  --purple: #993485;
   --deep-red: #9b3817;
   --sand: #af906e;
 
@@ -143,13 +143,6 @@
 body {
   background-color: var(--white);
   margin: 0;
-}
-
-.sc-digi-layout-container-h
-  .digi-layout-container.sc-digi-layout-container
-  .filter-buttons {
-  display: flex;
-  flex-direction: row;
 }
 
 .job-short-presentation {
