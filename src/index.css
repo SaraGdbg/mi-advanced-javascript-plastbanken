@@ -151,9 +151,9 @@ body {
   flex-direction: row;
 }
 
-.job-short-presentation {
+/* .job-short-presentation {
   width: 100;
-}
+} */
 
 .job-details {
   display: flex;
