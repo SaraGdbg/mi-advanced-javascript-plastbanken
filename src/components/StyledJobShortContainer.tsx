@@ -7,6 +7,7 @@ export const StyledJobShortContainer = styled.div`
   max-width: 1240px;
   border-radius: 8px;
   border: 1px solid var(--digi--color--border--inverted-3);
+  transition: box-shadow 0.2s ease;
   h3 {
     font-weight: bold;
   }
@@ -27,6 +28,11 @@ export const StyledJobShortContainer = styled.div`
     }
   }
   &:hover {
-    background-color: rgba(var(--mint-var), 0.4);
+    background-color: rgba(var(--mint-var), 0.5);
+    box-shadow: 0 4px 8px rgba(60, 95, 54, 0.2);
   }
+
+  /* :hover {
+    filter: drop-shadow(red 5px 5px);
+  } */
 `;

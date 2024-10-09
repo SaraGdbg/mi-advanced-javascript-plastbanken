@@ -17,16 +17,16 @@ interface IJobShortPresentationProps {
 }
 
 export const JobShortPresentation = ({ job }: IJobShortPresentationProps) => {
-  const date = job.publication_date;
-  const dateObject = new Date(date);
+  // const date = job.publication_date;
+  // const dateObject = new Date(date);
 
-  const formatDate = dateObject.toLocaleString('sv-SE', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    // hour: '2-digit',
-    // minute: '2-digit',
-  });
+  // const formatDate = dateObject.toLocaleString('sv-SE', {
+  //   year: 'numeric',
+  //   month: 'long',
+  //   day: 'numeric',
+  //   // hour: '2-digit',
+  //   // minute: '2-digit',
+  // });
 
   return (
     <DigiLayoutContainer
