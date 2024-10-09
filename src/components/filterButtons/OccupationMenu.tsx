@@ -35,8 +35,8 @@ export const OccupationMenu = () => {
   };
 
   return (
-    <div className="regionMenuContainer">
-      <div className="regionContainer">
+    <div className="filterMenuContainer">
+      <div className="leftMenuContainerOccupations filterMenuColumn">
         {occupations.map((occupation) => (
           <DigiFormCheckbox
             key={occupation['taxonomy/id']}
@@ -53,7 +53,9 @@ export const OccupationMenu = () => {
           />
         ))}
       </div>
-      <div className="muniContainer">{hoveredItem}</div>
+      <div className="rightMenuContainerOccupations filterMenuColumn">
+        {hoveredItem}
+      </div>
     </div>
   );
 };

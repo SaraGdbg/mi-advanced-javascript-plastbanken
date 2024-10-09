@@ -7,8 +7,6 @@ import { PublishDateMenu } from './filterButtons/PublishDateMenu.tsx';
 import { OtherFilterOptions } from './filterButtons/OtherFilterOptions.tsx';
 
 export const FilterButtons = () => {
-  // const regionsOccupations = useContext(RegionsOccupationsContext);
-
   return (
     <>
       <DigiLayoutContainer>

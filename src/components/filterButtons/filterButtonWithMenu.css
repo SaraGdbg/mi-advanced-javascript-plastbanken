@@ -1,24 +1,16 @@
-.regionMenuContainer {
+.filterMenuContainer {
   width: auto;
-  background-color: white;
+  background-color: var(--digi--color--background--input);
   display: grid;
   grid-template-columns: 1fr 1fr;
   box-shadow: 0 0.125rem 0.375rem 0 rgba(0, 0, 0, 0.7);
   position: absolute;
-
   z-index: 999;
   padding: 1rem;
 }
 
-/* This should be removed once it's no longer in use */
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #00000050;
-  z-index: 5;
+.filterButtonContainer {
+  position: relative;
 }
 
 .menuContainer {
@@ -26,36 +18,37 @@
   z-index: 999;
 }
 
-.regionContainer {
-  width: 210px;
+.filterMenuColumn {
   max-height: 65vh;
   overflow-x: scroll;
   overflow-x: hidden;
-  border-top: 1px solid black;
+  border-top: 1px solid var(--digi--color--border--primary);
   padding-top: 0.5rem;
+}
+
+.leftMenuContainer {
+  width: 210px;
   .sc-digi-button-h .digi-button.sc-digi-button {
     border-width: 0;
     border-radius: 0;
   }
 }
 
-.muniContainer {
+.leftMenuContainerOccupations {
+  width: 310px;
+}
+
+.rightMenuContainer {
   padding-left: 1rem;
   width: calc(260px - 1rem);
-  max-height: 65vh;
-  overflow-x: scroll;
-  overflow-x: hidden;
-  border-top: 1px solid black;
-  padding-top: 0.7rem;
+}
+.rightMenuContainerOccupations {
+  padding-left: 1rem;
+  width: calc(315px - 1rem);
 }
 
 .inline {
   display: inline;
-}
-
-.filterButtonContainer {
-  /* width: 132px; */
-  position: relative;
 }
 
 .hidden {

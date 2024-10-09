@@ -1,9 +1,6 @@
 import { useContext, useState } from 'react';
-
 import { RegionsOccupationsContext } from '../../contexts/RegionsOccupationsContext';
-
 import { IMunicipality } from '../../models/IMunicipality';
-
 import {
   DigiButton,
   DigiFormCheckbox,
@@ -27,7 +24,6 @@ export const RegionMenu = () => {
   const regionsOccupations = useContext(RegionsOccupationsContext);
   const filters = useContext(FilterContext);
   const dispatch = useContext(FilterDispatchContext);
-
   const [activeMuni, setActiveMuni] = useState<IMunicipality[]>([]);
   const [activeRegion, setActiveRegion] = useState(['', '']);
 
@@ -128,8 +124,8 @@ export const RegionMenu = () => {
   };
 
   return (
-    <div className="regionMenuContainer">
-      <div className="regionContainer">
+    <div className="filterMenuContainer">
+      <div className="leftMenuContainer filterMenuColumn">
         {filters.municipalitiesSelected.length ||
         filters.regionsSelected.length > 0 ? (
           <div className="resetBtnContainer">
@@ -167,7 +163,7 @@ export const RegionMenu = () => {
           </div>
         ))}
       </div>
-      <div className="muniContainer">
+      <div className="rightMenuContainer filterMenuColumn">
         {activeMuni.length > 0 ? (
           <div>
             <DigiFormCheckbox

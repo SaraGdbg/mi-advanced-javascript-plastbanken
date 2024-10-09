@@ -4,8 +4,8 @@ import { DriversLicenseOptions } from './DriversLicenseOptions';
 
 export const OtherFilterOptions = () => {
   return (
-    <div className="regionMenuContainer">
-      <div className="regionContainer">
+    <div className="filterMenuContainer">
+      <div className="leftMenuContainer filterMenuColumn">
         <EmploymentTypeOptions></EmploymentTypeOptions>
         <LocationOptions></LocationOptions>
         <DriversLicenseOptions></DriversLicenseOptions>
