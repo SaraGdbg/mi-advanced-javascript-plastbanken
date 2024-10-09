@@ -11,7 +11,7 @@ const StyledDigiHeader = styled(DigiHeader)`
   }
 
   .digi-logo__img {
-    background-image: url('${logo}');
+    background-image: url(${logo});
     background-size: contain;
     background-repeat: no-repeat;
     width: 44px;
