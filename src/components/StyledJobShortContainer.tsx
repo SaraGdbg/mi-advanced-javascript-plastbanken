@@ -17,6 +17,7 @@ export const StyledJobShortContainer = styled.div`
     display: flex;
     justify-content: space-between;
     div {
+      text-align: right;
     }
   }
   @media (min-width: 62rem) {
@@ -24,5 +25,8 @@ export const StyledJobShortContainer = styled.div`
       .digi-layout-container.sc-digi-layout-container {
       --digi--layout-container--width: var(--digi--container-width--large);
     }
+  }
+  &:hover {
+    background-color: rgba(var(--mint-var), 0.4);
   }
 `;
