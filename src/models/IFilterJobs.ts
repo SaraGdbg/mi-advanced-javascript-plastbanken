@@ -28,5 +28,3 @@ export interface IFilterJobs {
   // use format YYYY-mm-ddTHH:MM:SS or number of minutes (e.g 60 means published in the last hour)
   pubDate: string;
 }
-
-// If we find any other items we need for page representation and/or API call , we should add them to the interface

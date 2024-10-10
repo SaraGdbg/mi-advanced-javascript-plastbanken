@@ -24,7 +24,6 @@ const StyledDigiLayoutBlock = styled(DigiLayoutBlock)`
 
 export const DisplayJobs = () => {
   const jobs = useLoaderData() as IJobsSearchResponse;
-  // To find the jobs use jobs.hits
   const [occupations, setOccupations] = useState<IOccupationFields[]>([]);
   const [regions, setRegions] = useState<IRegion[]>([]);
   const [fetchedOccupations, setFetchedOccupations] = useState(false);

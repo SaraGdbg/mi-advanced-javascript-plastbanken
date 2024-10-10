@@ -37,8 +37,6 @@ export interface IJob {
   };
 }
 
-// not sure if we need text_formatted or text in description object yet
-
 //IJobExt doesn't need to be within another interface as long as we seach for ad/:id, which seems like the easiest way to get it.
 
 export interface IJobExt extends IJob {
@@ -50,15 +48,17 @@ export interface IJobExt extends IJob {
     url: string | null;
     // email link for where to send job application
     email: string | null;
-    // reference 
+    // reference
     reference: string | null;
   };
-  application_contacts: [{
-    name: string | null;
-    email: string | null;
-    telephone: string | null;
-    description: string | null;
-  }]
+  application_contacts: [
+    {
+      name: string | null;
+      email: string | null;
+      telephone: string | null;
+      description: string | null;
+    },
+  ];
   description: {
     // usually heltid/tillsvidare or something similar.
     conditions: string | null;
@@ -79,23 +79,6 @@ export interface IJobExt extends IJob {
         },
       ]
     | null;
-
-  // // is experience required <- is there filters functions for this?
-  // experience_required: boolean;
-
-  // // must have education + level of eduication <- seems to be empty?
-  // must_have: {
-  //   education: [
-  //     {
-  //       label: string;
-  //     },
-  //   ];
-  //   education_level: [
-  //     {
-  //       label: string;
-  //     },
-  //   ];
-  // };
 
   // What type of employment. Examples: Vanlig anställning
   employment_type: {

@@ -21,7 +21,6 @@ export const JobShortPresentation = ({ job }: IJobShortPresentationProps) => {
 
   const showJobPresentation = () => {
     navigate(`/annonser/id/${job.id}`);
-    console.log('HEJSAN');
   };
 
   return (
@@ -73,5 +72,3 @@ export const JobShortPresentation = ({ job }: IJobShortPresentationProps) => {
     </DigiLayoutContainer>
   );
 };
-
-//<h4>Publicerad: {formatDate}</h4>

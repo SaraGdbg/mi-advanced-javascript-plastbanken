@@ -38,7 +38,6 @@ export const SortResults = () => {
   const filters = useContext(FilterContext);
   const dispatch = useContext(FilterDispatchContext);
 
-  //Add type to event
   const handleChange = (
     e: DigiContextMenuCustomEvent<ContextMenuEventItem>,
   ) => {
@@ -62,7 +61,6 @@ export const SortResults = () => {
 
     const updatedFilters = { ...filters, sortBy: selectedSorting, offset: 0 };
     const searchText = createQueryString(updatedFilters);
-    console.log('updated filters:', updatedFilters);
     resetPagination();
     navigate(`/annonser/${searchText}`);
   };

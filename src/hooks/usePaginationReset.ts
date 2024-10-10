@@ -7,7 +7,6 @@ export const usePaginationReset = (): [
   const paginationRef = useRef<HTMLDigiNavigationPaginationElement>(null);
 
   const resetPagination = () => {
-    console.log('called!');
     paginationRef.current?.afMSetCurrentPage(1);
   };
 
