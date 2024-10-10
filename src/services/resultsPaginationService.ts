@@ -11,7 +11,6 @@ export const calculateAmountOfResultPages = (
 };
 
 export const setCurrentPage = (offset: number, limit: number) => {
-  console.log(offset + '   ' + limit);
   return offset / limit + 1;
 };
 

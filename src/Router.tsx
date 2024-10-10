@@ -1,6 +1,4 @@
-// Change to hashrouter for deployment (GitHub pages)
 import { createHashRouter } from 'react-router-dom';
-
 import { NotFound } from './pages/NotFound';
 import { Home } from './pages/Home';
 import { Layout } from './components/Layout';

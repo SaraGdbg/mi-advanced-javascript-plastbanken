@@ -31,8 +31,4 @@ export const StyledJobShortContainer = styled.div`
     background-color: rgba(var(--mint-var), 0.5);
     box-shadow: 0 4px 8px rgba(60, 95, 54, 0.2);
   }
-
-  /* :hover {
-    filter: drop-shadow(red 5px 5px);
-  } */
 `;

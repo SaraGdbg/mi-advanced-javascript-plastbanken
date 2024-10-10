@@ -40,8 +40,6 @@ export const ResultsPagination = (jobs: IJobsSearchResponse) => {
   const goToAnotherResultPage = (
     e: DigiNavigationPaginationCustomEvent<number>,
   ) => {
-    console.log(activePage);
-
     let offset = (e.detail - 1) * filters.limit;
     // 2000 is the hard coded limit from the API for max amount of offset
     if (offset > 2000) {

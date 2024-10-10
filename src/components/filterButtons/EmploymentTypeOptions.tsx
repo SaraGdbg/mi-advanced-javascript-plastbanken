@@ -1,8 +1,5 @@
 import { useContext } from 'react';
-//import { useContext, useState } from 'react';
 import { FilterActionType } from '../../reducers/FilterReducer';
-import { createQueryString } from '../../utils/createQueryString';
-//import { useNavigate } from 'react-router-dom';
 import { FilterContext } from '../../contexts/FilterContext';
 import { FilterDispatchContext } from '../../contexts/FilterDispatchContext';
 import { FormRadiobuttonVariation } from '@digi/arbetsformedlingen';
@@ -15,7 +12,6 @@ import {
 import { DigiFormRadiobuttonCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
 
 export const EmploymentTypeOptions = () => {
-  //const navigate = useNavigate();
   const filters = useContext(FilterContext);
   const dispatch = useContext(FilterDispatchContext);
 
@@ -29,18 +25,12 @@ export const EmploymentTypeOptions = () => {
   };
 
   const setEmploymentType = (e: DigiFormRadiobuttonCustomEvent<MouseEvent>) => {
-    //console.log(e.target.afId);
     const selectedItem = e.target.afId;
 
     dispatch({
       type: FilterActionType.SET_WORKING_HOURS_TYPE,
       payload: selectedItem,
     });
-
-    const updatedFilters = { ...filters, workingHoursType: selectedItem };
-    const searchText = createQueryString(updatedFilters);
-    console.log(filters);
-    console.log(searchText);
   };
 
   return (

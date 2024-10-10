@@ -1,5 +1,3 @@
-// Placed a div as wrapper to ba able to style it's children
-//import { DigiLayoutContainer } from '@digi/arbetsformedlingen-react';
 import { DigiLayoutContainer } from '@digi/arbetsformedlingen-react';
 import { AdsPerPageMenu } from './filterButtons/AdsPerPageMenu';
 import { SortResults } from './SortResults';
@@ -10,9 +8,6 @@ interface IResultOptionProps {
 }
 
 export const ResultOptions = ({ ads, positions }: IResultOptionProps) => {
-  // show number of hits (jobs.hits)
-  //Add component for filtering -> filter functions (dispatch filterActionType: SORT_BY)
-
   return (
     <>
       <DigiLayoutContainer>

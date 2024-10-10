@@ -1,7 +1,6 @@
 import { IJobsSearchResponse } from '../models/IJobsSearchResponse.ts';
 import { get } from './serviceBase.ts';
 
-// TODO: CHANGE INTO RIGHT BASE_URL
 export const BASE_URL = 'https://jobsearch.api.jobtechdev.se/search?';
 export const BASE_URL_END = 'offset=0&limit=10';
 

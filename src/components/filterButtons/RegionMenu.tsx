@@ -54,7 +54,7 @@ export const RegionMenu = () => {
     isChecked: boolean,
   ) => {
     if (isChecked) {
-      let isAlreadyChecked = filters.municipalitiesSelected.find(
+      const isAlreadyChecked = filters.municipalitiesSelected.find(
         (muni) => muni === queryValue,
       );
       if (!isAlreadyChecked) {
@@ -64,7 +64,7 @@ export const RegionMenu = () => {
       filters.municipalitiesSelected = filters.municipalitiesSelected.filter(
         (muni) => muni !== queryValue,
       );
-      let region = queryValue.slice(0, 2);
+      const region = queryValue.slice(0, 2);
       updateRegionsChecked(region, false);
     }
     dispatch({
@@ -94,12 +94,12 @@ export const RegionMenu = () => {
     if (queryValue.length === 4) {
       updateMunicipalitiesChecked(queryValue, isChecked);
     } else {
-      let region = regionsOccupations.regions.find(
+      const region = regionsOccupations.regions.find(
         (reg) => reg['taxonomy/national-nuts-level-3-code-2019'] === queryValue,
       );
       if (region) {
         for (let i = 0; i < region.municipalities.length; i++) {
-          let newQueryValue =
+          const newQueryValue =
             region.municipalities[i]['taxonomy/lau-2-code-2015'];
           updateMunicipalitiesChecked(newQueryValue, isChecked);
         }
