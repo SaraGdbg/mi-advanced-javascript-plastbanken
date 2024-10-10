@@ -42,7 +42,7 @@ export const SearchBar = () => {
   return (
     <>
       <DigiFormInputSearch
-        afLabel="Informativ text"
+        afLabel="Sök på ett eller flera ord"
         afVariation={FormInputSearchVariation.MEDIUM}
         afType={FormInputType.SEARCH}
         afButtonText="Sök"

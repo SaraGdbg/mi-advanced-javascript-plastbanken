@@ -9,6 +9,8 @@ import { FormRadiobuttonVariation } from '@digi/arbetsformedlingen';
 import {
   DigiFormRadiobutton,
   DigiFormRadiogroup,
+  DigiLayoutContainer,
+  DigiTypography,
 } from '@digi/arbetsformedlingen-react';
 import { DigiFormRadiobuttonCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
 
@@ -42,8 +44,10 @@ export const EmploymentTypeOptions = () => {
   };
 
   return (
-    <>
-      Arbetsomfattning
+    <DigiLayoutContainer afNoGutter>
+      <DigiTypography>
+        <h4>Arbetsomfattning</h4>
+      </DigiTypography>
       <DigiFormRadiogroup>
         {employmentTypes.map((type) => (
           <div key={type}>
@@ -57,6 +61,6 @@ export const EmploymentTypeOptions = () => {
           </div>
         ))}
       </DigiFormRadiogroup>
-    </>
+    </DigiLayoutContainer>
   );
 };

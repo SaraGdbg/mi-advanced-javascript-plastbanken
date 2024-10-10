@@ -3,6 +3,11 @@ import { DigiButton } from '@digi/arbetsformedlingen-react';
 import { useContext } from 'react';
 import { FilterDispatchContext } from '../../contexts/FilterDispatchContext.ts';
 import { FilterActionType } from '../../reducers/FilterReducer.ts';
+import styled from 'styled-components';
+
+const StyledDigiButton = styled(DigiButton)`
+  margin-left: auto;
+`;
 
 export const ResetFilter = () => {
   const dispatch = useContext(FilterDispatchContext);
@@ -16,14 +21,14 @@ export const ResetFilter = () => {
 
   return (
     <>
-      <DigiButton
+      <StyledDigiButton
         afSize={ButtonSize.MEDIUM}
         afVariation={ButtonVariation.SECONDARY}
         afFullWidth={false}
         onClick={handleClick}
       >
         Rensa filter
-      </DigiButton>
+      </StyledDigiButton>
     </>
   );
 };

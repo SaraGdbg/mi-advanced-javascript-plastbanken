@@ -1,6 +1,10 @@
 import { FilterContext } from '../../contexts/FilterContext';
 import { FormCheckboxVariation } from '@digi/arbetsformedlingen';
-import { DigiFormCheckbox } from '@digi/arbetsformedlingen-react';
+import {
+  DigiFormCheckbox,
+  DigiLayoutContainer,
+  DigiTypography,
+} from '@digi/arbetsformedlingen-react';
 import { DigiFormCheckboxCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
 import { FilterActionType } from '../../reducers/FilterReducer';
 import { useContext } from 'react';
@@ -22,16 +26,16 @@ export const LocationOptions = () => {
   };
 
   return (
-    <>
-      <>
-        Flexibilitet
-        <DigiFormCheckbox
-          afLabel={option}
-          afVariation={FormCheckboxVariation.PRIMARY}
-          onAfOnChange={setLocation}
-          afChecked={filters.isRemote}
-        />
-      </>
-    </>
+    <DigiLayoutContainer afNoGutter>
+      <DigiTypography>
+        <h4>Flexibilitet</h4>
+      </DigiTypography>
+      <DigiFormCheckbox
+        afLabel={option}
+        afVariation={FormCheckboxVariation.PRIMARY}
+        onAfOnChange={setLocation}
+        afChecked={filters.isRemote}
+      />
+    </DigiLayoutContainer>
   );
 };
