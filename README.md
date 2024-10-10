@@ -1,4 +1,44 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/G18hJXPe)
-# Case AF
+# Plastbanken
 
-Denna uppgift består av att ni behöver skapa er egna platsbank. Ni får lägga till precis den funktionalitet som ni själva tycker skall finnas med i denna applikation. För fler detaljer se pdf-filen som är bifogad till uppgiften på itslearning
+Plastbanken was a group assigment in the advanced JavaScript course at the Front End Development program at Medieinstitutet Stockholm.
+It features data from Arbetsförmedlingens API JobSearch that is rendered using their design system.
+
+See assignment details (in Swedish) at the bottom of the page.
+
+## Project Overview
+
+The user can
+
+- search the API for avaliable jobs and ads using their own search terms
+- filter the search results by:
+  -- location (region and municipality)
+  -- working field and specific titles
+  -- date of publication
+  -- remote, in office or hybrid work
+  -- driving license required or not
+  -- employment type (i.e part time or full time)
+  -- contract type (i.e permanent or fiex-term)
+- choose the number of ads displayed on the page
+
+## Repository Structure
+
+## Technologies and Dependencies
+
+- Vite
+- React
+- axios
+- Prettier
+- EsLint
+- JavaScript
+- TypeScript
+- CSS
+- Arbetsförmedlingens Designsystem
+
+### Screenshots
+
+## Contributors
+
+- [Johan Törmä](https://github.com/JT350120)
+- [Oskar Landström](https://github.com/olandstorm)
+- [Sara Gadeberg](https://github.com/SaraGdbg)
+- [Simon Stenström](https://github.com/bucky-13)
