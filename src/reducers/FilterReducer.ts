@@ -149,7 +149,11 @@ export const FilterReducer = (
       return { ...filter, offset: action.payload };
     }
     case FilterActionType.RESEST_FILTER: {
-      return JSON.parse(JSON.stringify(defaultFilterState));
+      return {
+        ...defaultFilterState,
+        regionsSelected: [],
+        municipalitiesSelected: [],
+      };
     }
 
     default:
