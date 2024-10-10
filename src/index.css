@@ -32,7 +32,7 @@
   --mint-var: 183, 210, 202;
   --mint-light: #cbd2d2;
 
-  --purple: #85386b;
+  --purple: #993485;
   --deep-red: #9b3817;
   --sand: #af906e;
 
@@ -143,6 +143,15 @@
 body {
   background-color: var(--white);
   margin: 0;
+}
+
+.job-short-presentation {
+  width: 100;
+}
+
+.job-details {
+  display: flex;
+  justify-content: space-between;
 }
 
 .sc-digi-layout-container-h

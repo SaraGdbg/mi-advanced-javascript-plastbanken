@@ -1,6 +1,10 @@
 import { FilterContext } from '../../contexts/FilterContext';
 import { FormCheckboxVariation } from '@digi/arbetsformedlingen';
-import { DigiFormCheckbox } from '@digi/arbetsformedlingen-react';
+import {
+  DigiFormCheckbox,
+  DigiLayoutContainer,
+  DigiTypography,
+} from '@digi/arbetsformedlingen-react';
 import { DigiFormCheckboxCustomEvent } from '@digi/arbetsformedlingen/dist/types/components';
 import { FilterActionType } from '../../reducers/FilterReducer';
 import { useContext } from 'react';
@@ -20,16 +24,16 @@ export const DriversLicenseOptions = () => {
     });
   };
   return (
-    <>
-      Körkortskrav
-      <>
-        <DigiFormCheckbox
-          afLabel={option}
-          afVariation={FormCheckboxVariation.PRIMARY}
-          onAfOnChange={setDriversLicense}
-          afChecked={!filters.requiresDrivingLicense}
-        />
-      </>
-    </>
+    <DigiLayoutContainer afNoGutter>
+      <DigiTypography>
+        <h4>Körkortskrav</h4>
+      </DigiTypography>
+      <DigiFormCheckbox
+        afLabel={option}
+        afVariation={FormCheckboxVariation.PRIMARY}
+        onAfOnChange={setDriversLicense}
+        afChecked={!filters.requiresDrivingLicense}
+      />
+    </DigiLayoutContainer>
   );
 };
