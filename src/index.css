@@ -154,6 +154,13 @@ body {
   justify-content: space-between;
 }
 
+.sc-digi-layout-container-h
+  .digi-layout-container.sc-digi-layout-container
+  .filter-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
 .no-results {
   margin: 16px 0;
 }
