@@ -152,15 +152,6 @@ body {
   flex-direction: row;
 }
 
-.job-short-presentation {
-  width: 100;
-}
-
-.job-details {
-  display: flex;
-  justify-content: space-between;
-}
-
 .no-results {
   margin: 16px 0;
 }
